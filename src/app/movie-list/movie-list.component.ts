@@ -9,7 +9,8 @@ import {Movie} from '../shared/model/movie'
 export class MovieListComponent implements OnInit {
 
   title: string = 'Popular Movies'
-    
+  defaultPictureURL:string = "http://www.simplek12.com/wp-content/uploads/2015/06/movie_night.jpg"  
+
    movies: Movie[]=[
     {
       title: 'Star Wars',
