@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../shared/model/movie';
+import {MovieService  } from "../shared/services/movie.service";
 
 @Component({
   selector: 'adh-movie-list',
@@ -14,61 +15,24 @@ export class MovieListComponent implements OnInit {
 
   defaultPictureURL:string='https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg';
   
-  movies: Movie[]=[
+  movies: Movie[];
+  
+  
+  
+  constructor(private movieService:MovieService) { 
 
-    {
-      title:'Start Wars', 
-      overview: 'description', 
-      pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
-    },{
-      title:'It', 
-      overview: 'description',
-      pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
-    },{
-      title:'Justice League', 
-      overview: 'description',
-      pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
-    },
-    {
-      title:'minion', 
-      overview: 'description4',
-      pictureURL: ''
-    }
-
-  ];
-  
-  
-  
-  constructor() { }
-  getTitle(){
-    return this.title;
   }
+  
 
   ngOnInit() {
-    setTimeout(function (){
-        this.movies=[
-          
-              {
-                title:'peli 1', 
-                overview: 'description1', 
-                pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
-              },{
-                title:'peli2', 
-                overview: 'description2',
-                pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
-              },{
-                title:'peli3', 
-                overview: 'description3',
-                pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
-              }
-          
-            ];
-    }, 2000);
+    this.movies= this.movieService.getMovies();
   
   }
 
   onClickMe(){
     this.clickMessage='otra vez tocaste';
   }
-
+  getTitle(){
+    return this.title;
+  }
 }
