@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../shared/model/movie';
 
 @Component({
   selector: 'adh-movie-list',
@@ -7,14 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
   title:string='popular movies';
-  movie1 ={
-    title:'Start Wars', overview: 'description'
+  text: string='texto';
+
+  clickMessage:string='toco el boton';
+
+  movie1:Movie ={
+    title:'Start Wars', 
+    overview: 'description', 
+    pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
   };
-  movie2 ={
-    title:'It', overview: 'description'
+  movie2: Movie ={
+    title:'It', 
+    overview: 'description',
+    pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
   };
-  movie3 ={
-    title:'Justice League', overview: 'description'
+  movie3: Movie ={
+    title:'Justice League', 
+    overview: 'description',
+    pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
   };
   
   
@@ -24,6 +35,12 @@ export class MovieListComponent implements OnInit {
   }
 
   ngOnInit() {
+    
+  
+  }
+
+  onClickMe(){
+    this.clickMessage='otra vez tocaste';
   }
 
 }
