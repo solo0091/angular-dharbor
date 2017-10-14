@@ -25,7 +25,13 @@ export class MovieListComponent implements OnInit {
     // setTimeout(()=>{
     //   this.movies =this.movies2
     //   },2000);
-    this.movies = this.movieService.getMovies();
+    
+    //this.movies = this.movieService.getMovies();
+    
+       setTimeout(()=>{
+       this.movies =this.movieService.getMovies();
+       },2000);
+
   }
  
   getTitle():string{
