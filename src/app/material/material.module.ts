@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+
 import {
   MATERIAL_COMPATIBILITY_MODE,
   MatButtonModule,
   MatIconModule,
+  MatListModule,  //mi import
   MatToolbarModule
 } from '@angular/material';
 
@@ -13,11 +15,13 @@ import {
     CommonModule,
     MatButtonModule,
     MatIconModule,
+    MatListModule,  //mi import
     MatToolbarModule
   ],
   exports: [
     MatButtonModule,
     MatIconModule,
+    MatListModule,  //mi import
     MatToolbarModule
   ],
   providers: [
