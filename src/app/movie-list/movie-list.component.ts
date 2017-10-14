@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../shared/model/movie';
+import { MovieService } from '../shared/services/movie.service';
 
 @Component({
   selector: 'adh-movie-list',
@@ -8,27 +9,14 @@ import { Movie } from '../shared/model/movie';
 })
 export class MovieListComponent implements OnInit {
   title:string = 'Popular Movies';
-  movies: Movie[] = [
-    {
-      title: 'Star Wars',
-      overview: 'Star Wars description...',
-      pictureURL: 'https://cdn.dribbble.com/users/588874/screenshots/2249528/dribbble_1x.png'
-    },
-    {
-      title: 'IT',
-      overview: 'IT description...',
-      pictureURL: 'https://i.ytimg.com/vi/QW7jpXrI_aY/maxresdefault.jpg'
-    },
-    {
-      title: 'Justice League',
-      overview: 'Justice League description',
-      pictureURL: 'https://img.cinemablend.com/quill/e/4/9/8/7/7/e4987751f9b900b2988cefcc196417bd6fab8468.jpg'
-    }
-  ];
-
-  constructor() { }
+  defaultPictureURL:string = 'https://angular.io/assets/images/logos/angular/angular.png';
+  movies: Movie[];
+  // Dependency Injection
+  constructor(private movieService: MovieService) { 
+  }
 
   ngOnInit() {
+    this.movies = this.movieService.getMovies();
   }
 }
 
