@@ -12,21 +12,31 @@ export class MovieListComponent implements OnInit {
 
   clickMessage:string='toco el boton';
 
-  movie1:Movie ={
-    title:'Start Wars', 
-    overview: 'description', 
-    pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
-  };
-  movie2: Movie ={
-    title:'It', 
-    overview: 'description',
-    pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
-  };
-  movie3: Movie ={
-    title:'Justice League', 
-    overview: 'description',
-    pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
-  };
+  defaultPictureURL:string='https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg';
+  
+  movies: Movie[]=[
+
+    {
+      title:'Start Wars', 
+      overview: 'description', 
+      pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
+    },{
+      title:'It', 
+      overview: 'description',
+      pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
+    },{
+      title:'Justice League', 
+      overview: 'description',
+      pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
+    },
+    {
+      title:'minion', 
+      overview: 'description4',
+      pictureURL: ''
+    }
+
+  ];
+  
   
   
   constructor() { }
@@ -35,7 +45,25 @@ export class MovieListComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    setTimeout(function (){
+        this.movies=[
+          
+              {
+                title:'peli 1', 
+                overview: 'description1', 
+                pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
+              },{
+                title:'peli2', 
+                overview: 'description2',
+                pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
+              },{
+                title:'peli3', 
+                overview: 'description3',
+                pictureURL: 'https://st-listas.20minutos.es/images/2013-03/358560/list_640px.jpg?1389462516'
+              }
+          
+            ];
+    }, 2000);
   
   }
 
