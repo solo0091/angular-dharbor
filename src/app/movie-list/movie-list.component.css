@@ -1,0 +1,10 @@
+.list-avatar {
+    position: absolute ;
+    left: 0px !important;
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50%;
+  }
+  .space{
+    margin: 0 0 10px 0;
+  }
