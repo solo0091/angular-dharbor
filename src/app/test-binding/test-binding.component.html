@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+
+<div>
+    <form action="">
+        <input type="text" [value]="inputText" (focus)="onInputFocus()">
+        <input type="text" (keyup)="onKey($event)">
+        <input type="text" [value]="values">
+        <p>{{values}}</p>
+    </form>
+</div>
+
+<div>
+    <button (click)="onClickMe()">Click Me!</button>
+    <p>{{messageText}}</p>
+</div>
