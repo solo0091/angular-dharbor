@@ -1,0 +1,13 @@
+<div>
+   <h1 [innerHTML]="title"></h1> <!-- -->
+  <input type="text" [value]="text" (focus)="onInputFocus()">   <!-- La variable text esta definida en el archivo TS -->
+  <div>{{text}}</div>
+  <input type="text" [value]="text" (keyup)="onKey($event)"> 
+  
+  <input type="text" [value]="values"> 
+  
+
+</div>
+
+<button (click)="onClickMe()">Click me!</button>
+{{clickMessage}}
