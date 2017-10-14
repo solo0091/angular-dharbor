@@ -1,0 +1,7 @@
+<p>
+  binding works!
+</p>
+<input type="text" (focus)="focusEvent()" [value]="values">
+<input type="text" (keyup)="onKey($event)">
+<button (click)="onClickMe()">Click me!</button>
+{{clickMessage}}

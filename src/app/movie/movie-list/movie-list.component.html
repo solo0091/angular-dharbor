@@ -1,12 +1,23 @@
-<p>
+<!-- <p>
   {{title}}
 </p>
 <h3>{{getTitle()}}</h3>
 <h4>{{movie1.title}}</h4>
 <h4>{{movie1.overview}}</h4>
+<div>
+  <h4 [innerHTML]="title"></h4>
+  <h4 [title]="title"></h4>
+  <input type="text" [value]="movie1.title">
+  <p>{{movie1.title}}</p>
+</div> -->
+<!-- <mat-grid-list *ngFor="let mov of movie" cols="2">
+  <mat-grid-tile [colspan]="1" [rowspan]="2"><img src="assets/img/starwars.png"></mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1"><h4>{{mov.title}}</h4></mat-grid-tile>  
+  <mat-grid-tile [colspan]="1" [rowspan]="1"><p>{{mov.overview}}</p></mat-grid-tile>  
+</mat-grid-list> -->
 <mat-list>
   <mat-list-item *ngFor="let mov of movie">
-      <mat-icon mat-list-icon><img src="assets/img/starwars.png"></mat-icon>
+      <img [src]="mov.image" mat-list-avatar>
       <h4 mat-line>{{mov.title}}</h4>
       <p mat-line>{{mov.overview}}</p>
   </mat-list-item>

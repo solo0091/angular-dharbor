@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MovieListComponent } from './movie/movie-list/movie-list.component';
+import { BindingComponent } from "./binding/binding.component";
 const routes: Routes = [
  /* {
     path: '',
@@ -14,6 +15,10 @@ const routes: Routes = [
     path:"",
     redirectTo:'home',
     pathMatch:'full'
+  },
+  {
+    path:"binding",
+    component:BindingComponent
   }
 ];
 
