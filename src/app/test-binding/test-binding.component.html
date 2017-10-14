@@ -1,0 +1,15 @@
+<p>
+  test-binding works!
+</p>
+<input type="text" [value]="text" (focus)="onInputFocus()">
+<div>{{text}}</div>
+
+<div>
+  <button (click)="onClickMe()">Click me!</button>
+  {{clickMessage}}
+</div>
+
+<div>
+  <input (keyup)="onClickMeObject($event)">
+  <p>{{clickMessageObj}}</p>
+</div>

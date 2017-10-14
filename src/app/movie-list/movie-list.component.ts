@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class MovieListComponent implements OnInit {
 
   title: string = 'Popular Movies'
-  
+  text = 'somtehing' 
     movie1 = {
       title: 'Star Wars',
       overview: 'Star Wars description'
@@ -25,8 +25,14 @@ export class MovieListComponent implements OnInit {
     }
   
   constructor() { }
-
+ 
   ngOnInit() {
+    setTimeout(()=>{
+    this.movie1 ={
+     title:'start wars II',overview:'part II of the movie'
+    }
+    },2000);
+    setTimeout(()=>{ this.text ='new value'},2000);
   }
  
   getTitle():string{
