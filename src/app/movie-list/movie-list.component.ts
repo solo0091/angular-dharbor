@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
 
+  title:string = 'Popular movies';
+
+  movie1 = {
+    title: 'Star Wars',
+    overview: 'Starwars description....'
+  };
+  movie2 = {
+    title: 'IT',
+    overview: 'It description...'
+  };
+  movie3 = {
+    title: 'Justice League',
+    overview: 'Justice League descriptions...'
+  };
   constructor() { }
 
   ngOnInit() {
   }
-
 }
