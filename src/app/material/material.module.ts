@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+//Importar los modulos en orden alfabetico
 import {
   MATERIAL_COMPATIBILITY_MODE,
   MatButtonModule,
   MatIconModule,
+  MatListModule,
   MatToolbarModule
 } from '@angular/material';
 
@@ -13,11 +15,13 @@ import {
     CommonModule,
     MatButtonModule,
     MatIconModule,
+    MatListModule,
     MatToolbarModule
   ],
   exports: [
     MatButtonModule,
     MatIconModule,
+    MatListModule,
     MatToolbarModule
   ],
   providers: [
