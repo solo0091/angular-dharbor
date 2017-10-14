@@ -1,0 +1,21 @@
+<p>
+  Test Binding works!
+</p>
+
+<!-- <mat-form-field>
+    <mat-select placeholder="Favorite food">
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{ food.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+  <h1 [innerHTML]="title"></h1>
+  <!-- <button (click)=onClickMe()>Click Me Please!!</button>
+  <p>{{ message }}</p> -->
+
+  <div>
+      <input (keyup)="onkey($event)">
+      <p>{{ values }}</p> 
+  </div>
+  

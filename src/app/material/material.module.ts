@@ -7,7 +7,8 @@ import {
   MatButtonModule,
   MatIconModule,
   MatListModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatSelectModule
   
 } from '@angular/material';
 
@@ -17,14 +18,16 @@ import {
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSelectModule
 
   ],
   exports: [
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSelectModule
   ],
   providers: [
     { provide: MATERIAL_COMPATIBILITY_MODE, useValue: true }
