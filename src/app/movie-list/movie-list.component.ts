@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../shared/model/movie';
 
 @Component({
   selector: 'adh-movie-list',
@@ -7,17 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
   title:string = 'Popular Movies';
-  movie1 = {
+  movie1:Movie = {
     title: 'Star Wars',
-    overview: 'Star Wars description...'
+    overview: 'Star Wars description...',
+    pictureURL: 'https://cdn.dribbble.com/users/588874/screenshots/2249528/dribbble_1x.png'
   };
-  movie2 = {
+  movie2:Movie = {
     title: 'IT',
-    overview: 'IT description...'
+    overview: 'IT description...',
+    pictureURL: 'https://i.ytimg.com/vi/QW7jpXrI_aY/maxresdefault.jpg'
   };
-  movie3 = {
+  movie3:Movie = {
     title: 'Justice League',
-    overview: 'Justice League description'
+    overview: 'Justice League description',
+    pictureURL: 'https://img.cinemablend.com/quill/e/4/9/8/7/7/e4987751f9b900b2988cefcc196417bd6fab8468.jpg'
   };
 
   constructor() { }
@@ -25,3 +29,6 @@ export class MovieListComponent implements OnInit {
   ngOnInit() {
   }
 }
+
+
+
