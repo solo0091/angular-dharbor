@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { MovieListComponent } from './movie-list/movie-list.component';
 
 const routes: Routes = [
   {
+    path : '', //root of the application
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
+  {
     path: '',
     children: []
+  },
+  {
+    path : 'home',
+    component: MovieListComponent
   }
 ];
 
