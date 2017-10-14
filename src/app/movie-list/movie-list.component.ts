@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  title: string = 'Hola mundo'
+  title: string = 'helle world,hola  mundo'
 
   movie1 = {
     title: 'Star Wars',
@@ -27,6 +27,16 @@ export class MovieListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+      setTimeout(()=> {
+        this.movie1.title="Star Wars II",
+        this.movie1.overview="Corre tras 2 segundos";        
+      },  8000);
+
+      setTimeout(()=> {
+        this.movie1.title="Star Wars III",
+        this.movie1.overview="upps  me adelante en la pelicula";        
+      },  4000);
+
   }
 
   getTitle(): string {
