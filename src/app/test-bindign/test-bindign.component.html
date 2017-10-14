@@ -1,0 +1,12 @@
+<h2 [innerHTML]="myTitle"></h2>
+
+<label>Email: </label>
+<input type="text" [value]="default" (focus)="onInputFocus()">
+{{value}}
+<br>
+<button (click)="clickMe()">Mostrar</button>
+<br><br>
+
+<label>Insert Words</label>
+<input type="text" (keyup)="onkey($event)">
+<p>{{values}}</p>

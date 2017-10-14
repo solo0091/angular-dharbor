@@ -2,18 +2,32 @@
 
 <mat-list>
   <mat-list-item>
-      <mat-icon mat-list-icon>folder</mat-icon>
+      <!--<mat-icon mat-list-icon>folder</mat-icon>-->
+      <img mat-list-avatar [src]="movie1.pictureURL">
       <h4 mat-line>{{movie1.titulo}}</h4>
       <p mat-line>{{movie1.overwiew}}</p>
   </mat-list-item>
   <mat-list-item>
-      <mat-icon mat-list-icon>folder</mat-icon>
+      <!--<mat-icon mat-list-icon>folder</mat-icon>-->
+      <img mat-list-avatar [src]="movie2.pictureURL">
       <h4 mat-line>{{movie2.titulo}}</h4>
       <p mat-line>{{movie2.overwiew}}</p>
   </mat-list-item>
   <mat-list-item>
-      <mat-icon mat-list-icon>folder</mat-icon>
+      <!--<mat-icon mat-list-icon>folder</mat-icon>-->
+      <img mat-list-avatar [src]="movie3.pictureURL">
       <h4 mat-line>{{movie3.titulo}}</h4>
       <p mat-line>{{movie3.overwiew}}</p>
   </mat-list-item>
 </mat-list>
+
+<div>
+    <h1 [innerHTML]="title"></h1>
+    <input type="text" [value]="text.nombre">
+    <div>{{text.nombre}}</div>
+</div>
+<div>
+    <button (click)="onClickMe()">Click me!</button>
+    {{clickMessage}}
+</div>
+  
