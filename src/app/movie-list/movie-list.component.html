@@ -1,6 +1,23 @@
 
+
+<h4>{{ title }}</h4>
+  <!-- o llamar a una funcion -->
+  <!-- {{ getTitle() }} -->
+
 <mat-list>
-  <mat-list-item>Item 1</mat-list-item>
-  <mat-list-item>Item 2</mat-list-item>
-  <mat-list-item>Item 3</mat-list-item>
+  <mat-list-item>
+    <!-- <img src="http://elordenmundial.com/wp-content/uploads/2017/01/starwarsinfive-1449855236991_large.jpg" alt="imagen movie1"> -->
+    <h4 mat-line>{{ movie1.title    }}</h4>
+    <p  mat-line>{{ movie1.overview }}</p>
+  </mat-list-item>
+
+  <mat-list-item>
+    <h4 mat-line>{{ movie2.title    }}</h4>
+    <p  mat-line>{{ movie2.overview }}</p>
+  </mat-list-item>
+
+  <mat-list-item>
+    <h4 mat-line>{{ movie3.title    }}</h4>
+    <p  mat-line>{{ movie3.overview }}</p>
+  </mat-list-item>
 </mat-list>
