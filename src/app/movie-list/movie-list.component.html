@@ -2,12 +2,13 @@
 
 
 <mat-list>
-  <mat-list-item *ngFor="let movie of movies"  > 
-    <img mat-list-avatar  [src]= "movie.pictureAvatar" />      
+  <mat-list-item *ngFor="let movie of movies">
+    <img mat-list-avatar *ngIf="movie.pictureAvatar" [src]="movie.pictureAvatar" />
+    <img mat-list-avatar *ngIf="!movie.pictureAvatar" [src]="defaultPicture" />
     <h4 mat-line> {{movie.title}} </h4>
     <p mat-line> {{movie.overview}} </p>
   </mat-list-item>
- <!--  <mat-list-item>
+  <!--  <mat-list-item>
    <img mat-list-avatar  [src]= "movie2.pictureAvatar" />    
       <h4 mat-line> {{movie2.title}} </h4>
       <p mat-line> {{movie2.overview}} </p>
@@ -25,5 +26,3 @@
   <input type="text" [value]= "movie1.overview">
   <div>{{movie2.title}}</div>
  -->
-  
-

@@ -9,7 +9,7 @@ import { Movie} from '../shared/model/movie';
 })
 export class MovieListComponent implements OnInit {
   title: string = 'helle world,hola  mundo';
-
+  defaultPicture:string ='https://pluralsight.imgix.net/paths/path-icons/angular-14a0f6532f.png'
   movies:Movie[]=[
     {
       title: 'Star Wars',
@@ -25,6 +25,11 @@ export class MovieListComponent implements OnInit {
       title: 'liga de la justicia',
       overview: 'description liga de la justicia',
       pictureAvatar:'http://sm.ign.com/ign_es/screenshot/default/maxresdefault_efdj.jpg'
+    }
+    , {
+      title: 'Minios',
+      overview: 'description de los minions',
+      pictureAvatar:''
     }
 
   ];
