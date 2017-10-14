@@ -5,7 +5,11 @@
   <mat-list>
 
     <mat-list-item *ngFor="let movie of movies">" <!--ngfor , se hace un for la cant de veces del tamaño que tiene el arreglo -->
-        <img mat-list-avatar [src]="movie.pictureURL">
+        <img mat-list-avatar *ngIf="movie.pictureURL" 
+                            [src]="movie.pictureURL"> <!-- ngIf, pregunta si la variable pictureURL es NULL,
+                                                        si es false, no ejecuta nada! -->
+        <img mat-list-avatar *ngIf="!movie.pictureURL" 
+                            [src]="defaultPictureURL">
         <h4 mat-line>{{movie.title}}</h4> <!-- Mat line sirve para que el texto solo sea en una linea -->
         <p mat-line> {{movie.overview}} </p>
     </mat-list-item>
