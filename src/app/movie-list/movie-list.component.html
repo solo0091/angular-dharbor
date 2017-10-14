@@ -1,25 +1,22 @@
 <h3>{{titulo}}</h3>
 
 <mat-list>
-  <mat-list-item>
+  <mat-list-item *ngFor="let movie of movies">
       <!--<mat-icon mat-list-icon>folder</mat-icon>-->
-      <img mat-list-avatar [src]="movie1.pictureURL">
-      <h4 mat-line>{{movie1.titulo}}</h4>
-      <p mat-line>{{movie1.overwiew}}</p>
-  </mat-list-item>
-  <mat-list-item>
-      <!--<mat-icon mat-list-icon>folder</mat-icon>-->
-      <img mat-list-avatar [src]="movie2.pictureURL">
-      <h4 mat-line>{{movie2.titulo}}</h4>
-      <p mat-line>{{movie2.overwiew}}</p>
-  </mat-list-item>
-  <mat-list-item>
-      <!--<mat-icon mat-list-icon>folder</mat-icon>-->
-      <img mat-list-avatar [src]="movie3.pictureURL">
-      <h4 mat-line>{{movie3.titulo}}</h4>
-      <p mat-line>{{movie3.overwiew}}</p>
+      <img mat-list-avatar [src]="movie.pictureURL">
+      <h4 mat-line>{{movie.titulo}}</h4>
+      <p mat-line>{{movie.overwiew}}</p>
   </mat-list-item>
 </mat-list>
+
+<mat-selection-list #shoes>
+    <mat-list-option *ngFor="let shoe of typesOfShoes">
+        {{shoe}}
+    </mat-list-option>
+</mat-selection-list>
+<p>
+    Options selected: {{shoes.selectedOptions.selected.length}}
+</p>
 
 <div>
     <h1 [innerHTML]="title"></h1>

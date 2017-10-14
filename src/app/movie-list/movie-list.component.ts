@@ -11,40 +11,38 @@ export class MovieListComponent implements OnInit {
   public title:string = 'Formulario';
   public text = {nombre:'luis', numero:'439564'};
   public clickMessage:string; 
-
-  
-  movie1:Movie = {
-    pictureURL: '../assets/img/sw.png',
-    titulo: 'Start Wars',
-    overwiew: 'Star Wars description...'
-  };
-
-  movie2:Movie = {
-    pictureURL: '../assets/img/sin-imagen.jpg',
-    titulo: 'Shrek',
-    overwiew: 'sherk description...'
-  };
-
-  movie3:Movie = {
-    pictureURL: '../assets/img/sin-imagen.jpg',
-    titulo: 'IT',
-    overwiew: 'IT description...'
-  };
-
-  constructor() {
-  
-   }
+  public movies: Movie[] = [
+    {
+      pictureURL: '../assets/img/sw.png',
+      titulo: 'Start Wars',
+      overwiew: 'Star Wars description...'
+    },
+    {
+      pictureURL: '../assets/img/sin-imagen.jpg',
+      titulo: 'Shrek',
+      overwiew: 'sherk description...'
+    },
+    {
+      pictureURL: '../assets/img/sin-imagen.jpg',
+      titulo: 'IT',
+      overwiew: 'IT description...'
+    }
+  ]
+ 
+  typesOfShoes = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+ 
+  constructor() { }
 
   ngOnInit() {
-
     setTimeout(() => {
-      this.movie1 = {
-        pictureURL: '../assets/img/sw.png',
-        titulo: 'Start Wars II',
-        overwiew: 'Part II of the movie...'
-      }
-      this.title = 'Bit Formulario'
-    }, 2000);
+      this.movies = [
+        { pictureURL: '../assets/img/sw.png',
+        titulo: 'Start Wars',
+        overwiew: 'Star Wars description...'}
+      ]
+
+      this.title = 'Bit Formulario';
+    }, 3000);
   }
 
   onClickMe() {
