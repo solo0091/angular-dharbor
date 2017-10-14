@@ -27,11 +27,27 @@ export class MovieListComponent implements OnInit {
       pictureURL:'http://cdn2-www.superherohype.com/assets/uploads/gallery/justice-league/17349762_1337611299666014_1321506846992253218_o.jpg'
     }
    ]
-  
+   
+  movies2: Movie[]=[
+   {
+     title: 'cenicienta',
+     overview: 'cenicienta description',
+     pictureURL:'https://i.pinimg.com/736x/3c/65/84/3c6584d71efe40a2159689af9ca51e8d--disney-princess-cinderella-cinderella-birthday.jpg'
+   },
+   {
+     title: 'blanca nieves',
+     overview: 'blanca nieves description',
+     pictureURL:'https://lumiere-a.akamaihd.net/v1/images/open-uri20150422-20810-r1443i_baf1276f.jpeg?region=0,0,600,600&width=320'
+   }  ]
+
   constructor() { }
  
-  ngOnInit() {
+  
 
+  ngOnInit() {
+    setTimeout(()=>{
+      this.movies =this.movies2
+      },2000);
   }
  
   getTitle():string{
