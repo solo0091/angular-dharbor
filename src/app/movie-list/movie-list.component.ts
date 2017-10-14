@@ -8,24 +8,33 @@ import { Movie } from '../shared/model/movie';
 })
 export class MovieListComponent implements OnInit {
   title: string ='Popular Movies';
+  defaultPictureURL: string = 'https://www.w3schools.com/angular/pic_angular.jpg';
   // text: string  ='Description text'
-  movie1:Movie = {
-    title: 'Star Wars',
-    overview: 'Star Wars description...',
-    pictureURL: 'https://www.ondafuerteventura.es/la-nueva-entrega-star-wars-se-rodara-fuerteventura/'
-  };
+  movies: Movie[]=[
+    {
+      title: 'Star Wars',
+      overview: 'Star Wars description...',
+      pictureURL: 'https://media.contentapi.ea.com/content/legacy/starwars-ea-com/es_MX/starwars/battlefront/news-articles/collect-iconic-heroes-and-dominate-the-universe-in-star-wars-gal/_jcr_content/featuredImage/renditions/rendition1.img.jpg'
+    },
 
-  movie2:Movie = {
-    title: 'IT',
-    overview: 'IT description...',
-    pictureURL: 'https://pics.filmaffinity.com/it-787119144-large.jpg'
-  };
+    {
+      title: 'IT',
+      overview: 'IT description...',
+      pictureURL: 'http://blog.disfraceshalloweenmimo.com/wp-content/uploads/2017/05/itportada.jpg'
+    },
 
-  movie3:Movie = {
-    title: 'Justice League',
-    overview: 'Justice League description...',
-    pictureURL: 'http://media.comicbook.com/2017/02/justice-league-blur-effect-229823.jpg'
-  };
+    {
+      title: 'Justice League',
+      overview: 'Justice League description...',
+      pictureURL: 'http://media.comicbook.com/2017/02/justice-league-blur-effect-229823.jpg'
+    },
+
+    {
+      title: 'Justice League',
+      overview: 'Justice League description...',
+      pictureURL: null
+    }
+  ];
 
   text= {
     title_text : 'Title text',
