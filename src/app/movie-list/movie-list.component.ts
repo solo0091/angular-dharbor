@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../shared/model/movie';
 
 @Component({
   selector: 'adh-movie-list',
@@ -7,20 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
   title = 'Popular Movies';
-  movie1 = {
+  movie1: Movie = {
     title: 'Star Wars',
     overview: 'Star Wars description...',
-    icon: 'http://cdn.images.express.co.uk/img/dynamic/galleries/64x64/246485.jpg'
+    pictureURL: 'http://cdn.images.express.co.uk/img/dynamic/galleries/64x64/246485.jpg'
   };
-  movie2 = {
+  movie2: Movie = {
     title: 'IT',
     overview: 'IT description...',
-    icon: 'http://i.ebayimg.com/images/g/Xd8AAOSwlf5ZwsfS/s-l64.jpg'
+    pictureURL: 'http://i.ebayimg.com/images/g/Xd8AAOSwlf5ZwsfS/s-l64.jpg'
   };
-  movie3 = {
+  movie3: Movie = {
     title: 'Justice League',
     overview: 'Justice League description...',
-    icon: 'http://cdn.images.express.co.uk/img/dynamic/galleries/64x64/228887.jpg'
+    pictureURL: 'http://cdn.images.express.co.uk/img/dynamic/galleries/64x64/228887.jpg'
   };
   constructor() { }
 
