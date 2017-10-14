@@ -8,7 +8,12 @@ import {
   MatToolbarModule,
   MatInputModule,
   MatSliderModule,
-  MatListModule
+  MatListModule,
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatFormFieldModule,
+  MatNativeDateModule,
+  MatSelectModule
 } from '@angular/material';
 
 @NgModule({
@@ -19,7 +24,12 @@ import {
     MatIconModule,
     MatToolbarModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -28,7 +38,12 @@ import {
     MatToolbarModule,
     MatInputModule,
     MatSliderModule,
-    MatListModule
+    MatListModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [
     { provide: MATERIAL_COMPATIBILITY_MODE, useValue: true }

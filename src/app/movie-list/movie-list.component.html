@@ -1,20 +1,32 @@
 <div>
+    <h1 [innerHTML]="title"></h1>
   <form class="example-form">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Favorite food" [(ngModel)]="textfield.text" name="text">
+      <input matInput placeholder="Favorite food" [(ngModel)]="textfield.text" name="food" (focus)="onInputFocus($event.target.name)">
     </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="some" [value]="customText" name="some" (focus)="onInputFocus($event.target.name)" (keyup)="onKeyEvent($event)">
+    </mat-form-field>
+    <button mat-button color="primary" name="buttonMessage" (click)="onShowMessage()" (focus)="onInputFocus($event.target.name)">Click me!</button>
   </form>
   <mat-slider></mat-slider>
 </div>
 <div>
   writing ..{{ textfield.text }}
+  <br>
+  customText: {{ customText }}
+  <br>
+  Message: {{ messageButton }} 
+  <br>
+  propagin: {{ value }}
   <!--h1 mat-subheader> <strong>{{ title }} </strong></h1-->
   <mat-list>
     <h1 mat-subheader> <strong>{{ title }} </strong></h1>
     <mat-list-item *ngFor="let movie of movieList">
       
       <mat-icon mat-list-icon >
-          <img matListAvatar src="../../assets/avengersjpg" alt="Avengers">
+        <img matListAvatar [src]="movie.path" alt="pictures">
+          <!--mat-checkbox></mat-checkbox-->
       </mat-icon>
       <h4 mat-line>{{movie.title}}</h4> 
       <p mat-line> {{movie.updated | date}} </p>

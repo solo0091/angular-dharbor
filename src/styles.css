@@ -1,1 +1,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  font-family: 'Saira Extra Condensed', sans-serif;
+  text-shadow: 1px 1px 1px #aaa;
+}
