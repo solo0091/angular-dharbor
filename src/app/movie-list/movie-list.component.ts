@@ -1,30 +1,40 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Movie } from './../shared/model/movie';
+import { Movie } from '../shared/model/movie';
 
 @Component({
   selector: 'adh-movie-list',
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.css']
 })
+
 export class MovieListComponent implements OnInit {
   title: string = 'Popular Movies';
 
-  movie1: Movie = {
-    title     : 'Star Wars',
-    overview  : 'Star Wars description..',
-    pictureURL: 'http://elordenmundial.com/wp-content/uploads/2017/01/starwarsinfive-1449855236991_large.jpg'
-  };
-  movie2: Movie = {
-    title     : 'IT',
-    overview  : 'It description..',
-    pictureURL: 'http://mouse.latercera.com/wp-content/uploads/2017/07/it.jpg'
-  };
-  movie3: Movie = {
-    title     : 'Injustic Leage',
-    overview  : 'Injustic Leage description..',
-    pictureURL: 'https://www.injustice.com/img/share.jpg'    
-  };
+  defaultPictureURL: string = 'https://angular.io/assets/images/logos/angular/angular.svg';
+
+  movies: Movie[] = [
+    {
+      title     : 'Star Wars',
+      overview  : 'Star Wars description..',
+      pictureURL: 'http://elordenmundial.com/wp-content/uploads/2017/01/starwarsinfive-1449855236991_large.jpg'
+    },
+    {
+      title     : 'IT',
+      overview  : 'It description..',
+      pictureURL: 'http://mouse.latercera.com/wp-content/uploads/2017/07/it.jpg'
+    },
+    {
+      title     : 'Injustic Leage',
+      overview  : 'Injustic Leage description..',
+      pictureURL: 'https://www.injustice.com/img/share.jpg'    
+    },
+    {
+      title     : 'Minions',
+      overview  : 'Minions description..',
+      pictureURL: null    
+    }
+  ];
 
 
   constructor() { }

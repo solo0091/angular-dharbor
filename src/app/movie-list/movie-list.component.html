@@ -5,22 +5,15 @@
   <!-- {{ getTitle() }} -->
 
 <mat-list>
-  <mat-list-item>
-    <img mat-list-avatar [src]="movie1.pictureURL" alt="imagen movie1">
-    <h4 mat-line>{{ movie1.title    }}</h4>
-    <p  mat-line>{{ movie1.overview }}</p>
-  </mat-list-item>
+  <mat-list-item *ngFor="let movie of movies">
+    <img mat-list-avatar *ngIf="movie.pictureURL" 
+                         [src]="movie.pictureURL" alt="imagen">
 
-  <mat-list-item>
-    <img mat-list-avatar [src]="movie2.pictureURL" alt="imagen movie2">
-    <h4 mat-line>{{ movie2.title    }}</h4>
-    <p  mat-line>{{ movie2.overview }}</p>
-  </mat-list-item>
-
-  <mat-list-item>
-    <img mat-list-avatar [src]="movie3.pictureURL" alt="imagen movie3">
-    <h4 mat-line>{{ movie3.title    }}</h4>
-    <p  mat-line>{{ movie3.overview }}</p>
+    <img mat-list-avatar *ngIf="!movie.pictureURL" 
+                         [src]="defaultPictureURL" alt="imagen">
+    <h4 mat-line>{{ movie.title    }}</h4>
+    <p  mat-line>{{ movie.overview }}</p>
   </mat-list-item>
 </mat-list>
+
 
