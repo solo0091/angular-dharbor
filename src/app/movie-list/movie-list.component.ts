@@ -9,8 +9,6 @@ export class MovieListComponent implements OnInit {
 
   title: string = 'Popular Movies'
 
-  text = 'initial value'
-
   movie1 = {
     title: 'Star Wars',
     overview: 'Star Wars description'
@@ -34,11 +32,6 @@ export class MovieListComponent implements OnInit {
         title: 'Star Wars II',
         overview: 'part II of the movie'
       }
-    }, 3000);
-
-    
-    setTimeout(() => {
-      this.text = 'new value'
     }, 3000);
   }
 
