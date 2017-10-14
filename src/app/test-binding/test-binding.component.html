@@ -1,0 +1,13 @@
+<div>
+  <h1 [innerHTML]="title"></h1>
+  <input type="text" [value]="text" (focus)="onImputFocus()">
+  <div>{{text}}</div>
+</div>      
+  
+<button (click)="onClickButton()">Click me!</button>
+{{clickMessage}}
+  
+<div>
+  <input (keyup)="onKey($event)">
+  <p>{{values}}</p>
+</div>
