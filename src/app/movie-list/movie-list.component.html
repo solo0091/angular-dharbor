@@ -1,9 +1,19 @@
-<p>
-  movie-list works!
-</p>
+<h4>
+  {{title}}
+  <br/> {{getTitle()}}
+</h4>
 
 <mat-list>
-  <mat-list-item>item1</mat-list-item>
-  <mat-list-item>item2</mat-list-item>
-  <mat-list-item>item3</mat-list-item>
+  <mat-list-item>
+    <h4 mat-line>{{movie1.title}}</h4>
+    <p mat-line>{{movie1.overview}}</p>
+  </mat-list-item>
+  <mat-list-item>
+    <h4 mat-line>{{movie2.title}}</h4>
+    <p mat-line>{{movie2.overview}}</p>
+  </mat-list-item>
+  <mat-list-item>
+    <h4 mat-line>{{movie3.title}}</h4>
+    <p mat-line>{{movie3.overview}}</p>
+  </mat-list-item>
 </mat-list>
