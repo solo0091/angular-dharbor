@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Movie } from "../shared/model/movie";
 @Component({
   selector: 'adh-movie-list',
   templateUrl: './movie-list.component.html',
@@ -7,23 +7,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
   title : string ='Popular Movies';
-  movie1 ={
+movies: Movie[] =[
+  {
     title: 'Star Wars',
-    overview: 'Star Wars Description...'
-  };
-  movie2 ={
+  overview: 'Star Wars Description...',
+  pictureURL: 'https://cdn.dribbble.com/users/588874/screenshots/2291915/dribbble_1x.png'
+  },
+  {
     title: 'IT',
-    overview:'IT Description...'
-  };
-  movie3 ={
+    overview:'IT Description...',
+    pictureURL: 'https://img.cinemablend.com/filter:scale/quill/e/1/0/3/e/e/e103ee82b2d6307e4d881c75942ff473e08eb0e0.jpg?mw=600'
+  },
+  {
     title: 'Liga de la justicia',
-    overview: 'Liga de la justicia descripcion...'
+    overview: 'Liga de la justicia descripcion...',
+    pictureURL: 'http://s3-eu-west-1.amazonaws.com/cinemania-cdn/wp-content/uploads/2017/01/11145412/Justice-League-660x374.png'
+  }
+]
+
+
+  //VARIABLES JASON
+  movie1 : Movie ={
+    title: 'Star Wars',
+    overview: 'Star Wars Description...',
+    pictureURL: 'https://cdn.dribbble.com/users/588874/screenshots/2291915/dribbble_1x.png'
   };
+  movie2 : Movie={
+    title: 'IT',
+    overview:'IT Description...',
+    pictureURL: 'https://img.cinemablend.com/filter:scale/quill/e/1/0/3/e/e/e103ee82b2d6307e4d881c75942ff473e08eb0e0.jpg?mw=600'
+  };
+
+  movie3 : Movie ={
+    title: 'Liga de la justicia',
+    overview: 'Liga de la justicia descripcion...',
+    pictureURL: 'http://s3-eu-west-1.amazonaws.com/cinemania-cdn/wp-content/uploads/2017/01/11145412/Justice-League-660x374.png'
+  };
+  
+
+ //text:string ='Hola Mundo';
 
 
   constructor() { }
 
   ngOnInit() {
+
+    
   }
 
 }
