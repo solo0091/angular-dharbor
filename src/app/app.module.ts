@@ -5,16 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { MovieModule } from './movie/movie.module';
+import { TestBindingComponent } from './test-binding/test-binding.component';
+import { TestBindingModule } from './test-binding/test-binding.module';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestBindingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    MovieModule
+    MovieModule,
+    TestBindingModule,
+   
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

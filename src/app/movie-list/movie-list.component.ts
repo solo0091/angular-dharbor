@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie }  from '../shared/model/movie';
+import { MovieService }  from '../shared/services/movie.service';
 
 @Component({
   selector: 'adh-movie-list',
@@ -6,27 +8,46 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
+clickMessage = '';
+defaultPictureURL='http://www.tivix.com/uploads/blog_pics/square.png';
+ movies:Movie[];
+ 
+
+title2 :string = 'welcome';
+text:string  ='rosa';
+
+
   title : string  = ' popular movies';
-  movie1={
-    title: 'Star war',
-    overview : 'star ward description'
-  };
-   movie2={
-     title : 'it',
-    overview : 'it description..'
-   };
+  
+  
 
-   movie3={
-     title : 'justic ede la liga',
-     overview : 'it description..'
-   };
+  constructor(private movieService: MovieService) { }
 
-  constructor() { }
 
   ngOnInit() {
+this.movies = this.movieService.getMovies();
+    /*
+   setTimeout(()=>{
+     this.movie1 = {
+       title: 'Star war 2',
+    overview : 'star ward description' 
+     }
+   },2000);
+   
+
+*/  }
+/*
+ onClickMe() {
+    this.clickMessage = 'You are my hero!';
   }
+*/
+
+
   //getTitle : string(){
   //  return title;
-  }
+}
+
+
+
 
 
