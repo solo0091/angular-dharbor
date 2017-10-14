@@ -8,24 +8,44 @@ import { Movie } from '../shared/model/movie';
 })
 export class MovieListComponent implements OnInit {
   title = 'Popular Movies';
-  movie1: Movie = {
-    title: 'Star Wars',
-    overview: 'Star Wars description...',
-    pictureURL: 'http://cdn.images.express.co.uk/img/dynamic/galleries/64x64/246485.jpg'
-  };
-  movie2: Movie = {
-    title: 'IT',
-    overview: 'IT description...',
-    pictureURL: 'http://i.ebayimg.com/images/g/Xd8AAOSwlf5ZwsfS/s-l64.jpg'
-  };
-  movie3: Movie = {
-    title: 'Justice League',
-    overview: 'Justice League description...',
-    pictureURL: 'http://cdn.images.express.co.uk/img/dynamic/galleries/64x64/228887.jpg'
-  };
+  movies: Movie[] = [
+    {
+      title: 'Star Wars',
+      overview: 'Star Wars description...',
+      pictureURL: 'http://cdn.images.express.co.uk/img/dynamic/galleries/64x64/246485.jpg'
+    },
+    {
+      title: 'IT',
+      overview: 'IT description...',
+      pictureURL: 'http://i.ebayimg.com/images/g/Xd8AAOSwlf5ZwsfS/s-l64.jpg'
+    },
+    {
+      title: 'Justice League',
+      overview: 'Justice League description...',
+      pictureURL: 'http://cdn.images.express.co.uk/img/dynamic/galleries/64x64/228887.jpg'
+    }
+  ];
   constructor() { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.movies.push(
+        {
+          title: 'Mad Max',
+          overview: 'Mad Max description...',
+          pictureURL: 'https://images.moviepilot.com/image/upload/c_fill,h_64,q_auto,w_64/yakwy8yof6jj6zzewi6p.jpg'
+        }
+      );
+    }, 2000);
+    setTimeout(() => {
+      this.movies.push(
+        {
+          title: 'Matrix',
+          overview: 'Matrix description...',
+          pictureURL: 'https://images.moviepilot.com/image/upload/c_fill,h_64,q_auto,w_64/f0wakuyix5vca2yyh2oj.jpg'
+        }
+      );
+    }, 4000);
   }
 
 }
