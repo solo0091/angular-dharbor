@@ -1,0 +1,17 @@
+
+<!-- probando data binding -->
+<div>
+    <h1 [innerHTML]="title"></h1> <!-- Property Binding -->     
+    <input type="text" [value]="text.mensaje"> <!-- Property Binding -->
+    <div>{{ text.numero }}</div> <!-- Interpolacion -->
+  </div>
+  
+  <button (click)="onClickMe()"> Click me!! </button>
+  {{ clickMessage }}
+
+<button mat-button (click)="mostrarMensaje()">Click me!</button>
+
+<p>{{cambio}}</p>
+
+<input type="text" (keyup)="onKey($event)">
+<p>{{ values }}</p>

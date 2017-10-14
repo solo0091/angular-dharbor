@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+import { Movie } from './../shared/model/movie';
 
 @Component({
   selector: 'adh-movie-list',
@@ -8,23 +10,39 @@ import { Component, OnInit } from '@angular/core';
 export class MovieListComponent implements OnInit {
   title: string = 'Popular Movies';
 
-  movie1 = {
-    title   : 'Star Wars',
-    overview: 'Star Wars description..'
+  movie1: Movie = {
+    title     : 'Star Wars',
+    overview  : 'Star Wars description..',
+    pictureURL: 'http://elordenmundial.com/wp-content/uploads/2017/01/starwarsinfive-1449855236991_large.jpg'
   };
-  movie2 = {
-    title   : 'IT',
-    overview: 'It description..'
+  movie2: Movie = {
+    title     : 'IT',
+    overview  : 'It description..',
+    pictureURL: 'http://mouse.latercera.com/wp-content/uploads/2017/07/it.jpg'
   };
-  movie3 = {
-    title   : 'Injustic Leage',
-    overview: 'Injustic Leage description..'
+  movie3: Movie = {
+    title     : 'Injustic Leage',
+    overview  : 'Injustic Leage description..',
+    pictureURL: 'https://www.injustice.com/img/share.jpg'    
   };
 
 
   constructor() { }
 
   ngOnInit() {
+    // setTimeout(() => {   // Notacion flecha para acceder al contexto externo
+    //   this.movie1 = {    // todas las variables con movie1 se actualizan por la interpolacion {{}}
+    //     title   : 'Star Wars II',
+    //     overview: 'Star Wars II description..'
+    //   }
+    // }, 2000);
+
+    // setTimeout(() => {
+    //   this.movie2 = {
+    //     title   : 'Wonder Woman',
+    //     overview: 'Wonder Woman description..'
+    //   }
+    // }, 4000);
   }
 
   /*
