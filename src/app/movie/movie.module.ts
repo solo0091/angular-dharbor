@@ -10,6 +10,6 @@ import { MovieService } from '../shared/services/movie.service';
     MaterialModule
   ],
   declarations: [MovieListComponent],
-  providers: [MovieService]
+  providers: [MovieService] //se puede utilizar desde cualquier parte del sistema
 })
 export class MovieModule { }
