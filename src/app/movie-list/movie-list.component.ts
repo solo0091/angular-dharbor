@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie} from '../shared/model/movie';
+import {  MoviesService } from '../shared/services/movies.service'
 
 
 @Component({
@@ -10,7 +11,8 @@ import { Movie} from '../shared/model/movie';
 export class MovieListComponent implements OnInit {
   title: string = 'helle world,hola  mundo';
   defaultPicture:string ='https://pluralsight.imgix.net/paths/path-icons/angular-14a0f6532f.png'
-  movies:Movie[]=[
+  movies:Movie[];
+  /* movies:Movie[]=[
     {
       title: 'Star Wars',
       overview: 'description starwars',
@@ -32,7 +34,7 @@ export class MovieListComponent implements OnInit {
       pictureAvatar:''
     }
 
-  ];
+  ]; */
 
 
 
@@ -59,9 +61,13 @@ export class MovieListComponent implements OnInit {
  */
 
 
-  constructor() { }
+  constructor(private movieService:MoviesService  ) { }
 
   ngOnInit() {
+    setTimeout(()=> {
+      this.movies= this.movieService.getMovies();
+    },  2000); 
+   
       /* setTimeout(()=> {
         this.movie1.title="Star Wars II",
         this.movie1.overview="Corre tras 2 segundos";        
