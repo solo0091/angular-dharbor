@@ -25,6 +25,11 @@ export class MovieListComponent implements OnInit {
       title: 'Justice League',
       overview: 'Justice League description',
       pictureURL:'http://cdn2-www.superherohype.com/assets/uploads/gallery/justice-league/17349762_1337611299666014_1321506846992253218_o.jpg'
+    },
+    {
+      title:"Minions",
+      overview:"Minions overview..",
+      pictureURL:""
     }
    ]
    
