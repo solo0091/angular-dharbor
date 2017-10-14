@@ -1,10 +1,32 @@
 <p>
-  movie-list works!
+  {{ title }}
+  <!-- {{ getTitle() }} -->
 </p>
 
 <mat-list>
-  <mat-list-item> Pepper </mat-list-item>
-  <mat-list-item> Salt </mat-list-item>
-  <mat-list-item> Paprika </mat-list-item>
+  <mat-list-item> 
+    <h4 mat-line><strong> {{ movie1.title }} </strong></h4> 
+    <p mat-line> {{ movie1.overview }} </p>
+  </mat-list-item>
+  <mat-list-item> 
+    <h4 mat-line><strong> {{ movie2.title }} </strong></h4> 
+    <p mat-line> {{ movie2.overview }} </p>
+  </mat-list-item>
+  <mat-list-item> 
+    <h4 mat-line><strong> {{ movie3.title }} </strong></h4> 
+    <p mat-line> {{ movie3.overview }} </p>
+  </mat-list-item>
+
+  <mat-list-item> 
+      <h4 mat-line [innerHTML]="movie3.title"></h4> 
+      <p mat-line> {{ movie3.overview }} </p>
+    </mat-list-item>
+
+    <div>
+      <h1>{{ text.title_text }}</h1>
+      <input type="text" [value]="text.description">
+    </div>
+  
+
 </mat-list>
  
