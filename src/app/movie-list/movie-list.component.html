@@ -1,7 +1,17 @@
-<p>
-  <mat-list>
-    <mat-list-item>Item 1</mat-list-item>
-    <mat-list-item>Item 2</mat-list-item>
-    <mat-list-item>Item 3</mat-list-item>
-  </mat-list>  
-</p>
+<h4>
+    {{title}}
+</h4>
+<mat-list>
+  <mat-list-item>
+      <h4 mat-line>{{movie1.title}}</h4> <!--mat-line sirve como enter reemplaza los estilos -->
+      <p mat-line> {{movie1.overview}} </p>
+  </mat-list-item>
+  <mat-list-item>
+      <h4 mat-line>{{movie2.title}}</h4>
+      <p mat-line> {{movie2.overview}} </p>
+  </mat-list-item>
+  <mat-list-item>
+      <h4 mat-line>{{movie3.title}}</h4>
+      <p mat-line> {{movie3.overview}} </p>
+  </mat-list-item>
+</mat-list>

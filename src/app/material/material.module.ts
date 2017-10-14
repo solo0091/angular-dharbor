@@ -7,7 +7,7 @@ import {
   MatButtonModule,
   MatIconModule,
   MatCheckboxModule,
-  MatListModule,
+  MatListModule, //se aumenta la referencia a la lista
   MatToolbarModule
   
 } from '@angular/material';
@@ -18,7 +18,7 @@ import {
     MatButtonModule,
     MatIconModule,
     MatCheckboxModule,
-    MatListModule,
+    MatListModule,//se aumenta la referencia a la lista
     MatToolbarModule
     
   ],
@@ -26,7 +26,7 @@ import {
     MatButtonModule,
     MatIconModule,
     MatCheckboxModule,
-    MatListModule,
+    MatListModule,//se aumenta la referencia a la lista
     MatToolbarModule
   ],
   providers: [
