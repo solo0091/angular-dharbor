@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../share/model/movie';
+import { Movie } from '../shared/model/movie';
+import { MovieService } from '../shared/services/movie.service';
 
 @Component({
   selector: 'adh-movie-list',
@@ -11,25 +12,15 @@ export class MovieListComponent implements OnInit {
   title = 'Popular movies';
   text = 'text1';
   clickMessage = '';
+  movies: Movie[];
+  defaultPictureURl =
+'http://img.nordangliaeducation.com/resources/asia/_filecache/25b/3a2/25963-cropped-w220-h240-of-1-FFFFFF-9070-cropped-w220-h240-of-1-ffffff-missing-photo-male.jpg';
 
-  movie1: Movie = {
-    title: 'Star Wars',
-    overview: 'Starwars description....',
-    pictureURL: 'https://lumiere-a.akamaihd.net/v1/images/Yoda-Retina_2a7ecc26.jpeg?region=461%2C0%2C864%2C864'
-  };
-  movie2: Movie = {
-    title: 'IT',
-    overview: 'It description...',
-    pictureURL: 'http://cdn.movieweb.com/img.news.tops/NECITK8IikJKGH_1_b/It-Movie-2017-Runtime-Stephen-King.jpg'
-  };
-  movie3: Movie = {
-    title: 'Justice League',
-    overview: 'Justice League descriptions...',
-    pictureURL: 'https://i.pinimg.com/236x/8d/72/44/8d724422f976e1342af3aafc12dd8598.jpg'
-  };
-  constructor() { }
+ // Dependecy Injection
+  constructor(private movieService: MovieService) { }
 // se ejecuta cada vez que se ejecuta el componente
   ngOnInit() {
+     this.movies = this.movieService.getMovies();
   }///
   onClickMe() {
     this.clickMessage = 'You are my hero!';
