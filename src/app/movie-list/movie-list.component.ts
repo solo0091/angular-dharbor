@@ -7,6 +7,7 @@ import { Movie } from '../shared/model/movie';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
+  defaultPictureURL = 'https://image.flaticon.com/icons/png/128/83/83519.png';
   title = 'Popular Movies';
   movies: Movie[] = [
     {
@@ -23,6 +24,11 @@ export class MovieListComponent implements OnInit {
       title: 'Justice League',
       overview: 'Justice League description...',
       pictureURL: 'http://cdn.images.express.co.uk/img/dynamic/galleries/64x64/228887.jpg'
+    },
+    {
+      title: 'Minions',
+      overview: 'Minions description',
+      pictureURL: null
     }
   ];
   constructor() { }
