@@ -1,0 +1,11 @@
+<p>
+  test-binding works!
+</p>
+
+<h1 [innerHTML]="text"></h1>
+<input type="text" [value]="text" (focus)="onInputFocus()" 
+  (keyup)="onEnter($event)">
+<div>{{text}}</div>
+
+<button (click)="onClickMe()">Click me!</button>
+{{clickMessage}}
