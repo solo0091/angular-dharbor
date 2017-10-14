@@ -5,19 +5,23 @@ import {
   MATERIAL_COMPATIBILITY_MODE,
   MatButtonModule,
   MatIconModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatListModule
 } from '@angular/material';
+
 
 @NgModule({
   imports: [
     CommonModule,
     MatButtonModule,
     MatIconModule,
+    MatListModule,
     MatToolbarModule
   ],
   exports: [
     MatButtonModule,
     MatIconModule,
+    MatListModule,
     MatToolbarModule
   ],
   providers: [
@@ -26,3 +30,4 @@ import {
   declarations: []
 })
 export class MaterialModule { }
+
