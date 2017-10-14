@@ -25,6 +25,13 @@ export class MovieListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.movie1 = {
+        title: 'Star Wars II',
+        overview: 'Star Wars II description...',
+        icon: 'http://cdn.images.express.co.uk/img/dynamic/galleries/64x64/246485.jpg'
+      }
+    }, 2000);
   }
 
 }
