@@ -13,7 +13,8 @@ import {
   MatDatepickerModule,
   MatFormFieldModule,
   MatNativeDateModule,
-  MatSelectModule
+  MatSelectModule,
+  MatGridListModule
 } from '@angular/material';
 
 @NgModule({
@@ -29,7 +30,8 @@ import {
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -43,7 +45,8 @@ import {
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule
   ],
   providers: [
     { provide: MATERIAL_COMPATIBILITY_MODE, useValue: true }

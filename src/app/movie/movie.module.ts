@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MovieListComponent } from '../movie-list/movie-list.component';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule  } from '@angular/forms';
+import { MovieService } from '../share/services/movie.service';
+import { DialogPreviewComponent } from '../dialog-preview/dialog-preview.component';
 
 @NgModule({
   imports: [
@@ -10,6 +12,8 @@ import { FormsModule  } from '@angular/forms';
     MaterialModule,
     FormsModule
   ],
-  declarations: [MovieListComponent]
+  declarations: [MovieListComponent, DialogPreviewComponent],
+  entryComponents: [DialogPreviewComponent],
+  providers: [MovieService]
 })
 export class MovieModule { }

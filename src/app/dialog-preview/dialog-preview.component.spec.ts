@@ -1,21 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MovieListComponent } from './movie-list.component';
 
+import { DialogPreviewComponent } from './dialog-preview.component';
 
-
-describe('MovieListComponent', () => {
-  let component: MovieListComponent;
-  let fixture: ComponentFixture<MovieListComponent>;
+describe('DialogPreviewComponent', () => {
+  let component: DialogPreviewComponent;
+  let fixture: ComponentFixture<DialogPreviewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieListComponent ]
+      declarations: [ DialogPreviewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MovieListComponent);
+    fixture = TestBed.createComponent(DialogPreviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

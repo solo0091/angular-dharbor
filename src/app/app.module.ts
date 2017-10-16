@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, OnInit } from '@angular/core';
-// import { FormsModule  } from '@angular/forms';
+import { FormsModule  } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,8 +18,8 @@ import { TestBindingComponent } from './test-binding/test-binding.component';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    MovieModule//,
-    //FormsModule
+    MovieModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

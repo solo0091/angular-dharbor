@@ -6,15 +6,20 @@
   </mat-form-field>
   <label>Quantity of seats</label>
   <mat-form-field>
-    <mat-select placeholder="Select">
-      <mat-option value="option">Option</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <label>Pick a date</label>
-  <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+    <mat-select placeholder="Select ammount of seats" [(ngModel)]="selectedQuantity" name="quant">
+      <mat-option
+        *ngFor="let cant of listOfQuantities"
+        [value]="cant"
+      >
+      {{ cant.quantity }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<label>Pick a date</label>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
 </div>
-  
+ quantity:{{ selectedQuantity | json }}

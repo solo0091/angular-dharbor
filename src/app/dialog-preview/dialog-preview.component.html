@@ -1,0 +1,28 @@
+<h3 mat-dialog-title> Title of movie: {{ data.info.title }} </h3>
+<mat-dialog-content>
+  <img [src]="data.info.path">
+  <mat-grid-list cols="3" rowHeight="50px">
+    <mat-grid-tile>
+      <label> Duration : </label>
+      <div>
+        <span> {{ data.info.duration }} </span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <label> Genre : </label>
+      <span> {{ data.info.genre }} </span>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <label> Price : </label>
+        <span> {{ data.info.price }} bs </span>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="info-movie-selected">
+    {{ data.info.description }}
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="orientation-dialog-options">
+    <button mat-raised-button (click)="onCloseDialog()">Close</button>
+  </div>
+</mat-dialog-actions>

@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../share/model/movie';
+import { MovieService } from '../share/services/movie.service';
+import { DialogPreviewComponent } from '../dialog-preview/dialog-preview.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'adh-movie-list',
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.css']
+  /*providers: [MovieService] */
 })
 export class MovieListComponent implements OnInit {
   title = 'Welcome to Movie List';
@@ -19,38 +23,21 @@ export class MovieListComponent implements OnInit {
   statusButton = false;
   value= '';
 
+  constructor(private movieService: MovieService, public preview: MatDialog) {
+  // cuando se declara con el modificador de acceso movieService privado y publico
+  // se puede usar el atributo directamente con this.
+  }
   ngOnInit() {
-    this.movieList = [
-      new Movie('others', 'none', '', new Date()),
-      new Movie('others', 'none', '', new Date())
-    ];
-    //let that = this; //asignamos todo el contexto de la clase
+    // let that = this; //asignamos todo el contexto de la clase
+    this.movieList = this.movieService.getBlindMovies();
 
     setTimeout(() => {
-      this.movieList = [
-        new Movie('Avengers', 'Infinity war part 1', '../../assets/avengersjpg', new Date('1/1/16')),
-        new Movie(
-          'IT',
-          'Yo can fly',
-          'http://cine.netknowsl.netdna-cdn.com/cine/wp-content/uploads/2017/03/55-2-600x400.jpg', 
-          new Date()
-        ),
-        new Movie(
-          'Justice Leage',
-          'All justice heroes',
-          'http://cdn.movieweb.com/img.news.tops/NEo9NdNcV7uNrw_1_b/Justice-League-Success-Future-Dc-Movie-Release-Slate.jpg',
-          new Date())
-      ]
+      this.movieList = this.movieService.getMovies();
       this.customText = 'One way data-binding';
     }, 2000);
 
     setTimeout(() => {
-      const movie3: Movie = new Movie(
-        'Wonder Woman',
-        'new description',
-        'https://upload.wikimedia.org/wikipedia/en/e/ed/Wonder_Woman_%282017_film%29.jpg',
-        new Date('1/1/16'));
-      this.movieList.push(movie3);
+      this.movieService.addNewMovie();
     }, 4000);
   }
   onShowMessage(): void {
@@ -68,13 +55,26 @@ export class MovieListComponent implements OnInit {
   onKeyEvent( $event ): void {
     this.value += $event.target.value + '|';
   }
-}
-/*
-export class MovieListComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  openPreview( $movie ): void {
+    console.log('info:', $movie);
+    // let dialogRef;
+    if ( $movie.path !== '') {
+      this.sendParamsOpendDialog($movie);
+     return;
+    }
+    $movie.path = 'https://cdn3.iconfinder.com/data/icons/luchesa-vol-9/128/Html-256.png';
+    this.sendParamsOpendDialog($movie);
+    /* dialogRef.afterClosed().subscribe( result => {
+      this.some = result;
+    }) */
   }
-
-}*/
+  sendParamsOpendDialog( movie, width = '700px', height = '550px'): void {
+    this.preview.open(DialogPreviewComponent , {
+      width : width,
+      height: height,
+      data: {
+        info : movie
+       }
+    });
+  }
+}
