@@ -36,6 +36,8 @@ export class MovieListComponent implements OnInit {
        this.movieService.getMovies().then((result)=>{
          console.log('I have result');
          this.movies=result;
+       }).catch((error)=>{
+         console.log('error', error.message);
        });
        console.log('After of movieService.getMovies()');
        },2000);

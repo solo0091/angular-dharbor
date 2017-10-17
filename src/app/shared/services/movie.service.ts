@@ -35,7 +35,10 @@ export class MovieService {
     //el server hace consultas a una BD
     //se procesan los datos obtenidos
     //retorna el set de datos para el cliente  
-    return Promise.resolve(this.movies);
+   // return Promise.resolve(this.movies);
+   
+     return Promise.reject({error:'Error de conexion con la BD'});
+
    }
   
 
