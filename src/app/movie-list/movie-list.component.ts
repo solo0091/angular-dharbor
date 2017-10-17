@@ -29,7 +29,15 @@ export class MovieListComponent implements OnInit {
     //this.movies = this.movieService.getMovies();
     
        setTimeout(()=>{
-       this.movies =this.movieService.getMovies();
+       //return promise
+       // this.movies =this.movieService.getMovies();
+       //using "then"
+       console.log('before to call to the service');
+       this.movieService.getMovies().then((result)=>{
+         console.log('I have result');
+         this.movies=result;
+       });
+       console.log('After of movieService.getMovies()');
        },2000);
 
   }

@@ -29,8 +29,13 @@ export class MovieService {
     }
    ];
    
-   getMovies():Movie[]{
-      return this.movies;
+   //new implementation of service with Promise abstraction
+   getMovies():Promise<Movie[]>{
+    //Peticion http al server
+    //el server hace consultas a una BD
+    //se procesan los datos obtenidos
+    //retorna el set de datos para el cliente  
+    return Promise.resolve(this.movies);
    }
   
 
