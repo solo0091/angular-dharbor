@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from "../shared/model/movie";
 import { MovieService } from "../shared/services/movie.service";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'adh-movie-list',
@@ -13,6 +14,8 @@ export class MovieListComponent implements OnInit {
   movies: Movie[] ;
 
 
+  results: string[];//variable que me va otener los resultados
+  
 
   //VARIABLES JASON
   /*
@@ -36,7 +39,7 @@ export class MovieListComponent implements OnInit {
 
  //text:string ='Hola Mundo';
 
-
+/*MANEJO DE PROMISE 
   constructor(private movieService: MovieService) { 
 
   }
@@ -56,6 +59,29 @@ export class MovieListComponent implements OnInit {
     
    
     
+  }*/
+
+   // Inject HttpClient into your component or service.
+  // constructor(private http: HttpClient) {}
+   
+  constructor(private movieService: MovieService){
+
   }
+    ngOnInit(): void {
+      // Make the HTTP request:
+     /* this.http.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=0971ed323ba8081b990144eef9e02ace').subscribe(data => {
+        // Read the result field from the JSON response.
+        this.results = data['results'];
+        this.movies =  data['results'];
+        //console.log(this.results);
+      });*/
+      this.movieService.getMovies()
+      .subscribe((data) =>{
+        console.log('data',data);
+        this.movies=data.results;
+      }
+    )
+
+    }
 
 }

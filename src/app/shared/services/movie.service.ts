@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
 import {Movie} from '../model/movie';
+import { Observable } from "rxjs/Observable";
+import { HttpClient } from '@angular/common/http';
+
+const MOVIES_API='https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc';
+const API_KEY ='0971ed323ba8081b990144eef9e02ace';
 
 @Injectable()
 export class MovieService {
-  movies:Movie[]=[
+
+movies:Movie[];
+
+ /* movies:Movie[]=[
     {
       title: 'Star Wars',
       overview: 'Star Wars Description...',
@@ -25,12 +33,18 @@ export class MovieService {
       pictureURL: null
     }
 
-  ]
+  ]*/
+///Dependency Injection
+  constructor(private httpClient: HttpClient) { }
 
-  constructor() { }
+getMovies():Observable<any>{
+
+  return this.httpClient.get(`${MOVIES_API}&api_key=${API_KEY}`);
+
+}
 
   //Se desconoce el tiempo de ejecucion de getMovies
-  getMovies():Promise<Movie[]>{ //DEVUELVE UN ARRAY DE OBJETOS MOVIES
+  //getMovies():Promise<Movie[]>{ //DEVUELVE UN ARRAY DE OBJETOS MOVIES
     //Peticion HTTP al server
     //El server hace la consulta a una BD
     //return Promise.reject({
@@ -39,8 +53,7 @@ export class MovieService {
     //Se procesan los datos obtenidos
     //Retorna el set de datos para el cliente
     //EN CASO DE RESULT 
-    return Promise.resolve(this.movies);
+    //return Promise.resolve(this.movies);
     //return this.movies//opcion de devolucion de datos sin promise
-  }
   
 }
