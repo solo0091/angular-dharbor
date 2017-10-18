@@ -43,7 +43,7 @@ export class MoviesService {
   
     }*/
 
-  getMovies1(): Observable<any> {
+  getMovies(): Observable<any> {
     //return this.movies;
     return this.httpclient.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=0971ed323ba8081b990144eef9e02ace');
 
