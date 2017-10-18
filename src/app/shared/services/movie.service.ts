@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 const MOVIES_API='https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc';
 const API_KEY ='0971ed323ba8081b990144eef9e02ace';
+const PICTURE_URL ='https://image.tmdb.org/t/p/w160';
 
 @Injectable()
 export class MovieService {
@@ -41,6 +42,10 @@ getMovies():Observable<any>{
 
   return this.httpClient.get(`${MOVIES_API}&api_key=${API_KEY}`);
 
+}
+//funcion que devuelve una url desde posterPath q es un string
+getPictureURL(posterPath : string): string{
+  return `${PICTURE_URL}${posterPath}`;
 }
 
   //Se desconoce el tiempo de ejecucion de getMovies

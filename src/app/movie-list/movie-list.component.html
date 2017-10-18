@@ -2,11 +2,8 @@
     {{title}}
 </h4>
 <mat-list>
-  <mat-list-item *ngFor="let movie of movies">
-      <img mat-list-avatar *ngIf="movie.pictureURL" [src]="movie.pictureURL"><!--Condicion de IF -->
-      <img mat-list-avatar *ngIf="!movie.pictureURL" [src]="defaultpictureURL"><!--Condicion de IF -->
-      <h4 mat-line>{{movie.title}}</h4> <!--mat-line sirve como enter reemplaza los estilos -->
-      <p mat-line> {{movie.overview}} </p>
-  </mat-list-item>
+  <adh-movie-list-item *ngFor="let movie of movies"
+                        [movie]="movie">
+  </adh-movie-list-item>
 </mat-list>
 

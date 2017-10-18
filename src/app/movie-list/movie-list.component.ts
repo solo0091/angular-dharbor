@@ -56,9 +56,7 @@ export class MovieListComponent implements OnInit {
       });
       console.log('Despues de movieService.getMovie()');
       //Llamadas a otros servicios
-    
-   
-    
+        
   }*/
 
    // Inject HttpClient into your component or service.
