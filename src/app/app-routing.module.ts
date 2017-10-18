@@ -12,6 +12,10 @@ const routes: Routes = [
     component:MovieListComponent
   },
   {
+    path:'home/:page',
+    component:MovieListComponent
+  },
+  {
     path:"",
     redirectTo:'home',
     pathMatch:'full'
