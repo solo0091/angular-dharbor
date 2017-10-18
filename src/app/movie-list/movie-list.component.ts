@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Movie} from '../shared/model/movie'
 import {MovieService} from '../shared/services/movie.service'
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'adh-movie-list',
@@ -11,40 +12,28 @@ export class MovieListComponent implements OnInit {
 
   title: string = 'Popular Movies'
   defaultPictureURL:string = "http://www.simplek12.com/wp-content/uploads/2015/06/movie_night.jpg"  
-
   
   //DI
   constructor(private movieService:MovieService)
-   {
+  {
 
-    }
+  }
  
   movies: Movie[];
 
   ngOnInit() {
-    // setTimeout(()=>{
-    //   this.movies =this.movies2
-    //   },2000);
     
-    //this.movies = this.movieService.getMovies();
-    
-       setTimeout(()=>{
-       //return promise
-       // this.movies =this.movieService.getMovies();
-       //using "then"
-       console.log('before to call to the service');
-       this.movieService.getMovies().then((result)=>{
-         console.log('I have result');
-         this.movies=result;
-       }).catch((error)=>{
-         console.log('error', error.message);
-       });
-       console.log('After of movieService.getMovies()');
-       },2000);
+    this.movieService.getMovies().subscribe((data)=>{
+      console.log('data',data);
+      this.movies = data.results;})
+  }
 
-  }
- 
-  getTitle():string{
-    return this.title;
-  }
+   getTitle():string{
+     return this.title;
+   }
 }
+
+interface ItemsResponse {
+  results: string[];
+}
+   
