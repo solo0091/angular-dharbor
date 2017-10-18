@@ -1,8 +1,15 @@
 import { Injectable } from '@angular/core';
-import {  Movie} from '../model/movie';
+import { Movie } from '../model/movie';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { MovieListComponent } from '../../movie-list/movie-list.component';
+const MOVIES_API = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc';
+const API_KEY = '0971ed323ba8081b990144eef9e02ace';
 
 @Injectable()
 export class MovieService {
+  results: string[];
+  movies2: Movie[];
   movies: Movie[] = [
     {
       title: 'Star Wars',
@@ -21,7 +28,7 @@ export class MovieService {
       pictureURL: null
     }
   ];
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getMovies(): Promise<Movie[]> {
     // peticion http al server
@@ -33,8 +40,24 @@ export class MovieService {
     // return Promise.reject({
     //  message: 'Error de conexion con la BD'
    // });
-   
     // return this.movies;
+  }
+
+  getApiMoviestest(){
+
+    this.httpClient.get(`${MOVIES_API}&api_key=${API_KEY}`).subscribe(data => {
+      // Read the result field from the JSON response.
+      this.results = data['results'];
+      console.log( this.results );
+    });
+  }
+
+  getApiMovies(): Observable<any> {
+
+    return this.httpClient.get(`${MOVIES_API}&api_key=${API_KEY}`);
+      // return this.results = data['results'];
+
+
   }
 
 
