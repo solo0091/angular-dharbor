@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie} from '../shared/model/movie';
-import {  MoviesService } from '../shared/services/movies.service'
+import { Movie } from '../shared/model/movie';
+import { MoviesService } from '../shared/services/movies.service'
 
 
 @Component({
@@ -10,8 +10,8 @@ import {  MoviesService } from '../shared/services/movies.service'
 })
 export class MovieListComponent implements OnInit {
   title: string = 'helle world,hola  mundo';
-  defaultPicture:string ='https://pluralsight.imgix.net/paths/path-icons/angular-14a0f6532f.png'
-  movies:Movie[];
+  defaultPicture: string = 'https://pluralsight.imgix.net/paths/path-icons/angular-14a0f6532f.png'
+  movies: Movie[];
   /* movies:Movie[]=[
     {
       title: 'Star Wars',
@@ -39,44 +39,57 @@ export class MovieListComponent implements OnInit {
 
 
 
-/* 
-  movie1:Movie = {
-    title: 'Star Wars',
-    overview: 'description starwars',
-    pictureAvatar:'http://niceclipart.com/wp-content/uploads/2017/07/Darth-Vader-clipart-3.jpg'
-  };
-  movie2:Movie = {
-    title: 'IT',
-    overview: 'description it',
-    pictureAvatar:'https://cdn.dribbble.com/users/588874/screenshots/2249528/dribbble_1x.png'
+  /* 
+    movie1:Movie = {
+      title: 'Star Wars',
+      overview: 'description starwars',
+      pictureAvatar:'http://niceclipart.com/wp-content/uploads/2017/07/Darth-Vader-clipart-3.jpg'
+    };
+    movie2:Movie = {
+      title: 'IT',
+      overview: 'description it',
+      pictureAvatar:'https://cdn.dribbble.com/users/588874/screenshots/2249528/dribbble_1x.png'
+  
+  
+    };
+  
+    movie3:Movie = {
+      title: 'liga de la justicia',
+      overview: 'description liga de la justicia',
+      pictureAvatar:'https://cdn.dribbble.com/users/588874/screenshots/2249528/dribbble_1x.png'
+    };
+   */
 
 
-  };
-
-  movie3:Movie = {
-    title: 'liga de la justicia',
-    overview: 'description liga de la justicia',
-    pictureAvatar:'https://cdn.dribbble.com/users/588874/screenshots/2249528/dribbble_1x.png'
-  };
- */
-
-
-  constructor(private movieService:MoviesService  ) { }
+  constructor(private movieService: MoviesService) { }
 
   ngOnInit() {
-    setTimeout(()=> {
-      this.movies= this.movieService.getMovies();
-    },  2000); 
-   
-      /* setTimeout(()=> {
-        this.movie1.title="Star Wars II",
-        this.movie1.overview="Corre tras 2 segundos";        
-      },  8000);
+    setTimeout(() => {
 
-      setTimeout(()=> {
-        this.movie1.title="Star Wars III",
-        this.movie1.overview="upps  me adelante en la pelicula";        
-      },  4000); */
+
+
+      //this.movies= this.movieService.getMovies();
+    }, 2000);
+
+    this.movieService.getMovies().then((result) => {
+      console.log('tengo resultados');
+      this.movies = result;
+
+    }).catch((error) => {
+      console.log(error.message);
+      //this.message= error.message;
+    });
+
+
+    /* setTimeout(()=> {
+      this.movie1.title="Star Wars II",
+      this.movie1.overview="Corre tras 2 segundos";        
+    },  8000);
+
+    setTimeout(()=> {
+      this.movie1.title="Star Wars III",
+      this.movie1.overview="upps  me adelante en la pelicula";        
+    },  4000); */
 
   }
 
