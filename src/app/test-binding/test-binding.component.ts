@@ -6,25 +6,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test-binding.component.css']
 })
 export class TestBindingComponent implements OnInit {
-  clickMessage:string = '';
-  values:any =undefined;
-  
-    onClickMe() {
-      this.clickMessage = 'You are my hero!';
-    }
-
-
-    onKey(event:any) {
-      this.values += event.target.value + ' | ';
-    }
+  title:string = 'Popular Movies';
+  text:string = 'Hello World'
+  clickMessage:string;
+  values:string = '';
   constructor() { }
 
   ngOnInit() {
-setTimeout(()=>  {
-  this.clickMessage='Hola mundo';
-}, 4000);
-
-
+    setTimeout(() => {
+      this.title = "Test Binding";
+      this.text = "Hello Binding world";      
+    }, 2000);
   }
 
+  onClickButton(): void {
+    this.clickMessage = "Angular Developer";
+  }
+
+  onInputFocus(): void {
+    console.log('Focus!');
+  }
+
+  onKey(event:any) {
+    console.log('event', event);
+    this.values += event.target.value + ' | ';
+  }
 }

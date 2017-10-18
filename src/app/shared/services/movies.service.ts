@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Movie } from '../model/movie';
+import { Observable } from "rxjs/Observable";
+import { HttpClient } from "@angular/common/http";
+
 
 @Injectable()
 export class MoviesService {
 
+  movies: Movie[];
+
+  /*
   movies: Movie[] = [
     {
       title: 'Star Wars',
@@ -27,13 +33,25 @@ export class MoviesService {
     }
 
   ];
+  */
 
-  constructor() { }
+  constructor(private httpclient: HttpClient) { }
+  /*
+    getMovies(): Promise <Movie[] >{
+        //return this.movies;
+        return Promise.resolve(this.movies);
+  
+    }*/
 
-  getMovies(): Promise <Movie[] >{
-      //return this.movies;
-      return Promise.resolve(this.movies);
+  getMovies1(): Observable<any> {
+    //return this.movies;
+    return this.httpclient.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=0971ed323ba8081b990144eef9e02ace');
 
-  }
-
+  };
 }
+
+
+  
+
+
+
