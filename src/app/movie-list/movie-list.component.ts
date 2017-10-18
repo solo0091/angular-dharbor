@@ -8,14 +8,17 @@ import { MovieService} from '../shared/services/movie.service';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  defaultPictureURL = 'https://image.flaticon.com/icons/png/128/83/83519.png';
   title = 'Popular Movies';
   movies: Movie[];
   // Dependency Injection
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
+    this.movieService.getMovies().subscribe((data) => {
+      this.movies = data.results;
+    });
     // this.movies = this.movieService.getMovies();
+    /*
     console.log('Antes de llamar al servicio');
     this.movieService.getMovies().then((result) => {
       this.movies = result;
@@ -24,6 +27,8 @@ export class MovieListComponent implements OnInit {
       console.log('error', error.message);
     });
     console.log('Despues de llamar al servicio');
+    */
+    /*
     setTimeout(() => {
       this.movies.push(
         {
@@ -42,6 +47,7 @@ export class MovieListComponent implements OnInit {
         }
       );
     }, 4000);
+    */
   }
 
 }

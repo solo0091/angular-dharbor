@@ -1,5 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Movie } from '../model/movie';
+import { Observable } from 'rxjs/Observable';
+
+const MOVIES_API = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc';
+const API_KEY = '0971ed323ba8081b990144eef9e02ace';
+const PICTURE_URL = 'https://image.tmdb.org/t/p/w160';
+const DEFAULT_PICTURE_URL = 'https://image.flaticon.com/icons/png/128/83/83519.png';
+
 
 @Injectable()
 export class MovieService {
@@ -26,9 +34,9 @@ export class MovieService {
       pictureURL: null
     }
   ];
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
-  getMovies(): Promise<Movie[]> {
+  // getMovies(): Promise<Movie[]> {
     // Simulando una peticion HTTP
     // El server hace consulta a una base de datos
     // return Promise.reject({
@@ -36,7 +44,20 @@ export class MovieService {
     // });
     // Se procesa los datos obtenidos
     // Retorna el set de datos para el cliente
-    return Promise.resolve(this.movies);
+
+    // return Promise.resolve(this.movies);
+  // }
+
+  getMovies(): Observable<any> {
+    return this.httpClient.get(`${MOVIES_API}&api_key=${API_KEY}`);
+  }
+
+  getPictureURL(posterPath: string): string {
+    return `${PICTURE_URL}${posterPath}`;
+  }
+
+  getDefaultPictureURL(): string {
+    return DEFAULT_PICTURE_URL;
   }
 
 }
