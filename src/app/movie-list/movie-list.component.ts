@@ -58,9 +58,33 @@ export class MovieListComponent implements OnInit {
     //     overview: 'Wonder Woman description..'
     //   }
     // }, 4000);
-    setTimeout(() => {
-      this.movies = this.movieService.getMovies();
-    }, 2000);
+    // setTimeout(() => {
+    //   this.movies = this.movieService.getMovies();
+    // }, 2000);
+
+
+    /*
+     * Usando la PROMISE del servis
+     * 
+     * Con las promises no corata el flujo de la app y espera el resultado de la funcion dentro la promise
+     * lo hace de manera asincrona
+     * 
+     * Resultado asincrono del console log
+     * 
+      antes de llamar al servicio
+      Despues de movieService.getMovies()
+      tengo un resultado
+     */
+    //console.log('antes de llamar al servicio');
+    this.movieService.getMovies().then((result) => {
+      console.log('tengo un resultado');    
+      this.movies = result;
+    }).catch((error) => {
+      console.log('error', error.message);
+    });
+    //console.log('Despues de movieService.getMovies()');
+    //mas instrucciones, otros tipos de preocesamiento    
+
   }
 
   /*

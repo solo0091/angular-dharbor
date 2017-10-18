@@ -30,8 +30,22 @@ export class MovieService {
 
   constructor() { }
 
-  getMovies(): Movie[] {
-    return this.movies;
+  getMovies(): Promise<Movie[]> {
+    /*
+     * LO Q PUEDE HACER Y POR ESO SE USA PROMISE
+     * 
+     * Peticion HTTP al serve
+     * Els server hace consultas a un BD
+     */ 
+    // return Promise.reject({
+    //   message: 'Error de la base de datos'        //usando errores de promises
+    // });
+    
+     /*
+     * Se procesan los datos obtenido
+     * Retorna el set de datos para el cliente
+     */
+    return Promise.resolve(this.movies);    // usando de promises
   }
 
 }

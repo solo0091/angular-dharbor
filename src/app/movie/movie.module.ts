@@ -3,7 +3,7 @@ import { NgModule           } from '@angular/core';
 import { CommonModule       } from '@angular/common';
 import { MaterialModule     } from '../material/material.module';
 import { MovieListComponent } from '../movie-list/movie-list.component';
-import { MovieService } from '../shared/services/movie.service';
+import { MovieService       } from '../shared/services/movie.service';
 
 @NgModule({
   imports: [
@@ -11,6 +11,6 @@ import { MovieService } from '../shared/services/movie.service';
     MaterialModule
   ],
   declarations: [MovieListComponent],
-  providers: [MovieService]
+  providers   : [MovieService] // aqui se ponen los servicios injectables
 })
 export class MovieModule { }
