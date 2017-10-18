@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../shared/model/movie'
+import { MovieService } from '../../shared/services/movie.service'
 
 @Component({
   selector: 'adh-movie-list',
@@ -9,28 +10,25 @@ import { Movie } from '../../shared/model/movie'
 export class MovieListComponent implements OnInit {
 
   title: string = 'Popular Movies';
-  movies: Array<Movie> = [
-    {
-      title: 'Geostorm',
-      overview: 'Geostorm description..',
-      pictureURL: 'http://cdn-static.denofgeek.com/sites/denofgeek/files/styles/main_wide/public/2017/08/geostorm_lead.jpg?itok=mCUhAmx8'
-    },
-    {
-      title: 'IT',
-      overview: 'IT description...',
-      pictureURL: 'http://s3.amazonaws.com/www.tomatazos.com/public/uploads/images/156296_1140x516.jpg'
-    },
-    {
-      title: 'Justice League',
-      overview: 'Justice League description...',
-      pictureURL: 'http://nerdist.com/wp-content/uploads/2017/03/justice-league-movie-team-photo-1200x630.jpg'
-    }
-  ];
+  movies: Array<Movie>;
+  defaultPictureURL: string = 'https://image.freepik.com/free-vector/cinema-logo_23-2147503279.jpg';
 
-  constructor() { }
+
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
     setTimeout(() => {
+      //this.movies = this.movieService.getMovies();
+      console.log('Antes de llamar al servicio');
+      this.movieService.getMovies().then((result) => {
+        console.log('Tengo el resultado');
+        this.movies = result;
+      }).catch( (error) => {
+        console.log(error.message);
+      });
+      console.log('Despues de llamar al servicio');
+    }, 2000)
+    /*setTimeout(() => {
       this.movies= [
         {
           title: 'La falla de San Andres',
@@ -43,6 +41,6 @@ export class MovieListComponent implements OnInit {
           pictureURL: 'https://www.cinepremiere.com.mx/imgsHistorico/u18/int_trailer_tdkr_.jpg'
         }
       ];
-    }, 4000);
+    }, 4000);*/
   }
 }
