@@ -28,8 +28,19 @@ export class MovieService {
       ];
 
   constructor() { }
-  getMovies(): Movie[]{
-      return this.movies;
+  //arreglo de objectos
+  //getMovies(): Movie[]{
+    getMovies(): Promise<Movie[]>{
+      //return this.movies;
+      //peticion http al server
+      //el server hace una querry al bd 
+      //
+      //return Promise.reject({message:'error de conexxion co la db'});
+      //se procesan los resultados
+      //retorna el set de datos para el cliente
+      
+      
+      return Promise.resolve(this.movies);
   }
 
 }

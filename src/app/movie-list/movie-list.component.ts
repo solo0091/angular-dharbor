@@ -25,8 +25,19 @@ export class MovieListComponent implements OnInit {
   
 
   ngOnInit() {
-    this.movies= this.movieService.getMovies();
-  
+    //this.movies= this.movieService.getMovies();
+    //this.movieService.getMovies().then((function(result){
+      console.log('antes de llamar al servicio');
+    this.movieService.getMovies().then((result)=>{
+      console.log('tengo el resultado');
+      this.movies=result;
+    }).catch((error)=>{
+      console.log('error', error.message);
+       //this.message = error.message;
+    })
+    console.log('despues de movieService.getMovies()');
+    //llamara otro servicio
+    //otro tipo de proceso
   }
 
   onClickMe(){
