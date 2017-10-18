@@ -15,7 +15,15 @@ export class MovieListComponent implements OnInit {
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
-    this.movies = this.movieService.getMovies();
+    // this.movies = this.movieService.getMovies();
+    console.log('Antes de llamar al servicio');
+    this.movieService.getMovies().then((result) => {
+      this.movies = result;
+      console.log('Tengo el resultado');
+    }).catch((error) => {
+      console.log('error', error.message);
+    });
+    console.log('Despues de llamar al servicio');
     setTimeout(() => {
       this.movies.push(
         {
