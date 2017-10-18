@@ -20,9 +20,11 @@ export class MovieListComponent implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.movies = this.movieService.getMovies();
-    }, 3000);
+    this.movieService.getMovies()
+      .subscribe(data => {
+        console.log(data['results']);
+        this.movies = data.results;
+      })
   }
 
 getTitle(): string {

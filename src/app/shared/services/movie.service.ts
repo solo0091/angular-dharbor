@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Movie } from "../model/movie";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs/Observable";
 
+const MOVIES_API = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc'
+const API_KEY = '0971ed323ba8081b990144eef9e02ace'
 @Injectable()
 export class MovieService {
 
@@ -28,10 +32,11 @@ export class MovieService {
     }
   ];
 
-  constructor() { }
+  // Dependency Injection
+  constructor(private http: HttpClient) { }
 
-  getMovies(): Movie[] {
-    return this.movies;
+  getMovies(): Observable<any> {
+    return this.http.get(`${MOVIES_API}&api_key=${API_KEY}`);
   }
 
 }
