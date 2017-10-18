@@ -3,14 +3,14 @@ import { Movie } from '../share/model/movie';
 import { MovieService } from '../share/services/movie.service';
 import { DialogPreviewComponent } from '../dialog-preview/dialog-preview.component';
 import { MatDialog } from '@angular/material';
-import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
   selector: 'adh-movie-list',
   templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.css']
-  /*providers: [MovieService] */
+  styleUrls: ['./movie-list.component.css']/* ,
+  providers: [HttpClient] */
 })
 export class MovieListComponent implements OnInit {
   title = 'Welcome to Movie List';
@@ -25,10 +25,11 @@ export class MovieListComponent implements OnInit {
   statusButton = false;
   value= '';
 
+  privateListMovies = [];
+
   constructor(
     private movieService: MovieService,
-    public preview: MatDialog,
-    private http: HttpClient
+    public preview: MatDialog
   ) {
   // cuando se declara con el modificador de acceso movieService privado y publico
   // se puede usar el atributo directamente con this.
@@ -42,7 +43,13 @@ export class MovieListComponent implements OnInit {
       // proceso asynchrono
       this.movieList = result;
     })
-    .catch(error => console.log(error));
+    .catch(error => console.log('promise::', error));
+
+    // CONSUMING REST.
+    this.movieService.getRESTPrivateURl()
+    .subscribe( data => {
+      this.privateListMovies = data.results;
+    });
 
     setTimeout(() => {
       this.customText = 'One way data-binding';
@@ -88,5 +95,30 @@ export class MovieListComponent implements OnInit {
         info : movie
        }
     });
+  }
+  openPreviewPrivateREST( movie , width = '700px', height = '550px'): void {
+    console.log(movie)
+    const baseHttp = 'https://image.tmdb.org/t/p/w160/';
+    const newMovie = {
+      path : baseHttp + movie.poster_path,
+      description : movie.overview,
+      genre: `${ movie.genre_ids[0] }-${ movie.genre_ids[1]}` ,
+      title: movie.original_title,
+      price: `${ movie.vote_average} - ${ movie.vote_count}`,
+      duration: movie.popularity
+    }
+
+    this.preview.open(DialogPreviewComponent , {
+      width : width,
+      height: height,
+      data: {
+        info : newMovie
+       }
+    });
+  }
+  setDateDMY( value: string ): string {
+    const datas = value.split('-');
+
+    return `${ datas[2]}-${ datas[1]}-${ datas[0]}` ;
   }
 }

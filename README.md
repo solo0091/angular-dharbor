@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
+## API Integration
+Our App is using [The Movie Database website](https://www.themoviedb.org/documentation/api/discover)
+
+`API_KEY` is `0971ed323ba8081b990144eef9e02ace`
+
+In order to find popular movies using that API, please use following URL:
+
+```
+https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=0971ed323ba8081b990144eef9e02ace
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Movie } from '../model/movie';
+import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
+
+const MOVIES_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=`;
+const API_KEY = `0971ed323ba8081b990144eef9e02ace`;
 
 @Injectable()
 export class MovieService {
@@ -49,7 +54,7 @@ export class MovieService {
     new Movie('', '', '', new Date(), '', '', 0),
     new Movie('', '', '', new Date(), '', '', 0)
   ];
-  constructor() { }
+  constructor(private http: HttpClient) { }
   getMovies(): Promise<Movie[]> {
     /*
       Peticion HTTP al serve
@@ -75,7 +80,7 @@ export class MovieService {
       la Gran Guerra, que está sucediendo en ese momento. Entonces, Diana sale de su hogar
       para tratar de detener este enfrentamiento y frenar a Ares, el Dios de la Guerra,
       de una vez y para siempre.`,
-      //'https://upload.wikimedia.org/wikipedia/en/e/ed/Wonder_Woman_%282017_film%29.jpg',
+      // 'https://upload.wikimedia.org/wikipedia/en/e/ed/Wonder_Woman_%282017_film%29.jpg',
       '',
       new Date('1/1/16'),
       '2h 0m',
@@ -84,5 +89,10 @@ export class MovieService {
     );
     this.movies.push(movie3);
     return this.movies;
+  }
+
+  getRESTPrivateURl(): Observable<any> {
+    return this.http
+    .get(`${ MOVIES_API}&api_key=${API_KEY}`);
   }
 }
