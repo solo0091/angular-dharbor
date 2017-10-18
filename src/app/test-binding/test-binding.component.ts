@@ -52,6 +52,7 @@ export class TestBindingComponent implements OnInit {
  
     onKey(event:any) {
       console.log('event', event);
+      
       this.values += event.target.value + ' | ';
     }
 

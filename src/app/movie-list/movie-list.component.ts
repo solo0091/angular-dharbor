@@ -42,9 +42,18 @@ export class MovieListComponent implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.movies=this.movieService.getMovies();
-    }, 2000);
+    
+      //this.movies=this.movieService.getMovies();
+      console.log('antes de llamar al servicio');
+      this.movieService.getMovies().then((result)=>{ //Se crea una funcion para obtener el result
+        console.log('Tengo resultado');
+        this.movies = result;
+      }).catch((error) =>{
+        console.log('error', error.message);
+      });
+      console.log('Despues de movieService.getMovie()');
+      //Llamadas a otros servicios
+    
    
     
   }

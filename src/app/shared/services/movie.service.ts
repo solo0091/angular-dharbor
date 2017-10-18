@@ -29,8 +29,18 @@ export class MovieService {
 
   constructor() { }
 
-  getMovies():Movie[]{
-    return this.movies
+  //Se desconoce el tiempo de ejecucion de getMovies
+  getMovies():Promise<Movie[]>{ //DEVUELVE UN ARRAY DE OBJETOS MOVIES
+    //Peticion HTTP al server
+    //El server hace la consulta a una BD
+    //return Promise.reject({
+    //  message: 'Error de conexion con la BD'
+    //});
+    //Se procesan los datos obtenidos
+    //Retorna el set de datos para el cliente
+    //EN CASO DE RESULT 
+    return Promise.resolve(this.movies);
+    //return this.movies//opcion de devolucion de datos sin promise
   }
   
 }
