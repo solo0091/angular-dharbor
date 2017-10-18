@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Movie } from '../shared/model/movie';
 import { MovieService } from '../shared/services/movie.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'adh-movie-list',
@@ -12,7 +14,8 @@ export class MovieListComponent implements OnInit {
   defaultPictureURL:string = 'https://angular.io/assets/images/logos/angular/angular.png';
   movies: Movie[];
   // Dependency Injection
-  constructor(private movieService: MovieService) { 
+  constructor(private movieService: MovieService, 
+              private router: Router) { 
   }
 
   ngOnInit() {
@@ -21,6 +24,15 @@ export class MovieListComponent implements OnInit {
       console.log('data', data);
       this.movies = data.results;
     })
+  }
+
+  onSelect(movie: Movie): void {
+    console.log('onSelect', movie);
+    this.router.navigate(['movie', movie.id]);
+  }
+
+  onClick(event: any) {
+    console.log('onClick', event);
   }
 }
 
