@@ -11,21 +11,27 @@ export class MovieListComponent implements OnInit {
   title: string = 'Popular Movies';
   defaultPictureURL: string = 'https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/033/thumb/egghead-angular-material-course-sq.png'
   text: string = 'Hello World';
-  //clickMessage = '';
   movies : Movie[];
   
   //onClickMe() {
   //  this.clickMessage = 'You are my hero!';
   //}
   
+  //Dependency Injection
   constructor(private movieService: MovieService) {
 
    }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.movies = this.movieService.getMovies();  
-    }, 2000);
+    //this.movies = this.movieService.getMovies();  
+    
+    this.movieService.getMovies().then((result)=>{
+      this.movies = result;
+    }).catch((error)=> {
+      console.log('error', error.message);
+      //this.message = error.message;
+    });
+    
     
 
     //ejemplo de cambio de listas por tiempo
