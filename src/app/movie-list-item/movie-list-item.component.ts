@@ -1,6 +1,7 @@
 import { Component, 
          Input, OnInit } from '@angular/core';
 import { Movie } from '../shared/model/movie';
+import { MovieService } from '../shared/services/movie.service';
 
 @Component({
   selector: 'adh-movie-list-item',
@@ -12,9 +13,12 @@ export class MovieListItemComponent implements OnInit {
   @Input()
   movie: Movie;
 
-  constructor() { }
+  // Injectar MovieService
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
+    this.movie.pictureURL = 
+        this.movieService.getPictureURL(this.movie['poster_path']);
   }
 
 }
