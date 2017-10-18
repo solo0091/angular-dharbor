@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input ,OnInit } from '@angular/core';
+import {Movie} from '../shared/model/movie'
+import {MovieService} from '../shared/services/movie.service';
 @Component({
   selector: 'adh-movie-list-item',
   templateUrl: './movie-list-item.component.html',
   styleUrls: ['./movie-list-item.component.css']
 })
 export class MovieListItemComponent implements OnInit {
-
-  constructor() { }
+  //Input parameter, it is used to level attribute
+  @Input()
+  movie:Movie;
+//Injectar Movieservice
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
+    this.movie.pictureURL =  this.movieService.getPictureURL(this.movie['poster_path']);
   }
 
 }
