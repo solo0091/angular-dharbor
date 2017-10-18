@@ -16,11 +16,11 @@ export class MovieListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movieService.getMovies().then((result) =>{
-      this.movies = result;
-    }).catch((error) => {
-      console.log('error', error.message);
-    });
+    this.movieService.getMovies()
+    .subscribe((data)=> {
+      console.log('data', data);
+      this.movies = data.results;
+    })
   }
 }
 
