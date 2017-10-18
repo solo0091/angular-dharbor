@@ -29,8 +29,18 @@ export class MovieService {
 
   constructor() { }
 
-  getMovies(): Movie[] {
-    return this.movies;
+  getMovies(): Promise<Movie[]> {
+    // Peticion HTTP al server
+    // El server hace consultas a una BD
+
+    // return Promise.reject({
+    //   message: 'Error de conexion con la BD'
+    // });
+    
+    // Se procesan los datos obtenidos
+    // Retorna el set de datos para el cliente
+    return Promise.resolve(this.movies);
+
   }
 
 }
