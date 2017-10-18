@@ -50,8 +50,15 @@ export class MovieService {
     new Movie('', '', '', new Date(), '', '', 0)
   ];
   constructor() { }
-  getMovies(): Movie[] {
-    return this.movies;
+  getMovies(): Promise<Movie[]> {
+    /*
+      Peticion HTTP al serve
+      El server hace consultas a una DB
+      Se procesa los datos obtenidos
+      retorna el set de datos para el cliente
+    */
+    return Promise.resolve(this.movies);
+    // return Promise.reject({ message: 'Error de conexion...'})
   }
   getBlindMovies(): Movie[] {
     return this.blindMovies;

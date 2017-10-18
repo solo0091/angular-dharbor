@@ -3,6 +3,8 @@ import { Movie } from '../share/model/movie';
 import { MovieService } from '../share/services/movie.service';
 import { DialogPreviewComponent } from '../dialog-preview/dialog-preview.component';
 import { MatDialog } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'adh-movie-list',
@@ -23,7 +25,11 @@ export class MovieListComponent implements OnInit {
   statusButton = false;
   value= '';
 
-  constructor(private movieService: MovieService, public preview: MatDialog) {
+  constructor(
+    private movieService: MovieService,
+    public preview: MatDialog,
+    private http: HttpClient
+  ) {
   // cuando se declara con el modificador de acceso movieService privado y publico
   // se puede usar el atributo directamente con this.
   }
@@ -31,8 +37,14 @@ export class MovieListComponent implements OnInit {
     // let that = this; //asignamos todo el contexto de la clase
     this.movieList = this.movieService.getBlindMovies();
 
+    this.movieService.getMovies()
+    .then( result => {
+      // proceso asynchrono
+      this.movieList = result;
+    })
+    .catch(error => console.log(error));
+
     setTimeout(() => {
-      this.movieList = this.movieService.getMovies();
       this.customText = 'One way data-binding';
     }, 2000);
 
