@@ -23,7 +23,25 @@ export class MovieListComponent implements OnInit {
   constructor(private movieService:MovieService) { }
 
   ngOnInit() {
-    this.movie=this.movieService.getMovies();
+    this.movieService.getMoviesURL()
+        .subscribe(
+          (result)=>{
+            this.movie=result['results'];
+          }
+        );
+    /*
+    console.log("Antes de llamar al servicio");
+    this.movieService.getMovies().then(
+      result=>{
+        console.log("Tengo resultado");
+        this.movie=result;}
+    ).catch(
+      error=>{
+        this.movie=[];
+        console.log("error",error.message);}
+    );*/
+    /*
+    console.log("Despues de llamar al servicio");
     setTimeout(()=>{
       this.movie[2]={
         title:'Star Wars 3',
@@ -35,7 +53,7 @@ export class MovieListComponent implements OnInit {
         overview:"Star Wars description2",
         image:null
       };
-    },4000);
+    },4000);*/
   }
   getTitle(){
     return this.title;

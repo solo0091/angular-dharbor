@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import {  Movie } from "../model/movie";
+import { HttpClient } from "@angular/common/http";
+import 'rxjs/add/operator/map';
 @Injectable()
 export class MovieService {
+  URL:string="https://api.themoviedb.org/3/discover/";
+  KEY:string="0971ed323ba8081b990144eef9e02ace";
   movie:Movie[]=[
     {
       title:'Star Wars',
@@ -14,8 +18,18 @@ export class MovieService {
       image:"https://images-na.ssl-images-amazon.com/images/I/51BGV8AJ4RL.jpg"
     }
   ];
-  constructor() { }
-  getMovies():Movie[]{
-    return this.movie;
+  constructor(private http:HttpClient) { }
+  getMovies():Promise<Movie[]>{
+    // Peticion al server 
+    // El server hace consultas a una BD
+    // Se procesan los datos obtenidos
+    // Retorna el set de datos para el cliente
+   /* return Promise.reject({
+      message:"Conexion con la bd"
+    });*/
+    return Promise.resolve(this.movie);
+  }
+  getMoviesURL(){
+    return this.http.get(this.URL+"movie?sort_by=popularity.desc&api_key="+this.KEY);
   }
 }

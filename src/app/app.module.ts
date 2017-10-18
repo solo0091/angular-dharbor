@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { MovieModule } from './movie/movie.module';
 import { BindingModule } from './binding/binding.module';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BindingModule } from './binding/binding.module';
     AppRoutingModule,
     MaterialModule,
     MovieModule,
-    BindingModule
+    BindingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

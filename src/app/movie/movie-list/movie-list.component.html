@@ -17,8 +17,8 @@
 </mat-grid-list> -->
 <mat-list>
   <mat-list-item *ngFor="let mov of movie">
-      <img [src]="mov.image" *ngIf="mov.image" mat-list-avatar>
-      <img [src]="noimage" *ngIf="!mov.image" mat-list-avatar>
+      <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{mov.poster_path}}" *ngIf="mov.poster_path" mat-list-avatar>
+      <img [src]="noimage" *ngIf="!mov.poster_path" mat-list-avatar>
       <h4 mat-line>{{mov.title}}</h4>
       <p mat-line>{{mov.overview}}</p>
   </mat-list-item>
