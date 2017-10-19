@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../shared/model/movie';
 import { MovieService} from '../shared/services/movie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'adh-movie-list',
@@ -11,7 +12,7 @@ export class MovieListComponent implements OnInit {
   title = 'Popular Movies';
   movies: Movie[];
   // Dependency Injection
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit() {
     this.movieService.getMovies().subscribe((data) => {
@@ -48,6 +49,15 @@ export class MovieListComponent implements OnInit {
       );
     }, 4000);
     */
+  }
+
+  onSelect(event: Movie) {
+    console.log('Selected', event);
+    this.router.navigate(['movie', event['id']]);
+  }
+
+  onClick(event: any) {
+    console.log('Click', event);
   }
 
 }

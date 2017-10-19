@@ -3,5 +3,5 @@
 </h4>
 
 <mat-list>
-    <adh-movie-list-item *ngFor="let movie of movies" [movie]="movie"></adh-movie-list-item>
+    <adh-movie-list-item *ngFor="let movie of movies" [movie]="movie" (select)="onSelect($event)" (click)="onClick($event)"></adh-movie-list-item>
 </mat-list>

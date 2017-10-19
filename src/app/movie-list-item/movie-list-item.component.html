@@ -1,4 +1,4 @@
-<mat-list-item>
+<mat-list-item (click)="onClick()">
     <img mat-list-avatar *ngIf="movie.pictureURL" [src]="movie.pictureURL">
     <img mat-list-avatar *ngIf="!movie.pictureURL" [src]="defaultPictureURL">
     <h4 mat-line>{{movie.title}}</h4>
