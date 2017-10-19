@@ -1,4 +1,4 @@
-import { Component, Input ,OnInit } from '@angular/core';
+import { Component, Input ,OnInit ,EventEmitter,Output} from '@angular/core';
 import {Movie} from '../shared/model/movie'
 import {MovieService} from '../shared/services/movie.service';
 @Component({
@@ -10,6 +10,10 @@ export class MovieListItemComponent implements OnInit {
   //Input parameter, it is used to level attribute
   @Input()
   movie:Movie;
+  //parameter of component, message to extern
+  @Output()
+  select: EventEmitter<any> = new EventEmitter<any>();
+
   defaultPictureURL:string;
 //Injectar Movieservice
   constructor(private movieService: MovieService) { }
@@ -23,6 +27,11 @@ export class MovieListItemComponent implements OnInit {
     if(!this.movie['poster_path']){
       this.defaultPictureURL = this.movieService.getDefaultPictureURL()
     }
+  }
+  onClick():void{
+    //propagar, emitir evento, objeto,etc.
+    //father knows whom is the child selected
+    this.select.emit(this.movie);
   }
 
 }
