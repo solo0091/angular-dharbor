@@ -18,6 +18,9 @@ export class MovieService {
   }
 
   getPictureURL(posterPath:string):string{
+    if(!posterPath){
+      return undefined;
+    }
     return `${PICTURE_URL}${posterPath}`
   }
 
