@@ -10,12 +10,16 @@ const PICTURE_URL="https://image.tmdb.org/t/p/w160";
 
 const DEFAULT_PICTURE_URL="https://angular.io/assets/images/logos/angular/angular.png";
 
+const MOVIE_URL="https://api.themoviedb.org/3/movie";
+
 @Injectable()
 export class MovieService {
 
 
   movies: Movie[];
 
+  getMovies:Observable<Movie>;
+  
   //DEPENDENCY INYECTION
   constructor(private httpClient: HttpClient) { }
 
@@ -47,7 +51,6 @@ export class MovieService {
     if(!posterPath){
       return undefined;
     }
-
     return `${PICTURE_URL}${posterPath}`; ///Concatemamos la URL completa para descarga la imagen
   }
 
@@ -55,6 +58,12 @@ export class MovieService {
   getDefaultPictureURL():string
   {
     return DEFAULT_PICTURE_URL;
+  }
+
+  getMovieDetail(idMovie:number):Observable<any>{
+   
+    return this.httpClient.get(`${MOVIE_URL}/${idMovie}?api_key=${API_KEY}`);
+  
   }
 
 }

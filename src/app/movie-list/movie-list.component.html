@@ -4,12 +4,19 @@
 
   <mat-list>
     
-    <adh-movie-list-item *ngFor="let movie of movies" [movie]="movie"> <!--Generamos un componente movielist y definimos un atributo [movie] que es de entrada -->
+    <adh-movie-list-item *ngFor="let movie of movies" 
+                        [movie]="movie"
+                        (select)="onSelect($event)"
+                        (click)="onClick($event)">              <!--Generamos un componente 
+                                      movielist y definimos un atributo [movie] que es de entrada 
+                                      creamos un evento select para cuando seleccionar un item tengamos solo ese objeto
+                                       creamos un evento click -->
     </adh-movie-list-item>    
   
   </mat-list>
 
-
+     
+  
   
   
   

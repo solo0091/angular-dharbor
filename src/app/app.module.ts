@@ -19,7 +19,8 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule,
     MaterialModule,
-    MovieModule
+    MovieModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

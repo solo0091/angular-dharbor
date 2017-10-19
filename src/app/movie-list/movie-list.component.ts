@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  Movie } from "../shared/model/movie";
 import { MovieService   } from "../shared/services/movie.service";//importamos el servicio
 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'adh-movie-list',
@@ -14,12 +15,15 @@ export class MovieListComponent implements OnInit {
 
 //  defaultPictureURL:string='https://angular.io/assets/images/logos/angular/angular.png';
 
-  movies:Movie[];
+  movies:Movie[]; ///El objeto de todas las peliculas
+  
+  selectedMovie:Movie; ///La pelicula seleccionada
 
 
 
 ///DEPENDENCY INYECTION                         ///INYECTAMOS EN EL CONSTRUCTOR EL SERVICIO 
-constructor(private movieService:MovieService) ///INYECTAMOS EN EL CONSTRUCTOR EL API DE MOVIE 
+constructor(private movieService:MovieService,private router:Router) ///INYECTAMOS EN EL CONSTRUCTOR EL API DE MOVIE 
+                                                                     ////INYECTAMOS EL ROUTER
 { }
 
   ngOnInit() {
@@ -38,14 +42,22 @@ constructor(private movieService:MovieService) ///INYECTAMOS EN EL CONSTRUCTOR E
       // Make the HTTP request:
       this.movieService.getMovie().
       subscribe((data)=>{
-          console.log('data',data);
+          //console.log('data',data);
           this.movies=data.results;
       })
       
-    
+    }
+    onSelect(event:Movie){ ///EN EL EVENTO QUE ESPERAMOS RECIBIR ES EL OBJETO PEICULA QUE LANZO EL EVENTO, desde el hijo
       
-      
+      this.selectedMovie=event; ///Guardamos en otra objeto la movie seleccionada llamada event
+     }
 
-  }
+     ///Evento que se lanza cuando se hace click, redireccionamosa otra pagina con el detalle de la pelicula en cuestion
+     onClick():void{ ///AL HACER CLICK SE IRA AL DETALLE DE LAS PELICULAS
+        
+      this.router.navigate(['/movie',this.selectedMovie['id']]); ///para utilizar el router se debe inyectar su instacia
+        
+     }
+
 
 }

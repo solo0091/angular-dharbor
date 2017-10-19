@@ -1,4 +1,4 @@
-<mat-list-item > <!--ngfor , se hace un for la cant de veces del tamaño que tiene el arreglo -->
+<mat-list-item (click)="onClick()"> <!--ngfor , se hace un for la cant de veces del tamaño que tiene el arreglo -->
   <img mat-list-avatar *ngIf="movie.pictureURL" 
                       [src]="movie.pictureURL"> <!-- ngIf, pregunta si la variable pictureURL es NULL,
                                                   si es false, no ejecuta nada! -->
