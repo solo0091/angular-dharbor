@@ -1,5 +1,7 @@
 import { Component,
-         Input, 
+         EventEmitter,
+         Input,
+         Output, 
          OnInit } from '@angular/core';
 import { Movie } from "../shared/model/movie";
 import { MovieService } from "../shared/services/movie.service";
@@ -14,6 +16,10 @@ export class MovieListItemComponent implements OnInit {
   @Input()
   movie: Movie;
 
+  // Output event
+  @Output()
+  select: EventEmitter<any> = new EventEmitter<any>();
+
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
@@ -26,6 +32,11 @@ export class MovieListItemComponent implements OnInit {
     if (!this.movie['poster_path']) {
       this.movie.pictureUrl =  this.movieService.getDefaultPictureURL();
     }
+  }
+
+  onClick(): void {
+    //propagar, emitir evento, objeto, etc.
+    this.select.emit(this.movie);
   }
 
 }

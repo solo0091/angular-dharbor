@@ -26,6 +26,14 @@ export class MovieListComponent implements OnInit {
       })
   }
 
+  onSelect(mov: Movie) {
+    console.log('Selected', mov)
+  }
+
+  onClick(event: any) {
+    console.log('Click Event', event);
+  }
+
 getTitle(): string {
   return this.title;
 }
