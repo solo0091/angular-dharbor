@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../../shared/model/movie'
-import { MovieService } from '../../shared/services/movie.service'
+import { Movie } from '../../shared/model/movie';
+import { MovieService } from '../../shared/services/movie.service';
 
 @Component({
   selector: 'adh-movie-list',
@@ -11,23 +11,35 @@ export class MovieListComponent implements OnInit {
 
   title: string = 'Popular Movies';
   movies: Array<Movie>;
-  defaultPictureURL: string = 'https://image.freepik.com/free-vector/cinema-logo_23-2147503279.jpg';
+  
+  color = 'primary';
+  mode = 'indeterminate';
+  value = 50;
+  bufferValue = 75;
+  isLoading = true;
 
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
-    setTimeout(() => {
+
+    this.movieService.getMovies().subscribe((data) => {
+      this.movies = data.results;
+      this.isLoading = false;
+    });
+
+    /*setTimeout(() => {
       //this.movies = this.movieService.getMovies();
       console.log('Antes de llamar al servicio');
-      this.movieService.getMovies().then((result) => {
+      this.movieService.getMovies2().then((result) => {
         console.log('Tengo el resultado');
         this.movies = result;
       }).catch( (error) => {
         console.log(error.message);
       });
       console.log('Despues de llamar al servicio');
-    }, 2000)
+    }, 2000)*/
+
     /*setTimeout(() => {
       this.movies= [
         {
