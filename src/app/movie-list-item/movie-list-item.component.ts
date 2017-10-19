@@ -13,12 +13,21 @@ export class MovieListItemComponent implements OnInit {
   @Input()
   movie: Movie;
 
+  defaultPictureURL:string;
+
   // Injectar MovieService
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
+    // delete this.movie['poster_path'];
+    // this.movie['poster_path'] = null;
+
     this.movie.pictureURL = 
         this.movieService.getPictureURL(this.movie['poster_path']);
+
+    if(!this.movie['poster_path']) {
+      this.defaultPictureURL = this.movieService.getDefaultPictureURL();
+    }
   }
 
 }

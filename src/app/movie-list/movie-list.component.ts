@@ -9,7 +9,6 @@ import { MovieService } from '../shared/services/movie.service';
 })
 export class MovieListComponent implements OnInit {
   title:string = 'Popular Movies';
-  defaultPictureURL:string = 'https://angular.io/assets/images/logos/angular/angular.png';
   movies: Movie[];
   // Dependency Injection
   constructor(private movieService: MovieService) { 
