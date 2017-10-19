@@ -7,6 +7,8 @@ import { MaterialModule } from './material/material.module';
 import { MovieModule } from './movie/movie.module';
 import { TestBindingComponent } from './test-binding/test-binding.component';
 
+import {HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +16,7 @@ import { TestBindingComponent } from './test-binding/test-binding.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     MaterialModule,
     MovieModule

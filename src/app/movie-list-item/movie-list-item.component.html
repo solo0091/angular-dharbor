@@ -1,0 +1,17 @@
+<mat-list-item > <!--ngfor , se hace un for la cant de veces del tamaño que tiene el arreglo -->
+  <img mat-list-avatar *ngIf="movie.pictureURL" 
+                      [src]="movie.pictureURL"> <!-- ngIf, pregunta si la variable pictureURL es NULL,
+                                                  si es false, no ejecuta nada! -->
+  <img mat-list-avatar *ngIf="!movie.pictureURL" 
+                      [src]="defaultPictureURL">
+  <h4 mat-line>{{movie.title}}</h4> <!-- Mat line sirve para que el texto solo sea en una linea -->
+  <p mat-line> {{movie.overview}} </p>
+</mat-list-item>
+ 
+
+
+<!--
+<pre>
+{{movie | json }}usamos un pipe, json se encarga de formatear esa cadena de forma entendible, formato json
+</pre>
+-->
