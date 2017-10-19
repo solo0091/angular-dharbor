@@ -11,7 +11,7 @@ export class MovieListComponent implements OnInit {
 
   title: string = 'Popular Movies';
   movies: Array<Movie>;
-  
+
   color = 'primary';
   mode = 'indeterminate';
   value = 50;
@@ -54,5 +54,13 @@ export class MovieListComponent implements OnInit {
         }
       ];
     }, 4000);*/
+  }
+
+  onSelect(event: Movie) {
+    console.log('Selected', event);
+  }
+
+  onClick(event: any) {
+    console.log('Click', event);
   }
 }
