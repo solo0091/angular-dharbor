@@ -7,10 +7,12 @@ import { MaterialModule } from './material/material.module';
 import { MovieModule } from './movie/movie.module';
 import { TestBindingComponent } from './test-binding/test-binding.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     TestBindingComponent
+    
   ],
   imports: [
     BrowserModule,

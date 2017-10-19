@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MovieListComponent } from '../movie-list/movie-list.component';
+import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../material/material.module';
-import { MoviesService } from '../shared/services/movies.service';
-
+import { MovieListComponent } from '../movie-list/movie-list.component';
+import { MovieService } from '../shared/services/movie.service';
+import { MovieListItemComponent } from '../movie-list-item/movie-list-item.component';
 
 @NgModule({
   imports: [
-    CommonModule,MaterialModule
+    CommonModule,
+    MaterialModule,
+    HttpClientModule
   ],
-  declarations: [MovieListComponent],
-  providers: [MoviesService]
+  declarations: [MovieListComponent, MovieListItemComponent],
+  providers: [MovieService]
 })
 export class MovieModule { }
