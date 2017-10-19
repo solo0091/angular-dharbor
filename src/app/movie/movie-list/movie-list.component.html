@@ -16,11 +16,7 @@
   <mat-grid-tile [colspan]="1" [rowspan]="1"><p>{{mov.overview}}</p></mat-grid-tile>  
 </mat-grid-list> -->
 <mat-list>
-  <mat-list-item *ngFor="let mov of movie">
-      <img src="{{imageURL}}{{mov.poster_path}}" *ngIf="mov.poster_path" mat-list-avatar>
-      <img [src]="noimage" *ngIf="!mov.poster_path" mat-list-avatar>
-      <h4 mat-line>{{mov.title}}</h4>
-      <p mat-line>{{mov.overview}}</p>
-  </mat-list-item>
+  <adh-movie-list-item (clickItem)="getMovieClicked($event)"
+  (click)="onClick($event)"  *ngFor="let mov of movie" [mov]="mov"></adh-movie-list-item>
 </mat-list>
 
