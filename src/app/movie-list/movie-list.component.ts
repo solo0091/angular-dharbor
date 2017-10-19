@@ -28,8 +28,12 @@ export class MovieListComponent implements OnInit {
       this.movies = data.results;})
   }
 
-  onSelect(event: any){
+  onSelect(event: Movie){
     console.log("selected",event);
+  }
+
+  onClick(event:MouseEvent){
+    console.log("click",event);
   }
 
    getTitle():string{
