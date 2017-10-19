@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Movie } from '../shared/model/movie';
 import { MovieService } from '../shared/services/movie.service';
 
@@ -11,7 +12,8 @@ export class MovieListComponent implements OnInit {
   title:string = 'Popular Movies';
   movies: Movie[];
   // Dependency Injection
-  constructor(private movieService: MovieService) { 
+  constructor(private movieService: MovieService, 
+              private router: Router) { 
   }
 
   ngOnInit() {
@@ -24,6 +26,7 @@ export class MovieListComponent implements OnInit {
 
   onSelect(event: Movie) {
     console.log('Selected', event);
+    this.router.navigate(['movie', event.id]);
   }
 
   onClick(event: any) {
