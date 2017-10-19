@@ -17,6 +17,10 @@ Image Path is `https://image.tmdb.org/t/p/w160`.
 
 Example: [https://image.tmdb.org/t/p/w160/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg](https://image.tmdb.org/t/p/w160/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg)
 
+Get Movie details: `https://api.themoviedb.org/3/movie`
+
+Example: GET [https://api.themoviedb.org/3/movie/211672?api_key=0971ed323ba8081b990144eef9e02ace](https://api.themoviedb.org/3/movie/211672?api_key=0971ed323ba8081b990144eef9e02ace)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
