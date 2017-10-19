@@ -5,4 +5,17 @@
   <span>Curso Angular</span>
 </mat-toolbar>
 
+<nav>
+  <a>
+    <button mat-button color="primary" [routerLink]="'/'">
+      Home
+    </button>
+  </a>
+  <a>
+    <button mat-button color="primary" [routerLink]="'/test-binding'">
+      Test Binding
+    </button>
+  </a>
+</nav>
+
 <router-outlet></router-outlet>

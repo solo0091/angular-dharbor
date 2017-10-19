@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../shared/model/movie'
 import { MovieService } from '../shared/services/movie.service'
-import { HttpClient } from '@angular/common/http'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'adh-movie-list',
@@ -10,10 +10,13 @@ import { HttpClient } from '@angular/common/http'
 })
 export class MovieListComponent implements OnInit {
   title: string = 'Popular Movies';
-  defaultPictureURL: string = 'https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/033/thumb/egghead-angular-material-course-sq.png'
+  
   movies: Movie[];
   //Dependency Injection
-  constructor(private movieService: MovieService) {}
+  constructor(private movieService: MovieService,
+              private router: Router) {
+
+  }
 
   ngOnInit() {
     this.movieService.getMovies()
@@ -21,5 +24,14 @@ export class MovieListComponent implements OnInit {
       console.log('data', data);
       this.movies = data.results;
     })
+  }
+
+  onSelect(event: Movie){
+    console.log('Selected', event);
+    this.router.navigate(['movie', event.id])
+  }
+
+  onClick(event: any){
+    console.log('Click', event);
   }
 }
