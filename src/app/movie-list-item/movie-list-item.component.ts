@@ -17,6 +17,7 @@ export class MovieListItemComponent implements OnInit {
   ngOnInit() {
     //test the picture by default
     //delete this.movie['poster_path'];
+    //this.movie['poster_path'] = null
 
     this.movie.pictureURL =  this.movieService.getPictureURL(this.movie['poster_path']);
     if(!this.movie['poster_path']){
