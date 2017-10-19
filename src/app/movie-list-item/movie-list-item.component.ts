@@ -1,6 +1,8 @@
 import { Component, Input ,OnInit ,EventEmitter,Output} from '@angular/core';
 import {Movie} from '../shared/model/movie'
 import {MovieService} from '../shared/services/movie.service';
+
+
 @Component({
   selector: 'adh-movie-list-item',
   templateUrl: './movie-list-item.component.html',
@@ -15,8 +17,9 @@ export class MovieListItemComponent implements OnInit {
   select: EventEmitter<any> = new EventEmitter<any>();
 
   defaultPictureURL:string;
-//Injectar Movieservice
-  constructor(private movieService: MovieService) { }
+//Injectar Movieservice, router , activedroute
+  constructor(private movieService: MovieService) { 
+  }
 
   ngOnInit() {
     //test the picture by default

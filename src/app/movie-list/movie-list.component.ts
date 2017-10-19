@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {Movie} from '../shared/model/movie'
 import {MovieService} from '../shared/services/movie.service'
 import { HttpClient } from '@angular/common/http';
@@ -14,9 +15,9 @@ export class MovieListComponent implements OnInit {
     
   
   //DI
-  constructor(private movieService:MovieService)
+  constructor(private movieService:MovieService, private router:Router)
   {
-
+   
   }
  
   movies: Movie[];
@@ -30,6 +31,7 @@ export class MovieListComponent implements OnInit {
 
   onSelect(event: Movie){
     console.log("selected",event);
+    this.router.navigate(['movie',event.id])
   }
 
   onClick(event:MouseEvent){
