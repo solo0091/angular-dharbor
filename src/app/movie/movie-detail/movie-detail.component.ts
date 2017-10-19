@@ -15,20 +15,22 @@ export class MovieDetailComponent implements OnInit {
     private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(
+      (params)=>{
+        console.log(params.id);
+      }
+    );
     let id=this.route.snapshot.params['id'];
     this.movieService.getMovie(id)
       .subscribe(
         (result)=>{
           this.movieId=result;
-        //  console.log(this.movieId);
           this.movieId.imageUrl=this.movieService.getImageURL(this.movieId['poster_path']);
-          //console.log(this.movieId);
         },
         (error)=>{
           console.log(error);
         }
       );
-   // this.movie=this.movieService.getMovie(id);
   }
 
 }
