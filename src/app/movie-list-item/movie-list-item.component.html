@@ -1,0 +1,12 @@
+<mat-list-item>
+  <img mat-list-avatar *ngIf="movie.pictureUrl"
+                       [src]="movie.pictureUrl"/>
+  <img mat-list-avatar *ngIf="!movie.pictureUrl"
+                       [src]="defaultPictureUrl"/>
+  <h4 mat-line>{{movie.title}}</h4>
+  <p mat-line>{{movie.overview}}</p>
+</mat-list-item>
+
+<!-- <pre>
+  {{movie | json}}
+</pre> -->

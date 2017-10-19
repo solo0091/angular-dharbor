@@ -10,7 +10,6 @@ import { MovieService } from "../shared/services/movie.service";
 export class MovieListComponent implements OnInit {
 
   title: string = 'Popular Movies'
-  defaultPictureUrl = 'https://cdn2.iconfinder.com/data/icons/classic-development-circle/512/multimedia-512.png'
 
   movies: Movie[];
 
