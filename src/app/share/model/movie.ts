@@ -5,8 +5,18 @@ export class Movie {
   updated: Date;
   duration: string;
   genre: string;
-  price: number
-  constructor(title: string, description: string, path: string, updated: Date , duration: string, genre: string, price: number) {
+  price: number;
+  defaulPicturetURL ?: string;
+  constructor(
+      title: string,
+      description: string,
+      path: string,
+      updated: Date,
+      duration: string,
+      genre: string,
+      price: number,
+      defaulPicturetURL = ''
+    ) {
     this.title = title;
     this.description = description;
     this.path = path;
@@ -14,5 +24,6 @@ export class Movie {
     this.duration = duration;
     this.genre = genre;
     this.price = price;
+    this.defaulPicturetURL = defaulPicturetURL;
   }
 }

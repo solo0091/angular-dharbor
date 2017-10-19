@@ -13,6 +13,7 @@ import { MatDialog } from '@angular/material';
   providers: [HttpClient] */
 })
 export class MovieListComponent implements OnInit {
+
   title = 'Welcome to Movie List';
 
   movieList: Movie[];
@@ -116,9 +117,10 @@ export class MovieListComponent implements OnInit {
        }
     });
   }
-  setDateDMY( value: string ): string {
-    const datas = value.split('-');
-
-    return `${ datas[2]}-${ datas[1]}-${ datas[0]}` ;
+  onSelect(movie: Movie ): void {
+    console.log('Parent:', movie);
+  }
+  onClick( $event, movie: Movie ): void {
+    console.log('onClick:', $event, movie);
   }
 }
