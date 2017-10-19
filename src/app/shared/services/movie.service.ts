@@ -7,6 +7,10 @@ const MOVIES_API='https://api.themoviedb.org/3/discover/movie?sort_by=popularity
 const API_KEY ='0971ed323ba8081b990144eef9e02ace';
 const PICTURE_URL ='https://image.tmdb.org/t/p/w160';
 const DEFAULT_PICTURE_URL ='https://angular.io/assets/images/logos/angular/angular.png';
+
+const MOVIE_URL ='https://api.themoviedb.org/3/movie';
+
+
 @Injectable()
 export class MovieService {
 
@@ -54,6 +58,12 @@ getPictureURL(posterPath : string): string{
 getDefaultPictureURL():string{
   return DEFAULT_PICTURE_URL;
 }
+
+getMovieDetail(idMovie:number):Observable<any>{
+  return this.httpClient.get(`${MOVIE_URL}/${idMovie}?api_key=${API_KEY}`);
+}
+
+
   //Se desconoce el tiempo de ejecucion de getMovies
   //getMovies():Promise<Movie[]>{ //DEVUELVE UN ARRAY DE OBJETOS MOVIES
     //Peticion HTTP al server

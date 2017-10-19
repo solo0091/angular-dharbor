@@ -3,6 +3,9 @@ import { Movie } from "../shared/model/movie";
 import { MovieService } from "../shared/services/movie.service";
 import { HttpClient } from '@angular/common/http';
 
+import { Router } from '@angular/router'; //IMPORTAMOS ESTA MATERIAL PARA REDIRECCIONAR UNA URL
+
+
 @Component({
   selector: 'adh-movie-list',
   templateUrl: './movie-list.component.html',
@@ -11,8 +14,9 @@ import { HttpClient } from '@angular/common/http';
 export class MovieListComponent implements OnInit {
   title : string ='Popular Movies';
   //defaultpictureURL: string ='https://angular.io/assets/images/logos/angular/angular.png';
-  movies: Movie[] ;
+  movies: Movie[] ; //contiene todas las peliculas
 
+  selectMovie: Movie;
 
   results: string[];//variable que me va otener los resultados
   
@@ -62,7 +66,7 @@ export class MovieListComponent implements OnInit {
    // Inject HttpClient into your component or service.
   // constructor(private http: HttpClient) {}
    
-  constructor(private movieService: MovieService){
+  constructor(private movieService: MovieService, private router: Router){
 
   }
     ngOnInit(): void {
@@ -77,16 +81,19 @@ export class MovieListComponent implements OnInit {
       .subscribe((data) =>{
         console.log('data',data);
         this.movies=data.results;
-      }
-    )
+      })
 
     }
     OnSelect(event : Movie){
-      console.log('Selected', event);
+      this.selectMovie=event;
+      //console.log('Selected', event);
+      this.router.navigate(['movie', event.id]);
     }
 
-    onClick(event:any){
+    onClick():void{//Se va ir al detalle de las peliculas
       console.log('click', event);
+      //this.router.navigate(['/movie', this.selectMovie['id']]);
+      
     }
 
 }

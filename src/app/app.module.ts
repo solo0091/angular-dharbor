@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { MovieModule } from './movie/movie.module';
 import { TestBindingComponent } from './test-binding/test-binding.component';
+import { RouterModule, Routes } from '@angular/router';
 
 ///IMPORTAMOS EL HTTPCLIENTMODULE
 import {HttpClientModule} from '@angular/common/http';
@@ -20,7 +21,8 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     MaterialModule,
     MovieModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

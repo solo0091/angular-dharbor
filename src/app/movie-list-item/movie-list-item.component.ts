@@ -24,7 +24,7 @@ export class MovieListItemComponent implements OnInit {
   ////El componente tiene q ser lo mas ligero posible
   ngOnInit() {
 
-    delete this.movie['poster_path'];
+    //delete this.movie['poster_path'];
     //this.movie['poster_path']=null;
 
     this.movie.pictureURL= this.movieService.getPictureURL(this.movie['poster_path']);//CON LOS CORCHETES SE PUEDE ACCEDER AL ATRIBUTO POSTER_PATH QUE SE TIENE EN HTTML
@@ -35,6 +35,7 @@ export class MovieListItemComponent implements OnInit {
   }
 
   onClick():void{
+  
     this.select.emit(this.movie);//Propaga o emite un evento, objeto, etc//El componente padre tiene toda la informacion de todo el evento
 
   }
