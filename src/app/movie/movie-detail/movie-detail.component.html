@@ -1,0 +1,36 @@
+<a mat-button color="primary" routerLink="/home">Atras</a>
+<mat-card class="example-card" *ngIf="movieId">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title><strong>Title:&nbsp;</strong>{{movieId.title}}</mat-card-title>
+    <mat-card-subtitle><strong>Status:&nbsp;</strong>{{movieId['status']}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-i src="{{movieId.imageUrl}}" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      <strong>Overview:&nbsp;</strong>
+      {{movieId.overview}}
+    </p>
+    <strong>Genre:&nbsp;</strong><ul>
+      <li *ngFor="let genre of movieId['genres']">
+        {{genre['name']}}
+      </li>
+    </ul>
+    <p>
+      <strong>Language:&nbsp;</strong>
+      {{movieId['original_language']}}
+    </p>
+    <p>
+      <strong>Popularity:&nbsp;</strong>
+      {{movieId['popularity']}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
+<p *ngIf="!movieId">
+  No existe la pelicula
+</p>
+

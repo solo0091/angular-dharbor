@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Movie } from "../../shared/model/movie";
 import { MovieService } from "../../shared/services/movie.service";
 import { ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
+
 @Component({
   selector: 'adh-movie-list',
   templateUrl: './movie-list.component.html',
@@ -14,7 +16,8 @@ export class MovieListComponent implements OnInit {
   
   
   constructor(private movieService:MovieService,
-  private route:ActivatedRoute) { }
+  private route:ActivatedRoute,
+  private router:Router) { }
 
   ngOnInit() {
     let page=this.route.snapshot.params['page'];
@@ -58,7 +61,8 @@ export class MovieListComponent implements OnInit {
     return this.title;
   }
   getMovieClicked(event:Movie):void{
-    console.log(event);
+  //  console.log(event);
+    this.router.navigate(['/movie',event['id']]);
   }
   onClick(event:any):void{
     console.log(event);

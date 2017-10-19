@@ -8,7 +8,8 @@ import {
   MatListModule,
   MatToolbarModule,
   MatGridListModule,
-  MatMenuModule
+  MatMenuModule,
+  MatCardModule
 } from '@angular/material';
 
 @NgModule({
@@ -19,7 +20,8 @@ import {
     MatListModule,
     MatToolbarModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule
   ],
   exports: [
     MatButtonModule,
@@ -27,7 +29,8 @@ import {
     MatListModule,
     MatToolbarModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule
   ],
   providers: [
     { provide: MATERIAL_COMPATIBILITY_MODE, useValue: true }
