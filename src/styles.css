@@ -3,4 +3,6 @@
 body {
   font-family: 'Saira Extra Condensed', sans-serif;
   text-shadow: 1px 1px 1px #aaa;
+  height: 100%;
+  width: 100%;
 }

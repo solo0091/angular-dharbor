@@ -1,0 +1,35 @@
+<div class="example-card">
+    <mat-card *ngIf="movie">
+        <!-- img src="card-image.png" class="mat-card-image" alt="image caption" -->
+        <mat-card-content>
+            <h2> {{ movie.title }}</h2>
+            <p>
+                About movie
+            </p>
+            <p>
+                <mat-grid-list cols="3" rowHeight="0:3">
+                    <mat-grid-tile>
+                        Genero : {{ movie.genre }}
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        Fecha de estreno: {{ movie.updated }}
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        Popularidad: {{ movie.price }}
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </p>
+            <p *ngIf="movie.path !== ''">
+                <img mat-card-image [src]="movie.path" >
+            </p>
+            <p *ngIf="movie.path === ''">
+                <img mat-card-image [src]="movie.defaulPicturetURL" >
+            </p>
+            <p>{{ movie.description }}</p>
+        </mat-card-content>
+        <mat-card-actions layout="row" layout-align="end center">
+            <button mat-button>Action 1</button>
+            <button mat-button>Action 2</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

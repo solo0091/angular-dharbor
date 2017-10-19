@@ -6,8 +6,10 @@ import { HttpClient } from '@angular/common/http';
 const MOVIES_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc`;
 const API_KEY = `0971ed323ba8081b990144eef9e02ace`;
 
-const PICTURE_URL = `https://image.tmdb.org/t/p/w160/`;
+const PICTURE_URL = `https://image.tmdb.org/t/p/w160`;
 const DEFAULT_PICTURE_URL = 'https://cdn.geekwire.com/wp-content/uploads/2015/01/code-fellows-logo-shield-266x300.png';
+
+const MOVIE_DETAIL_URL = `https://api.themoviedb.org/3/movie/`;
 
 @Injectable()
 export class MovieService {
@@ -100,11 +102,16 @@ export class MovieService {
   }
 
   getPictureUrl( posterPath: string): string {
+    console.log('adsad', `${ PICTURE_URL }${ posterPath }`);
     return `${ PICTURE_URL }${ posterPath }`;
   }
 
   getDefaultPictureURL( defaultPicture: string): string {
-    return (defaultPicture === undefined  || defaultPicture === null) ? DEFAULT_PICTURE_URL : '';
+    return (defaultPicture === undefined  || defaultPicture === null || defaultPicture === '') ? DEFAULT_PICTURE_URL : '';
   }
 
+  getMovieDetail( id: number) {
+    return this.http
+    .get(`${ MOVIE_DETAIL_URL }${ id }?api_key=${ API_KEY }`);
+  }
 }

@@ -1,0 +1,20 @@
+.detail-movie-view {
+  text-align: center;
+}
+img{
+  width:50%;
+  height: 50%;
+}
+
+.example-card {
+  width: 100%;
+  text-align: center !important;
+}
+
+.mat-grid-list {
+  height: 50px !important;
+}
+
+.mat-grid-tile {
+  height: 100% !important;
+}

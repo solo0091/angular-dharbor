@@ -6,6 +6,7 @@ import { FormsModule  } from '@angular/forms';
 import { MovieService } from '../share/services/movie.service';
 import { DialogPreviewComponent } from '../dialog-preview/dialog-preview.component';
 import { MovieListItemComponent } from '../movie-list-item/movie-list-item.component';
+import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { MovieListItemComponent } from '../movie-list-item/movie-list-item.compo
     MaterialModule,
     FormsModule
   ],
-  declarations: [MovieListComponent, DialogPreviewComponent, MovieListItemComponent],
+  declarations: [MovieListComponent, DialogPreviewComponent, MovieListItemComponent, MovieDetailComponent],
   entryComponents: [DialogPreviewComponent],
   providers: [MovieService]
 })

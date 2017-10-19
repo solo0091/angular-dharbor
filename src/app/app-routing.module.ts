@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { TestBindingComponent } from './test-binding/test-binding.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 
 const routes: Routes = [
   {
-    path : '', //root of the application
+    path : '', // root of the application
     pathMatch: 'full',
     redirectTo: 'home'
   },
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path : 'test-binding',
     component: TestBindingComponent
+  },
+  {
+    path : 'movie-detail/:id',
+    component: MovieDetailComponent
   }
 ];
 

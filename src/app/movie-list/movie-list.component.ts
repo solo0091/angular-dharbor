@@ -3,9 +3,7 @@ import { Movie } from '../share/model/movie';
 import { MovieService } from '../share/services/movie.service';
 import { DialogPreviewComponent } from '../dialog-preview/dialog-preview.component';
 import { MatDialog } from '@angular/material';
-
-
-
+import { RouterLink, Router } from '@angular/router';
 @Component({
   selector: 'adh-movie-list',
   templateUrl: './movie-list.component.html',
@@ -30,7 +28,8 @@ export class MovieListComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    public preview: MatDialog
+    public preview: MatDialog,
+    private route: Router
   ) {
   // cuando se declara con el modificador de acceso movieService privado y publico
   // se puede usar el atributo directamente con this.
@@ -121,6 +120,6 @@ export class MovieListComponent implements OnInit {
     console.log('Parent:', movie);
   }
   onClick( $event, movie: Movie ): void {
-    console.log('onClick:', $event, movie);
+    this.route.navigate(['/movie-detail', movie['id']]);
   }
 }
