@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MovieListComponent implements OnInit {
   title : string ='Popular Movies';
-  defaultpictureURL: string ='https://angular.io/assets/images/logos/angular/angular.png';
+  //defaultpictureURL: string ='https://angular.io/assets/images/logos/angular/angular.png';
   movies: Movie[] ;
 
 
@@ -80,6 +80,13 @@ export class MovieListComponent implements OnInit {
       }
     )
 
+    }
+    OnSelect(event : Movie){
+      console.log('Selected', event);
+    }
+
+    onClick(event:any){
+      console.log('click', event);
     }
 
 }

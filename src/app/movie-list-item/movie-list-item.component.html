@@ -1,9 +1,9 @@
 <p>
-  <mat-list-item>
+  <mat-list-item (click)="onClick()">
     <img mat-list-avatar *ngIf="movie.pictureURL" 
                           [src]="movie.pictureURL"><!--Condicion de IF -->
     <img mat-list-avatar *ngIf="!movie.pictureURL" 
-                          [src]="defaultpictureURL"><!--Condicion de IF -->
+                          [src]="defaultPictureURL"><!--Condicion de IF -->
     <h4 mat-line>{{movie.title}}</h4> <!--mat-line sirve como enter reemplaza los estilos -->
     <p mat-line> {{movie.overview}} </p>
 </mat-list-item>
@@ -11,6 +11,6 @@
 
 <!--
 <pre>
-{{movie | json}} <!--Pipe operador para hacer un debbugin reconocer q atributos nos esta llegando 
+{{movie | json}} <!-Pipe operador para hacer un debbugin reconocer q atributos nos esta llegando 
 </pre>
 -->
