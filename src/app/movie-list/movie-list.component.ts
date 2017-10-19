@@ -28,7 +28,8 @@ export class MovieListComponent implements OnInit {
   }
 
   onSelect(movie: Movie) {
-    this.router.navigateByUrl(this.movieService.getMovieDetailURL(movie['id']));
+    //this.router.navigateByUrl(this.movieService.getMovieDetailURL(movie['id']));
+    this.router.navigate(['movie', movie.id]);
   }
 
   onClick(event: any) {
