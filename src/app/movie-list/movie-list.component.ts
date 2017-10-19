@@ -23,10 +23,16 @@ export class MovieListComponent implements OnInit {
     })
   }
 
-  onSelect(event:any)
+  onSelect(event:Movie)
   {
 
-    console.log('Selectec', event);
+    console.log('Selected', event);
+  }
+
+  onCLick(event :any)
+  {
+    console.log('OnClick', event);
+
   }
 
 

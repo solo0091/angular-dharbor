@@ -6,8 +6,8 @@
  <adh-movie-list-item 
  *ngFor="let movie of movies" 
  [movie]  = movie
- (select)= "onSelect($event)"
- 
+ (select)= "onSelect(movie)"
+ (click)="onCLick($event)"
  >
 
 

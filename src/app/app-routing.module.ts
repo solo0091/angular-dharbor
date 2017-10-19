@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { TestBindingComponent } from './test-binding/test-binding.component';
+import { MovieDetailComponent } from "./movie-detail/movie-detail.component";
 
 const routes: Routes = [
   {
@@ -11,12 +12,23 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: MovieListComponent
+    component: MovieListComponent,
+    children: [ // rutas hijas, se verán dentro del componente padre
+      {
+        path: 'movie', // la ruta real es movimientos/nuevo
+        component: MovieDetailComponent
+      }
+    ]
   },
   {
     path: 'test-binding',
     component: TestBindingComponent
   }
+  
+
+  
+
+
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { Movie } from "../shared/model/movie";
 import { MovieService } from "../shared/services/movie.service"
-
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'adh-movie-list-item',
@@ -20,7 +20,9 @@ export class MovieListItemComponent implements OnInit {
 
   defaultPictureURL: string;
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -29,16 +31,17 @@ export class MovieListItemComponent implements OnInit {
     this.movie.pictureURL = this.movieService.getPictureURL(this.movie['poster_path']);
     if (!this.movie['poster_path']) {
       this.defaultPictureURL = this.movieService.getDefaultPictureURL();
-
     }
-
   }
-  onClick():void
-  {
+
+  onClick(): void {
     //emitir o propagar un evento o un objeto
-this.select.emit(this.movie);
-
+    //this.select.emit(this.movie);
+    this.router.navigate(['home/movie']);
+    //this.router.navigate(['/movie']);
   }
 
-
+  redirigir():void{
+    
+}
 }
