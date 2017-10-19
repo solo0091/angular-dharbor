@@ -1,5 +1,6 @@
 import { Component, 
-         Input, OnInit } from '@angular/core';
+         Input, OnInit, 
+         Output, EventEmitter } from '@angular/core';
 import { Movie } from '../shared/model/movie';
 import { MovieService } from '../shared/services/movie.service';
 
@@ -12,6 +13,10 @@ export class MovieListItemComponent implements OnInit {
   // Input parameter
   @Input()
   movie: Movie;
+
+  //Output event
+  @Output()
+  select: EventEmitter<any> = new EventEmitter<any>();
 
   defaultPictureURL:string;
 
@@ -30,4 +35,8 @@ export class MovieListItemComponent implements OnInit {
     }
   }
 
+  onClick(): void {
+    // Propagar, emitir evento, objeto, etc.
+    this.select.emit(this.movie);
+  }
 }
