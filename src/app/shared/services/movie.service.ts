@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { MovieListComponent } from '../../movie-list/movie-list.component';
 const MOVIES_API = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc';
 const API_KEY = '0971ed323ba8081b990144eef9e02ace';
+const PICTURE_URL = 'https://image.tmdb.org/t/p/w160'
+const DEFAULT_PICTURE_URL = 'https://lumiere-a.akamaihd.net/v1/images/Yoda-Retina_2a7ecc26.jpeg?region=461%2C0%2C864%2C864'
 
 @Injectable()
 export class MovieService {
@@ -60,5 +62,13 @@ export class MovieService {
 
   }
 
+  getPictureURL(posterPath: string): string {
+    if (!posterPath) {
+      return undefined;
+    }
+  }
 
+    getDefaultPictureURL(): string {
+       return DEFAULT_PICTURE_URL;
+    }
 }

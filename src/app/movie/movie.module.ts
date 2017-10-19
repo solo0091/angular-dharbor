@@ -4,6 +4,7 @@ import { MovieListComponent } from '../movie-list/movie-list.component';
 import { MaterialModule } from '../material/material.module';
 import { MovieService } from '../shared/services/movie.service';
 import { HttpClientModule  } from '@angular/common/http';
+import { MovieListItemComponent } from '../movie-list-item/movie-list-item.component';
 
 
 @NgModule({
@@ -12,7 +13,7 @@ import { HttpClientModule  } from '@angular/common/http';
     MaterialModule,
     HttpClientModule
   ],
-  declarations: [MovieListComponent],
+  declarations: [MovieListComponent, MovieListItemComponent],
   providers: [MovieService]
 })
 export class MovieModule { }

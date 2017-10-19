@@ -1,0 +1,12 @@
+<mat-list-item >
+    
+   <img  matListAvatar  *ngIf="movie.pictureURL"
+    [src]="movie.pictureURL"/>
+    <img  matListAvatar  *ngIf="!movie.pictureURL"
+    [src]="defaultPictureURl"/>
+    <h4 matLine>{{movie.title}}</h4>
+    <p matLine>{{ movie.overview }}</p>
+    <pre>
+     
+    </pre>
+  </mat-list-item>
