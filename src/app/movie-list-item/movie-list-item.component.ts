@@ -1,6 +1,6 @@
-import { Component, OnInit,  Input } from '@angular/core';
-import {Movie  } from "../shared/model/movie";
-import  {MovieService } from "../shared/services/movie.service"
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Movie } from "../shared/model/movie";
+import { MovieService } from "../shared/services/movie.service"
 
 
 @Component({
@@ -9,25 +9,36 @@ import  {MovieService } from "../shared/services/movie.service"
   styleUrls: ['./movie-list-item.component.css']
 })
 export class MovieListItemComponent implements OnInit {
-  
+  //parametros de entrada
   @Input()
-  movie  : Movie;
+  movie: Movie;
 
-  defaultPictureURL:string ;
+  //parametros de salida par evento
+  @Output()
+  select: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor( private movieService : MovieService  ) { }
+
+  defaultPictureURL: string;
+
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
 
-delete this.movie['poster_path'];
+    delete this.movie['poster_path'];
 
-      this.movie.pictureURL = this.movieService.getPictureURL(this.movie['poster_path']);
-      if (!this.movie['poster_path'])
-      {
-          this.defaultPictureURL =this.movieService.getDefaultPictureURL();
+    this.movie.pictureURL = this.movieService.getPictureURL(this.movie['poster_path']);
+    if (!this.movie['poster_path']) {
+      this.defaultPictureURL = this.movieService.getDefaultPictureURL();
 
-      }
+    }
 
   }
+  onClick():void
+  {
+    //emitir o propagar un evento o un objeto
+this.select.emit(this.movie);
+
+  }
+
 
 }
