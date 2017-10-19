@@ -10,11 +10,15 @@ export class MovieListItemComponent implements OnInit {
   //Input parameter, it is used to level attribute
   @Input()
   movie:Movie;
+  defaultPictureURL:string;
 //Injectar Movieservice
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
     this.movie.pictureURL =  this.movieService.getPictureURL(this.movie['poster_path']);
+    if(!this.movie['poster_path']){
+      this.defaultPictureURL = this.movieService.getDefaultPictureURL()
+    }
   }
 
 }
