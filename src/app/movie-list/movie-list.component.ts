@@ -23,7 +23,7 @@ export class MovieListComponent implements OnInit {
 
 ///DEPENDENCY INYECTION                         ///INYECTAMOS EN EL CONSTRUCTOR EL SERVICIO 
 constructor(private movieService:MovieService,private router:Router) ///INYECTAMOS EN EL CONSTRUCTOR EL API DE MOVIE 
-                                                                     ////INYECTAMOS EL ROUTER
+                                                                     ////INYECTAMOS LA CLASE ROUTER
 { }
 
   ngOnInit() {
@@ -55,7 +55,7 @@ constructor(private movieService:MovieService,private router:Router) ///INYECTAM
      ///Evento que se lanza cuando se hace click, redireccionamosa otra pagina con el detalle de la pelicula en cuestion
      onClick():void{ ///AL HACER CLICK SE IRA AL DETALLE DE LAS PELICULAS
         
-      this.router.navigate(['/movie',this.selectedMovie['id']]); ///para utilizar el router se debe inyectar su instacia
+      this.router.navigate(['movie',this.selectedMovie['id']]); ///para utilizar el router se debe inyectar su instacia
         
      }
 

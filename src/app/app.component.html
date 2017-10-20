@@ -5,6 +5,19 @@
   <span>Curso Angular</span>
 </mat-toolbar>
 
+<!--Navegador -->
+<nav>
+  <a>
+    <button mat-button color="primary" [routerLink]="'/'"> <!--routerlink captura el evento click y hace un cambio en la barra de direcciones, en este caso al home -->
+      Home
+    </button>
+  </a>
+  <a>
+    <button mat-button color="primary" [routerLink]="'/test-binding'"> <!--routerlink captura el evento click y hace un cambio en la barra de direcciones, en este caso a testbinding -->
+      Test Binding
+    </button>
+  </a>
+</nav>
 
 
 <router-outlet></router-outlet>
