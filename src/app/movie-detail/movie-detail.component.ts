@@ -11,14 +11,14 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class MovieDetailComponent implements OnInit {
   
- movieDetails:Movie;
+ movieDetails:Movie={}; //se define como vacios
 
 id:number;
 
 ///Inyeccion del MovieService
   constructor( private route: ActivatedRoute,
     private router: Router,
-    private moviceService: MovieService) { }
+    private movieService: MovieService) { }
 
   ngOnInit() {
 
@@ -30,20 +30,20 @@ id:number;
         //this.id=+params.get('id');
         this.moviceService.getMovieDetail(+params.get('id')).subscribe((data)=>{
           console.log('data',data);
-        this.movieDetails=data.results;
+        this.movieDetails=data;
       });
       });*/
 
      ///MANERA LUIS
      this.route.params.subscribe(params=>{
        console.log('params',params);
-       this.moviceService.getMovieDetail(params.id).subscribe((movie:Movie)=>{
+       this.movieService.getMovieDetail(params.id).subscribe((movie:Movie)=>{
          this.movieDetails=movie;
        });
      });
-      
-      
    
   }
+
+
 
 }

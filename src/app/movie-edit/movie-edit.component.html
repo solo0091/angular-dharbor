@@ -1,0 +1,23 @@
+<div class="container" *ngIf="movieDetails">
+  <h2>Edit "{{movieDetails.fixedTitle}}"</h2>
+    <form #movieForm="ngForm"><!-- Definimos Variable de template #movieForm-->
+
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" class="form-control" [(ngModel)]="movieDetails.title" #title="ngModel">
+         <!--[(ngModel)] sirve para el two way binding y le damos una variable de template #title="ngModel" -->
+      </div> 
+
+      <div class="form-group">
+          <label for="overview">Overview</label>
+          <input type="text" name="overview" class="form-control" [(ngModel)]="movieDetails.overview">
+        </div> 
+      
+        <button type="submit" class="btn btn-success">Submit</button>
+
+    </form> 
+</div>
+
+<pre>
+  {{movieDetails|json}}
+</pre>

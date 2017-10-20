@@ -1,3 +1,26 @@
-<pre>
-        {{movieDetails | json}}
-</pre>
+<div class="container" *ngIf="movieDetails"> <!--solo se dibuja todo SI movieDetails tiene datos -->
+    
+    <button class="btn btn-primary pull-right" (click)=onClick($event)> <!-- Boton para editar los parametros de la pelicula-->
+        Edit
+    </button>
+
+    <h2>{{movieDetails.title}}</h2>
+    <div class="row">
+        <div class="col-xs-3">Overview</div>
+        <div class="col-xs-9">{{movieDetails.overview}}</div>
+    </div>
+
+    <div class="row">
+            <div class="col-xs-3">Homepage</div>
+            <div class="col-xs-9">{{movieDetails.homepage}}</div>
+    </div>
+
+    <div class="row">
+            <div class="col-xs-3">Release Date</div>
+            <div class="col-xs-9">{{movieDetails.release_date | date:'dd-MMMM-y'}}</div>
+    </div>
+
+
+
+</div>
+
