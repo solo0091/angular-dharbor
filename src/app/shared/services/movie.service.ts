@@ -21,6 +21,7 @@ export class MovieService {
       imageUrl:"https://images-na.ssl-images-amazon.com/images/I/51BGV8AJ4RL.jpg"
     }
   ];
+  movieEdit:Movie;
   constructor(private http:HttpClient) { }
   getMovies():Promise<Movie[]>{
     // Peticion al server 
@@ -46,5 +47,11 @@ export class MovieService {
   }
   getDefaultUrl():string{
     return NOIMAGE;
+  }
+  setMovieEdit(movie:Movie):void{
+    this.movieEdit=movie;
+  }
+  getMovieEdit(){
+    return this.movieEdit;
   }
 }

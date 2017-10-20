@@ -6,13 +6,16 @@ import { MovieService } from '../shared/services/movie.service';
 import { MovieListItemComponent } from './movie-list-item/movie-list-item.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { AppRoutingModule } from "../app-routing.module";
+import { MovieEditComponent } from './movie-edit/movie-edit.component';
+import { FormsModule } from "@angular/forms";
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  declarations: [MovieListComponent, MovieListItemComponent, MovieDetailComponent],
+  declarations: [MovieListComponent, MovieListItemComponent, MovieDetailComponent, MovieEditComponent],
   providers: [MovieService]
 })
 export class MovieModule { }

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>Edit Movie</h3>
+      <form *ngIf="movie">
+        <div>
+          <label>Nombre:</label>
+          <input type="text" [(ngModel)]="movie.title" name="title">
+        </div>
+        <div>
+            <label>HomePage:</label>
+            <input type="text" [(ngModel)]="movie['homepage']" name="homepage">
+          </div>
+          <div>
+              <label>Adult:</label>
+              <input type="text" [(ngModel)]="movie['adult']" name="adult">
+            </div>
+            <button type="button" class="btn btn-primary">Guardar</button>
+      </form>
+    </div>
+  </div>
+</div>
