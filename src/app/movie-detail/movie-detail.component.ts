@@ -9,7 +9,7 @@ import {Movie} from '../shared/model/movie'
   styleUrls: ['./movie-detail.component.css']
 })
 export class MovieDetailComponent implements OnInit {
-  movie:Movie;
+  movie:Movie = {};
   constructor(private activateRoute: ActivatedRoute,
               private movieService:MovieService) { }
 
