@@ -1,7 +1,8 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { Movie } from "../shared/model/movie";
-import { MovieService } from "../shared/services/movie.service"
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, 
+         Input, OnInit, 
+         Output, EventEmitter } from '@angular/core';
+import { Movie } from '../shared/model/movie';
+import { MovieService } from '../shared/services/movie.service';
 
 @Component({
   selector: 'adh-movie-list-item',
@@ -9,39 +10,33 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./movie-list-item.component.css']
 })
 export class MovieListItemComponent implements OnInit {
-  //parametros de entrada
+  // Input parameter
   @Input()
   movie: Movie;
 
-  //parametros de salida par evento
+  //Output event
   @Output()
   select: EventEmitter<any> = new EventEmitter<any>();
 
+  defaultPictureURL:string;
 
-  defaultPictureURL: string;
-
-  constructor(private movieService: MovieService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+  // Injectar MovieService
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
+    // delete this.movie['poster_path'];
+    // this.movie['poster_path'] = null;
 
-    delete this.movie['poster_path'];
+    this.movie.pictureURL = 
+        this.movieService.getPictureURL(this.movie['poster_path']);
 
-    this.movie.pictureURL = this.movieService.getPictureURL(this.movie['poster_path']);
-    if (!this.movie['poster_path']) {
+    if(!this.movie['poster_path']) {
       this.defaultPictureURL = this.movieService.getDefaultPictureURL();
     }
   }
 
   onClick(): void {
-    //emitir o propagar un evento o un objeto
-    //this.select.emit(this.movie);
-    this.router.navigate(['home/movie']);
-    //this.router.navigate(['/movie']);
+    // Propagar, emitir evento, objeto, etc.
+    this.select.emit(this.movie);
   }
-
-  redirigir():void{
-    
-}
 }
