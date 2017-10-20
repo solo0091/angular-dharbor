@@ -1,0 +1,22 @@
+<div class="container" *ngIf="movie">
+  <h2>Edit "{{movie.fixedTitle}}"</h2>
+  <form #movieForm="ngForm">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" type="text" name="title" class="form-control"
+       [(ngModel)]="movie.title" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="overview">Overview</label>
+      <input id="overview" type="text" name="overview" class="form-control"
+      [(ngModel)]="movie.overview" #overview="ngModel">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<pre>
+  {{movie | json}}
+</pre>
