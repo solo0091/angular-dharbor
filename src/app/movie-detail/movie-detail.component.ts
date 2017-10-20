@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../shared/model/movie';
 import { MovieService } from '../shared/services/movie.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/switchMap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'adh-movie-detail',
@@ -13,17 +13,22 @@ import 'rxjs/add/operator/switchMap';
 export class MovieDetailComponent implements OnInit {
 
   movie: Movie;
-  constructor(private movieService: MovieService, private route: ActivatedRoute) { }
+  constructor(private movieService: MovieService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.movieService.getMovie(params.id).subscribe(
         (movie: Movie) => {
           this.movie = movie;
-          console.log(this.movie);
         }
       );
     });
+  }
+
+  onClick(event: any): void {
+    if (this.movie) {
+      this.router.navigate(['movie', this.movie.id, 'edit']);
+    }
   }
 
 }

@@ -1,4 +1,32 @@
-<p>
-    movie-detail works!
-</p>
-<pre>{{this.movie | json}}</pre>
+<div class="container" *ngIf="movie">
+    <div>
+        <button class="btn btn-primary pull-right" (click)="onClick($event)">Edit</button>
+    </div>
+    <div>
+        <h2>{{movie.title}}</h2>
+    </div>
+    <div class="row">
+        <div>
+            <div>
+                <h3>Overview</h3>
+            </div>
+            <p>{{movie.overview}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <div>
+                <h3>Release date</h3>
+            </div>
+            <p>{{movie['release_date'] | date}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <div>
+                <h3>Web page</h3>
+            </div>
+            <a [href]="movie['homepage']">{{movie['homepage']}}</a>
+        </div>
+    </div>
+</div>
