@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from "../material/material.module";
 import { MovieListComponent } from '../movie-list/movie-list.component';
@@ -12,6 +13,7 @@ import { MovieEditComponent } from '../movie-edit/movie-edit.component';
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
     HttpClientModule
   ],
   declarations: [MovieListComponent, MovieListItemComponent, MovieDetailComponent, MovieEditComponent],
