@@ -92,7 +92,13 @@ export class MovieService {
       'Accion',
       65
     );
-    this.movies.push(movie3);
+    movie3.id = 'idWonderWomen';
+    const foundMovie = this.movies.find(movie => {
+      return movie.id === 'idWonderWomen';
+    });
+    if (!foundMovie) {
+      this.movies.push(movie3);
+    }
     return this.movies;
   }
 

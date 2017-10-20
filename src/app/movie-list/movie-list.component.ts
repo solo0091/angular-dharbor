@@ -119,7 +119,7 @@ export class MovieListComponent implements OnInit {
   onSelect(movie: Movie ): void {
     console.log('Parent:', movie);
   }
-  onClick( $event, movie: Movie ): void {
+  onClick(movie: Movie ): void {
     this.route.navigate(['/movie-detail', movie['id']]);
   }
 }

@@ -1,0 +1,35 @@
+<div class="container" *ngIf="movie">
+  <h2>Edit : {{ movie['fixedTitle'] }} </h2>
+    <form #movieForm="ngForm"> <!--variable activadora en el DOM-->
+      <div class="form-group">
+        <label for="text">Picture:</label>
+        <img name="picture" [src]="movie.path">
+      </div>
+      <div class="form-group">
+        <label for="text">title:</label>
+        <input type="text" class="form-control"  id="title" name="title" [(ngModel)]="movie.title" #title="ngModel" required>
+        <!--[value]="movie.title" -->
+      </div>
+      <div class="form-group">
+        <label for="description">description:</label>
+        <textarea type="text" class="form-control" name="description" [(ngModel)]="movie.description" #description="ngModel">
+        </textarea>
+      </div>
+      <div class="form-group">
+        <label for="updated">Date:</label>
+        <input type="text" class="form-control" name="updated" [(ngModel)]="movie.updated" #updated="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="popularity">Popularity:</label>
+        <input type="text" class="form-control" name="popularity" [(ngModel)]="movie.price" #popularity="ngModel">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+      <pre>
+        #title {{ title.valid }}
+      </pre>
+    </form>
+</div>
+<pre>
+  {{ movie | json }}
+</pre>
+

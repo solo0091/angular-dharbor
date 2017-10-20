@@ -1,19 +1,25 @@
+<mat-divider></mat-divider>
 <mat-list-item>
-  <mat-icon mat-list-icon >
-      <img matListAvatar 
-        *ngIf="movie.path !== ''" 
-        [src]="movie.path" 
-        alt="pictures"
-        (click)="onClick()"
+    <mat-icon mat-list-icon >
+      <div>
+        <mat-checkbox></mat-checkbox>
+        <img matListAvatar 
+          *ngIf="movie.path !== ''" 
+          [src]="movie.path" 
+          alt="pictures"
+          (click)="onClick(movie)"
+        >
+        <!--mat-checkbox></mat-checkbox-->
+      <img matListAvatar *ngIf="movie.path === ''" 
+        [src]="movie.defaulPicturetURL"
+        alt="no picture"
       >
-      <!--mat-checkbox></mat-checkbox-->
-    <img matListAvatar *ngIf="movie.path === ''" 
-      [src]="movie.defaulPicturetURL"
-      alt="no picture"
-    >
-  </mat-icon>
-  <h4 mat-line>{{movie.title}}</h4>
-  <p mat-line> {{ setDateDMY(movie.updated) }} </p>
+      </div>
+    </mat-icon>
+    <div class="info-movie-row-item">
+      <h4 mat-line>{{movie.title}}</h4>
+      <p mat-line> {{ setDateDMY(movie.updated) }} </p>
+    </div>
 </mat-list-item>
 <mat-divider></mat-divider>
 

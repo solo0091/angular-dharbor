@@ -27,10 +27,9 @@ export class MovieListItemComponent implements OnInit {
   }
   setDateDMY( value: string ): string {
     const datas = value.split('-');
-
     return `${ datas[2]}-${ datas[1]}-${ datas[0]}` ;
   }
-  onClick(): void {
+  onClick(movie: Movie): void {
     // propagar, emitir evento, object, etc;
     console.log('child..', this.movie);
     this.select.emit(this.movie);

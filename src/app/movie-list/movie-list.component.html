@@ -27,7 +27,7 @@
       *ngFor="let movie of privateListMovies" 
       [movie]="movie"
       (select)="onSelect($event)"
-      (click)="onClick($event, movie)"
+      (click) = "onClick(movie)"
     >
     </adh-movie-list-item>
     
@@ -37,16 +37,13 @@
   <mat-list>
     <h1 mat-subheader> <strong>{{ title }} </strong></h1>
     <mat-list-item *ngFor="let movie of movieList">
-      
       <mat-icon mat-list-icon >
-
         <img matListAvatar 
           *ngIf="movie.path !== ''" 
           [src]="movie.path" 
           alt="pictures"
           (click)="openPreview( movie )"
         >
-          <!--mat-checkbox></mat-checkbox-->
         <img matListAvatar *ngIf="movie.path === ''" 
           src="https://cdn.geekwire.com/wp-content/uploads/2015/01/code-fellows-logo-shield-266x300.png"
           alt="no picture"

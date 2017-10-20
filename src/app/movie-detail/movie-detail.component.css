@@ -18,3 +18,9 @@ img{
 .mat-grid-tile {
   height: 100% !important;
 }
+
+.fixed-button-go-back{
+  position: fixed;
+  top: 600px;
+  right: 10px;
+}

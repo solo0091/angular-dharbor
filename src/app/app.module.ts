@@ -17,10 +17,10 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     MaterialModule,
     MovieModule,
-    FormsModule,
     HttpClientModule
   ],
   providers: [],
