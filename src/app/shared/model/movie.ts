@@ -1,6 +1,6 @@
 export interface Movie {
     id?: number;
-    title: string;
-    overview: string;
-    pictureUrl: string;
+    title?: string;
+    overview?: string;
+    pictureUrl?: string;
 }
