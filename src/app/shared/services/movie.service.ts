@@ -8,7 +8,7 @@ const API_KEY ='0971ed323ba8081b990144eef9e02ace';
 const PICTURE_URL ='https://image.tmdb.org/t/p/w160';
 const DEFAULT_PICTURE_URL ='https://angular.io/assets/images/logos/angular/angular.png';
 
-const MOVIE_URL ='https://api.themoviedb.org/3/movie';
+const MOVIED_URL ='https://api.themoviedb.org/3/movie';
 
 
 @Injectable()
@@ -60,7 +60,11 @@ getDefaultPictureURL():string{
 }
 
 getMovieDetail(idMovie:number):Observable<any>{
-  return this.httpClient.get(`${MOVIE_URL}/${idMovie}?api_key=${API_KEY}`);
+  return this.httpClient.get(`${MOVIED_URL}/${idMovie}?api_key=${API_KEY}`);
+}
+
+getMovie(id:number):Observable<any>{
+  return this.httpClient.get(`${MOVIED_URL}/${id}?api_key=${API_KEY}`);
 }
 
 

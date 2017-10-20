@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 
 import 'rxjs/add/operator/switchMap';
 import { MovieService } from 'app/shared/services/movie.service';
@@ -12,17 +12,16 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./movie-datail.component.css']
 })
 export class MovieDatailComponent implements OnInit {
-  //@Input()
-  movieDetails:Observable<Movie>;
-  //movieDetails:Movie;
+  
+  movieDetails:Movie;
 
-  //inyeccion del servicio movie
+  //inyeccion de dependencias
   constructor(private activateRouter: ActivatedRoute,
     private router: Router,
     private movieService: MovieService) { }
 
   ngOnInit() {
-
+    //FORMA PREBA NO DA 
     this.activateRouter.paramMap.subscribe((params)=>{
       this.movieService.getMovieDetail(+params.get('id')).subscribe((data) =>{
         this.movieDetails=data.results;
@@ -34,6 +33,13 @@ export class MovieDatailComponent implements OnInit {
         this.movies=data.results;
       })
      */
+      //VERSIoN CORRECTA
+     this.activateRouter.params.subscribe(params =>{
+       console.log('Params', params);
+       this.movieService.getMovie(params.id).subscribe((movie:Movie)=>{
+         this.movieDetails = movie;
+       });
+     });
      
   }
 
