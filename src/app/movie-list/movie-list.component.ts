@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie             } from '../shared/model/movie';
 import { MovieService      } from '../shared/services/movie.service';
+import { Router            } from '@angular/router';
 
 
 @Component({
@@ -40,7 +41,7 @@ export class MovieListComponent implements OnInit {
   // ];
 
 
-  constructor(private movieService: MovieService) {  // si es private le asigana ala variable correspondiente automaticamente
+  constructor(private movieService: MovieService, private router: Router) {  // si es private le asigana ala variable correspondiente automaticamente
     // this.movieService = movieService; ya no es necesario esto
    }
 
@@ -104,6 +105,15 @@ export class MovieListComponent implements OnInit {
    */
   getTitle(): string {
     return this.title;
+  }
+
+  onSelect(event: Movie) {
+    console.log('selected', event);
+    this.router.navigate(['movie', event.id]);
+  }
+
+  onClick(event: any) {
+    console.log('click', event);
   }
 
 }

@@ -5,9 +5,10 @@ import { HttpClient        } from '@angular/common/http';
 import { Movie             } from '../model/movie';
 import { Observable        } from 'rxjs/Observable';
 
-const MOVIES_API  = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc';
-const API_KEY     = '0971ed323ba8081b990144eef9e02ace';
-const PICTURE_URL = 'https://image.tmdb.org/t/p/w160';
+const MOVIES_API   = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc';
+const MOVIE_DETAIL = 'https://api.themoviedb.org/3/movie';
+const API_KEY      = '0971ed323ba8081b990144eef9e02ace';
+const PICTURE_URL  = 'https://image.tmdb.org/t/p/w160';
 const DEFAULT_PICTURE_URL = 'https://angular.io/assets/images/logos/angular/angular.svg';
 
 @Injectable()
@@ -37,7 +38,9 @@ export class MovieService {
   //   }
   // ];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+
+  }
 
   // getMovies(): Promise<Movie[]> {
   //   /*
@@ -61,6 +64,10 @@ export class MovieService {
     return this.http.get(`${MOVIES_API}&api_key=${API_KEY}`);
   }
 
+  getMovie(idMovie: number): Observable<any> {
+    return this.http.get(`${MOVIE_DETAIL}/${idMovie}?api_key=${API_KEY}`);
+  }
+
   getPictureURL(posterPath: string): string {
     if(!posterPath) {
       return undefined;
@@ -71,4 +78,5 @@ export class MovieService {
   getDefaultPictureURL(): string {
     return DEFAULT_PICTURE_URL;
   }
+
 }

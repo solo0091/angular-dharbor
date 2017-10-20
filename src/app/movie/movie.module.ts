@@ -8,6 +8,7 @@ import { MaterialModule     } from '../material/material.module';
 import { MovieListComponent } from '../movie-list/movie-list.component';
 import { MovieService       } from '../shared/services/movie.service';
 import { MovieListItemComponent } from '../movie-list-item/movie-list-item.component';
+import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { MovieListItemComponent } from '../movie-list-item/movie-list-item.compo
     MaterialModule,
     HttpClientModule,
   ],
-  declarations: [MovieListComponent, MovieListItemComponent],
+  declarations: [MovieListComponent, MovieListItemComponent, MovieDetailComponent],
   providers   : [MovieService] // aqui se ponen los servicios injectables
 })
 export class MovieModule { }

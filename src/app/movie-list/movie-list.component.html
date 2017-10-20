@@ -16,7 +16,9 @@
     <p  mat-line>{{ movie.overview }}</p>
   </mat-list-item> -->
   <adh-movie-list-item *ngFor="let movie of movies"
-                       [movie]="movie">
+                       [movie]="movie"
+                       (select)="onSelect($event)"
+                       (click)="onClick($event)">
 
   </adh-movie-list-item>
 </mat-list>

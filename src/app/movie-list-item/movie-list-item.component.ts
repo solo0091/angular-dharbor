@@ -1,9 +1,12 @@
 
 import { Component   , 
-         Input       , 
-         OnInit       } from '@angular/core';
-import { Movie        } from '../shared/model/movie';
-import { MovieService } from '../shared/services/movie.service';
+         Input       ,
+         Output      ,
+         EventEmitter, 
+         OnInit         } from '@angular/core';
+//import { Router       } from '@angular/router';
+import { Movie          } from '../shared/model/movie';
+import { MovieService   } from '../shared/services/movie.service';
 
 @Component({
   selector: 'adh-movie-list-item',
@@ -12,16 +15,25 @@ import { MovieService } from '../shared/services/movie.service';
 })
 export class MovieListItemComponent implements OnInit {
   /*
-   * Interacion entre componentes
+   * Interacion entre componentes padre->hijo
    * 
    * Input parameter
    */
   @Input()
   movie: Movie;
+
+  /*
+   * Interacion entre componentes hijo->padre
+   * 
+   * Output parameter
+   */
+  @Output()
+  select: EventEmitter<any> = new EventEmitter<any>();
+
   defaultPictureURL: string;
 
   /*
-   * iNJECTAR MOVIE SERVICES
+   * INJECTAR MOVIE SERVICES
    */
   constructor(private movieServie: MovieService) { }
 
@@ -38,6 +50,14 @@ export class MovieListItemComponent implements OnInit {
     if(!this.movie['poster_path']) {
       this.defaultPictureURL = this.movieServie.getDefaultPictureURL();
     }
+  }
+
+  onClick(): void {
+    // Propagar, emitir un evento, objeto,etc
+    this.select.emit(this.movie);
+    
+    //hecho por mi mejor seria en el item superior
+    //this.router.navigate(['movie', this.movie['id']])
   }
 
 }
