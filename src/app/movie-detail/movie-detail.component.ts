@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Route } from '@angular/router';
 import {MovieService} from '../shared/services/movie.service'
 import {Movie} from '../shared/model/movie'
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'adh-movie-detail',
@@ -10,7 +12,7 @@ import {Movie} from '../shared/model/movie'
 })
 export class MovieDetailComponent implements OnInit {
   movie:Movie = {};
-  constructor(private activateRoute: ActivatedRoute,
+  constructor(private router:Router,private activateRoute: ActivatedRoute,
               private movieService:MovieService) { }
 
   ngOnInit() {
@@ -22,4 +24,7 @@ export class MovieDetailComponent implements OnInit {
     });
   }
 
+  onEdit(movie:Movie){
+    this.router.navigate(['movie',movie.id,'edit']);
+  }
 }
