@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../shared/model/movie';
 import { MovieService } from '../../shared/services/movie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'adh-movie-list',
@@ -19,7 +20,7 @@ export class MovieListComponent implements OnInit {
   isLoading = true;
 
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit() {
 
@@ -58,9 +59,15 @@ export class MovieListComponent implements OnInit {
 
   onSelect(event: Movie) {
     console.log('Selected', event);
+    this.goToMovieDetail(event);
   }
 
   onClick(event: any) {
     console.log('Click', event);
   }
+
+  goToMovieDetail(movie: Movie) {
+    this.router.navigate(['movie', movie.id]);
+  }
+
 }

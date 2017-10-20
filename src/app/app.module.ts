@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { MovieModule } from './movie/movie.module';
 import { TestBindingComponent } from './test-binding/test-binding.component';
+import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TestBindingComponent } from './test-binding/test-binding.component';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    MovieModule
+    MovieModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
