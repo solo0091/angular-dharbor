@@ -10,10 +10,23 @@
     <div class="form-group">
       <label for="overview">Overview</label>
       <input id="overview" type="text" name="overview" class="form-control"
-      [(ngModel)]="movie.overview" #overview="ngModel">
+      [(ngModel)]="movie.overview" >
     </div>
 
     <button type="submit" class="btn btn-success">Submit</button>
+  <pre> 
+
+form valid:     {{movieForm.form.valid}}
+form invalid:     {{movieForm.form.invalid}}
+
+form touched:     {{movieForm.form.touched}}
+form untouched:     {{movieForm.form.untouched}}
+
+form dirty:     {{movieForm.form.dirty}}
+form pristine:     {{movieForm.form.pristine}}
+  </pre>
+
+
   </form>
 </div>
 
