@@ -21,6 +21,7 @@ export class MovieEditComponent implements OnInit {
         this.movieService.getMovie(params.id)
         .subscribe((movie: Movie) => {
           this.movie = movie;
+          this.movie['fixedTitle'] = this.movie.title;
         });
       });
   }
