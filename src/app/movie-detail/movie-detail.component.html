@@ -1,18 +1,24 @@
 <div class="container" *ngIf="movie">
+<button class="btn btn-primary pull-right" (click)=onEdit(movie)>
+  Edit
+</button>
+
   <h2>{{movie.title}}</h2>
   <div class="row">
     <div class="col-xs-3" >Overview: </div>
     <div class="col-xs-9">{{movie.overview}}</div>
   </div>
+  <br>
   <div class="row">
       <div class="col-xs-3" >Homepage: </div>
       <div class="col-xs-9">{{movie.homepage}}</div>
   </div>
+  <br>
   <div class="row">
       <div class="col-xs-3" >Release Date: </div>
       <div class="col-xs-9">{{movie.release_date | date:'dd-MMMM-y'}}</div>
   </div>
-  
+
   
   
 </div>

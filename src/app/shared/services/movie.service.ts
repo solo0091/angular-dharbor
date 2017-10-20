@@ -21,6 +21,8 @@ export class MovieService {
     return this.httpClient.get(`${MOVIES_API}&api_key=${API_KEY}`);
   } 
 
+  
+
   getPictureURL(posterPath: string): string {
     if(!posterPath){
       return undefined;

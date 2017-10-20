@@ -28,7 +28,7 @@ export class MovieListComponent implements OnInit {
 
   onSelect(event: Movie){
     console.log('Selected', event);
-    this.router.navigate(['movie', event.id])
+    this.router.navigate(['movie', event.id]);
   }
 
   onClick(event: any){
