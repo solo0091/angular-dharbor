@@ -37,10 +37,8 @@
     <button mat-button>SHARE</button>
   </mat-card-actions>
 </mat-card>
+<mat-spinner *ngIf="!movieId"></mat-spinner>
 </div>
 </div>
-<p *ngIf="!movieId">
-  No existe la pelicula
-</p>
 </div>
 
