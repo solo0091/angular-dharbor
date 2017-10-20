@@ -8,6 +8,8 @@ const API_KEY = '0971ed323ba8081b990144eef9e02ace';
 const PICTURE_URL = 'https://image.tmdb.org/t/p/w160'
 const DEFAULT_PICTURE_URL = 'https://lumiere-a.akamaihd.net/v1/images/Yoda-Retina_2a7ecc26.jpeg?region=461%2C0%2C864%2C864'
 
+const MOVIE_DETAIL = 'https://api.themoviedb.org/3/movie/'
+
 @Injectable()
 export class MovieService {
   results: string[];
@@ -45,7 +47,7 @@ export class MovieService {
     // return this.movies;
   }
 
-  getApiMoviestest(){
+  getApiMoviestest() {
 
     this.httpClient.get(`${MOVIES_API}&api_key=${API_KEY}`).subscribe(data => {
       // Read the result field from the JSON response.
@@ -66,9 +68,19 @@ export class MovieService {
     if (!posterPath) {
       return undefined;
     }
+    return `${PICTURE_URL}${posterPath}`;
   }
 
     getDefaultPictureURL(): string {
        return DEFAULT_PICTURE_URL;
     }
+
+   // get Detail Movie from id 
+    getDetailMovie(id: any): Observable<any> {
+      console.log('MovieID', id);
+     //  return this.httpClient.get(`${MOVIE_DETAIL}/${id}?api_key=${API_KEY}`);
+     return this.httpClient.get(`${MOVIE_DETAIL + id }?api_key=${API_KEY}`);
+    }
+
+
 }

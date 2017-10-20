@@ -20,19 +20,7 @@ export class MovieListComponent implements OnInit {
   constructor(private movieService: MovieService) { }
 // se ejecuta cada vez que se ejecuta el componente
   ngOnInit() {
-     // this.movies = this.movieService.getMovies();
-    // console.log('antes de llamr al servicio');
-    // this.movieService.getMovies().then((result) => {
-    //   console.log('tengo el resultado');
-    //  this.movies = result;
-    // }).catch((error) => {
-    //    console.log('error', error.message);
-    // })
-    // console.log('Despues de movie service.getMoview()');
-     // Llamada a  otro servicio
-     // otro tipo de procesamiento
 
-     // this.movieService.getApiMovies();
     this.movieService.getApiMovies().subscribe((data) => {
       console.log('data', data);
       this.movies = data.results; } );
@@ -41,6 +29,12 @@ export class MovieListComponent implements OnInit {
   onClickMe() {
     this.clickMessage = 'You are my hero!';
   }
+  onSelect(event: Movie) {
+    console.log('selected', event);
 
+  }
+  onClick(event: any) {
+    console.log('click', event);
+  }
 
 }

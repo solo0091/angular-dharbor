@@ -1,0 +1,50 @@
+   <div class ="example-card"  *ngIf="movie">
+      <mat-card >
+          <mat-card-header>
+            <mat-card-title> {{ movie.title}}</mat-card-title>
+          </mat-card-header>
+          <div class="center">
+              <img mat-card-image matListAvatar  [src]= "movie.pictureURL" alt="Photo of a Shiba Inu">
+          </div>
+          <mat-card-content class ="example-card">
+             <p>
+                {{ movie.overview}}
+             </p> 
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>
+                <mat-icon svgIcon="thumbs-up"></mat-icon>
+                <span>LIKE</span>  
+            </button>
+            <button mat-button>
+                <mat-icon>share</mat-icon>
+                <span>Share</span>  
+            </button>
+          </mat-card-actions>
+          <mat-card-footer class="primary"> </mat-card-footer>
+        </mat-card>
+   </div>
+
+   <div class="container"  *ngIf="movie">
+       <button class="btn-primary pull-right" (click)="onEdit()">
+           EDit
+       </button>
+
+       <h2> {{movie.title}}</h2>
+       <div class="row">
+          <div class="col-xs-3">overview:</div>
+          <div class="col-xs-9"><pre>{{movie.overview}}</pre></div>
+       </div>
+
+       <div class="row">
+            <div class="col-xs-3">Home Page:</div>
+            <div class="col-xs-9"><pre>{{movie.homepage}}</pre></div>
+        </div>
+
+         <div class="row">
+                <div class="col-xs-3">Realese Date:</div>
+                <div class="col-xs-9"><pre>{{movie.release_date| date:'dd-MMMM-y'}}</pre></div>
+         </div>
+
+   </div>
+  

@@ -1,0 +1,60 @@
+<form class="form-horizontal" >
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend>Form Name</legend>
+    
+    <div class="row">
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="direccion">Titulo</label>  
+          <div class="col-md-4">
+          <input id="direccion" name="direccion" type="text" [(ngModel)]="movie.title"  placeholder="" class="form-control input-md">
+            
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="numero">Overview</label>  
+          <div class="col-md-2">
+          <input id="numero" name="numero" type="text" cols="40" rows="5" placeholder="" class="form-control input-md"  [(ngModel)] ="movie.overview" >
+            
+          </div>
+        </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="ciudad">Ciudad</label>  
+      <div class="col-md-6">
+      <input id="ciudad" name="ciudad" type="text" placeholder="" class="form-control input-md">
+        
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="provincia">Provincia</label>  
+      <div class="col-md-6">
+      <input id="provincia" name="provincia" type="text" placeholder="" class="form-control input-md">
+        
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="pais">País</label>  
+      <div class="col-md-6">
+      <input id="pais" name="pais" type="text" placeholder=""  class="form-control input-md">
+        
+      </div>
+    </div>
+    
+    </fieldset>
+    </form>
+
+    <pre>
+      {{movie|json}}
+    </pre>
+    
