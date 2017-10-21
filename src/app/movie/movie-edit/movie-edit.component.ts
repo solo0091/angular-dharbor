@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Movie } from "../../shared/model/movie";
 import { MovieService } from "../../shared/services/movie.service";
 import { ActivatedRoute } from "@angular/router";
+
 @Component({
   selector: 'adh-movie-edit',
   templateUrl: './movie-edit.component.html',
@@ -11,7 +12,7 @@ export class MovieEditComponent implements OnInit {
 
   constructor(private movieService:MovieService,
   private activatedRoute:ActivatedRoute) { }
-  movie:Movie;
+  movie:Movie={};
   ngOnInit() {
     this.activatedRoute.params.
       subscribe(
@@ -19,8 +20,8 @@ export class MovieEditComponent implements OnInit {
           console.log(params);
         }
       );
-    this.movie=this.movieService.getMovieEdit();
-    console.log(this.movie);
+   // this.movie=this.movieService.getMovieEdit();
+   // console.log(this.movie);
   }
 
 }
