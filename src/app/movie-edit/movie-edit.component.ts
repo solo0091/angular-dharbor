@@ -13,7 +13,7 @@ import { NgModel, NgForm } from '@angular/forms';
 export class MovieEditComponent implements OnInit {
 
   @Input()
-  movie: Movie;
+  movie: Movie= {};
 
   @Output()
   select: EventEmitter<any> = new EventEmitter<any>() ;
@@ -26,8 +26,8 @@ export class MovieEditComponent implements OnInit {
      this.movieID  = params['id'];
      console.log("params", params['id']);
      this.movieService.getDetailMovie(this.movieID).subscribe((data) => {
-       this.movie  = data;
-       this.movie.pictureURL = this.movieService.getPictureURL(this.movie['backdrop_path']);
+       //this.movie  = data;
+       //this.movie.pictureURL = this.movieService.getPictureURL(this.movie['backdrop_path']);
          console.log('movie', this.movie );
          console.log('movie', this.movie['backdrop_path'] );
       });

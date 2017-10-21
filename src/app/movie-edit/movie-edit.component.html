@@ -1,4 +1,4 @@
-<form class="form-horizontal" >
+<form class="form-horizontal" #movieForm="ngForm" >
     <fieldset>
     
     <!-- Form Name -->
@@ -6,51 +6,41 @@
     
     <div class="row">
         <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="direccion">Titulo</label>  
+        <div class="form-group" [ngClass]="{'has-error':title.invalid && title.touched}" >
+          <label class="col-md-4 control-label control-label" for="direccion">Titulo(*)</label>  
           <div class="col-md-4">
-          <input id="direccion" name="direccion" type="text" [(ngModel)]="movie.title"  placeholder="" class="form-control input-md">
-            
+          <input #title="ngModel"  id="title" name="direccion" type="text" name="title"  placeholder="" class="form-control input-md" 
+          [(ngModel)]="movie.title" required >
+          <!--div *ngIf="title.invalid && title.touched" control-label> -->
+          <div class="text-danger"[hidden]="title.valid || title.untouched">
+            Title is required
+          </div>
+ 
           </div>
         </div>
         
         <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="numero">Overview</label>  
+        <div class="form-group" [ngClass]="{'has-error':overview.invalid && overview.touched}">
+          <label class="col-md-4 control-label" for="numero">Overview(*)</label>  
           <div class="col-md-2">
-          <input id="numero" name="numero" type="text" cols="40" rows="5" placeholder="" class="form-control input-md"  [(ngModel)] ="movie.overview" >
+          <input #overview="ngModel" id="overview" name="numero" type="text" cols="40" rows="5" placeholder="" class="form-control input-md"
+          [(ngModel)]="movie.overview" required>
+            <div class="text-danger"[hidden]="overview.valid || overview.untouched">
+              Title is required
+            </div>
             
           </div>
         </div>
     </div>
-    
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="ciudad">Ciudad</label>  
-      <div class="col-md-6">
-      <input id="ciudad" name="ciudad" type="text" placeholder="" class="form-control input-md">
-        
-      </div>
-    </div>
-    
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="provincia">Provincia</label>  
-      <div class="col-md-6">
-      <input id="provincia" name="provincia" type="text" placeholder="" class="form-control input-md">
-        
-      </div>
-    </div>
-    
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="pais">País</label>  
-      <div class="col-md-6">
-      <input id="pais" name="pais" type="text" placeholder=""  class="form-control input-md">
-        
-      </div>
-    </div>
-    
+  <button type="submit" class="btn btn-success" [disabled]="!movieForm.form.valid">Submit</button>
+
+  <pre>
+    Form.valid: {{movieForm.form.valid}}
+    Form.invalid: {{movieForm.form.invalid}}
+    Form.touchedd: {{movieForm.form.touched}}
+    Form.untouchedd: {{movieForm.form.untouched}}
+    Form.dirty: {{movieForm.form.dirty}}
+  </pre>
     </fieldset>
     </form>
 
