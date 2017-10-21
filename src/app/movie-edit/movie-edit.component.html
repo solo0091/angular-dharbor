@@ -13,7 +13,7 @@
 
     </div>
 
-    <!-- P-->
+    <!-- Para q se tome encuenta la variable label lo q se esta definiendo en el ngClass se tiene q definir en label class="control-label"-->
     <div class="form-group" [ngClass]="{'has-error': overview.invalid && overview.touched}">
         <label class="control-label" form="overview"> Overview (*) </label>
         <input #overview='ngModel' type="text" name="overview" class="form-control"
