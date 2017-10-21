@@ -7,6 +7,7 @@ import { MaterialModule } from './material/material.module';
 import { MovieModule } from './movie/movie.module';
 import { TestBindingComponent } from './test-binding/test-binding.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { RouterModule, Routes } from '@angular/router';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     MaterialModule,
     MovieModule,

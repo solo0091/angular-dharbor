@@ -1,0 +1,44 @@
+<section class="example-section" *ngIf="!movie">
+  <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+  </mat-progress-bar>
+</section>
+
+<div class="container" *ngIf="movie">
+  <h2>
+    Edit "{{movie['fixedTitle']}}"
+  </h2>
+  <form #movieForm="ngForm">
+    <div class="form-group">
+      <label for="txtTitle">Title (*)</label>
+      <input #title="ngModel" type="text" class="form-control" id="txtTitle" name="txtTitle" 
+        [(ngModel)]="movie.title" required>
+      <small *ngIf="title.invalid && title.touched" class="colorMessage">
+          Title is required
+      </small>
+    </div>
+
+
+    <div class="form-group">
+      <label for="txtOverview">Overview (*)</label>
+      <textarea class="form-control noresize" id="txtOverview" rows="4" 
+        name="txtOverview" [(ngModel)]="movie.overview" required></textarea>
+    </div>
+
+    <button class="btn btn-default">Cancel</button>
+    <button type="submit" class="btn btn-success" 
+      [disabled]="movieForm.form.invalid">Save</button>
+
+    <pre>
+      Valid.valid: {{ movieForm.form.valid }}
+      Valid.invalid: {{ movieForm.form.invalid }}
+      Valid.touched: {{ movieForm.form.touched }}
+      Valid.untouched: {{ movieForm.form.untouched }}
+      Valid.dirty: {{ movieForm.form.dirty }}
+      Valid.pristine: {{ movieForm.form.pristine }}
+    </pre>
+  </form>
+</div>
+
+<pre>
+  {{movie | json}}
+</pre>

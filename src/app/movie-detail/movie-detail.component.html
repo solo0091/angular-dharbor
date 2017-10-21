@@ -1,4 +1,4 @@
-<section class="example-section" *ngIf="isLoading">
+<section class="example-section" *ngIf="!movie">
   <mat-progress-bar
       class="example-margin"
       [color]="color"
@@ -7,6 +7,41 @@
       [bufferValue]="bufferValue">
   </mat-progress-bar>
 </section>
+
+<div class="container" *ngIf="movie">
+  <button class="btn btn-primary pull-right" (click)="onClick(movie)">
+    Edit
+  </button>
+
+  <h2>{{movie.title}}</h2>
+
+  <div class="row">
+    <div class="col-xs-3">
+      Overview
+    </div>
+    <div class="col-xs-3">
+      {{movie.overview}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">
+      Homepage
+    </div>
+    <div class="col-xs-3">
+      {{movie.homepage}}
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-xs-3">
+        Release Date
+      </div>
+      <div class="col-xs-3">
+        {{movie.release_date | date:'fullDate'}}
+      </div>
+    </div>
+</div>
 
 <pre>
   {{movie | json}}

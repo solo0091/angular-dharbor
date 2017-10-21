@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'; 
+import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../shared/services/movie.service';
 import { Movie } from '../shared/model/movie';
+import { NgModel } from '@angular/forms';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -11,24 +12,27 @@ import 'rxjs/add/operator/switchMap';
 })
 export class MovieDetailComponent implements OnInit {
 
-  movie: any;
+  movie: Movie;
 
   color = 'primary';
   mode = 'indeterminate';
   value = 50;
   bufferValue = 75;
-  isLoading = true;
 
-  constructor(private activatedRoute: ActivatedRoute, private movieService: MovieService) { }
+  constructor(private activatedRoute: ActivatedRoute, private movieService: MovieService,
+    private router: Router) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe( (params) => {
+    this.activatedRoute.params.subscribe((params) => {
       console.log('Params', params);
       this.movieService.getMovie(params['id']).subscribe((movie: Movie) => {
         this.movie = movie;
-        this.isLoading = false;
       });
-    })
+    });
+  }
+
+  onClick(movie: Movie) {
+    this.router.navigate(['movie', movie.id, 'edit']);
   }
 
 }
