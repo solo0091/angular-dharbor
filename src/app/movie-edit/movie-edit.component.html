@@ -1,20 +1,25 @@
-<div class="container" *ngIf="movie">
+<div class="container" *ngIf="movie" >
  <h2>Edit "{{movie.fixedTitle}}"</h2>
  <form #movieForm="ngForm">
-   <div class="form-group">
-    <label for="title">Title</label>
+   <div class="form-group" [ngClass]="{'has-error':title.valid || title.untouched}">
+    <label for="title" class="control-label">Title(*)</label>
     <input #title="ngModel" id = "title" type="text" name="title" class="form-control" 
     [(ngModel)]="movie.title" required>
-    <div *ngIf="title.invalid && title.touched">
+   <!-- <div *ngIf="title.invalid && title.touched"> [hidden]="title.valid || title.untouched"-->
+    <div  class="text-danger" [hidden]="title.valid || title.untouched">
       Title is required
     </div>
    </div>
-   <div class="form-group">
-      <label for="overview">Overview</label>
-      <input id = "overview" type="text" name="overview" class="form-control"
+   <div class="form-group" [ngClass]="{'has-error':overview.valid || overview.untouched}">
+      <label for="overview" class="control-label">Overview (*)</label>
+      <input #overview="ngModel" id = "overview" type="text" name="overview" class="form-control"
       [(ngModel)]="movie.overview" required>
+      <div  class="text-danger" [hidden]="overview.valid || overview.untouched">
+          Overview is required
+        </div>
    </div>
    <button type="submit" class="btn btn-success" [disabled]="movieForm.form.invalid">Submit</button>
+   
    <pre>
      Form.valid: {{movieForm.form.valid}}
      Form.invalid: {{movieForm.form.invalid}}
@@ -25,7 +30,6 @@
    </pre>
   </form>
 </div>
-
 <pre>
   {{movie | json}}
 </pre>
