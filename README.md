@@ -2,6 +2,18 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
+## Evaluacion del curso
+Por favor, llena los siguientes formularios antes de empezar con la practica final:
+* Califica el curso: [https://goo.gl/forms/aDn6ASBNjVhKjvHH2](https://goo.gl/forms/aDn6ASBNjVhKjvHH2) 
+* Informacion de contacto(para futuros cursos): [https://goo.gl/forms/Oiv9RS6O89zdHWDa2](https://goo.gl/forms/Oiv9RS6O89zdHWDa2)
+
+## Practica Final
+Encuentra los detalles de la practica final aqui [https://goo.gl/X33iin](https://goo.gl/X33iin)
+
+## Tarea para Casa
+Se publicara al final :-)
+
+
 ## API Integration
 Our App is using [The Movie Database website](https://www.themoviedb.org/documentation/api/discover)
 
