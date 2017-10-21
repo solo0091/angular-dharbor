@@ -11,7 +11,7 @@ import { NgForm, NgModel } from '@angular/forms';
 })
 export class MovieEditComponent implements OnInit {
 
-  movie: Movie;
+  movie: Movie= {};
   constructor(private activatedRoute: ActivatedRoute, private movieService: MovieService) { }
 
   ngOnInit() {
