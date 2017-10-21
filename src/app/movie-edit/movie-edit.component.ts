@@ -23,8 +23,8 @@ export class MovieEditComponent implements OnInit {
     .subscribe(params => {
       this.movieService.getMovie(params.id)
       .subscribe((movie: Movie) => {
-        //this.movie = movie;
-        //this.movie['fixedTitle'] = movie.title;
+        this.movie = movie;
+        this.movie['fixedTitle'] = movie.title;
       });
     });
   }
