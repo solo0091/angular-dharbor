@@ -61,6 +61,12 @@ export class MovieService {
   getMovie(id_movie:number): Observable<any>{
     return this.httpClient.get(`${ MOVIE_DETAIL_API }/${id_movie}?api_key=${ API_KEY }`);   
   }
+
+  //Esta siendo utilizado en movie-edit-component.ts
+  // updateMovie(movie: Movie): Observable<any>{
+  //   //body/payload = Movie object
+  //   return this.httpClient.post(URL, movie);
+  // }
   
   getPictureURL(posterPath:string): string{
     if(!posterPath){

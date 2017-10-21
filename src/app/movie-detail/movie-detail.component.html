@@ -1,4 +1,9 @@
 <div class="container" *ngIf="movie">
+  <!-- <button class="btn btn-primary pull-right" [routerLink]="['movie', movie.id,'edit']"> -->
+  <button class="btn btn-primary pull-right" (click)="onEdit(movie)">
+    Edit
+  </button>
+
   <h2>{{ movie.title }}</h2>
 
   <div class="row">
