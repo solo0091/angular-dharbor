@@ -10,12 +10,14 @@ import {Movie} from '../shared/model/movie'
 })
 
 export class MovieEditComponent implements OnInit {
-movie:Movie
+movie:Movie = {};
   constructor(private activateRoute:ActivatedRoute, private movieService:MovieService) { }
 
   ngOnInit() {
      this.activateRoute.params.subscribe(params=>{
-       this.movieService.getMovie(params.id).subscribe((movie:Movie)=>{this.movie = movie;this.movie['fixedTitle']=this.movie.title;})})
+       this.movieService.getMovie(params.id).subscribe((movie:Movie)=>{
+         //this.movie = movie;this.movie['fixedTitle']=this.movie.title;
+        })})
   }
 
 }
