@@ -1,20 +1,20 @@
 <div class="container" *ngIf="movie">
   <h2>Edit "{{movie.fixedTitle}}"</h2>
   <form #movieForm="ngForm">
-    <div class="form-group">
-      <label for="title">Title (*)</label>
-      <input #title="ngModel" id="title" type="text" name="title" class="form-control" 
+    <div class="form-group" [ngClass]="{'has-error': title.invalid && title.touched}">
+      <label for="title" class="control-label">Title (*)</label>
+      <input #title="ngModel" id="title" type="text" name="title" class="form-control error" 
       [(ngModel)]="movie.title" required>
-      <div [hidden]="title.valid || title.untouched" style="color: red">
+      <div [hidden]="title.valid || title.untouched" class="text-danger">
         Title is required
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="overview">Overview (*)</label>
+    <div class="form-group" [ngClass]="{'has-error': overview.invalid && overview.touched}">
+      <label for="overview" class="control-label">Overview (*)</label>
       <input #overview="ngModel" id="overview" type="text" name="overview" class="form-control" 
       [(ngModel)]="movie.overview" required>
-      <div *ngIf="overview.touched && overview.invalid" style="color: red">
+      <div *ngIf="overview.touched && overview.invalid" class="text-danger">
           Overview is required
         </div>
     </div>
