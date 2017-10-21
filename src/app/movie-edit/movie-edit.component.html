@@ -5,7 +5,7 @@
       <label for="title">Title (*)</label>
       <input #title="ngModel" id="title" type="text" name="title" class="form-control" 
       [(ngModel)]="movie.title" required>
-      <div *ngIf="title.touched && title.invalid" style="color: red">
+      <div [hidden]="title.valid || title.untouched" style="color: red">
         Title is required
       </div>
     </div>
