@@ -13,8 +13,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class MovieDatailComponent implements OnInit {
   
+ // movieDetails:Movie={}; //Se define como vacio
   movieDetails:Movie;
-
   //inyeccion de dependencias
   constructor(private activateRouter: ActivatedRoute,
     private router: Router,
@@ -40,7 +40,12 @@ export class MovieDatailComponent implements OnInit {
          this.movieDetails = movie;
        });
      });
+
      
+     
+  }
+  OnClickEdit(movie:Movie){
+    this.router.navigate(['movie', movie.id,'edit']);
   }
 
 

@@ -67,6 +67,11 @@ getMovie(id:number):Observable<any>{
   return this.httpClient.get(`${MOVIED_URL}/${id}?api_key=${API_KEY}`);
 }
 
+updateMovie(movie:Movie): Observable<any>{
+  //body/payload= Movie objet
+  return this.httpClient.post(MOVIED_URL, movie);
+}
+
 
   //Se desconoce el tiempo de ejecucion de getMovies
   //getMovies():Promise<Movie[]>{ //DEVUELVE UN ARRAY DE OBJETOS MOVIES

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MovieListComponent } from 'app/movie-list/movie-list.component';
 import { TestBindingComponent} from './test-binding/test-binding.component';
 import { MovieDatailComponent } from './movie-datail/movie-datail.component';
+import { MovieEditComponent } from './movie-edit/movie-edit.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path:'movie/:id',
     component: MovieDatailComponent
+  },
+  {
+    path:'movie/:id/edit',
+    component: MovieEditComponent
   }
 ];
 
