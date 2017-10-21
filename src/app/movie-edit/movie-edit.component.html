@@ -2,26 +2,35 @@
   <h2>Edit "{{movie.fixedTitle}}"</h2><!-- Se llama a la variable clonada del title que no va ser afectada por los cambios"-->
 
   <form #movieForm ="ngForm"><!-- Se define una variable que obtenga los cambios o estados en el que se encuentra el form -->
-    <div class="form-group">
-      <label form="title"> Title(*)</label> <!-- Se crea un #title para interactuar con los estados del input y se lo tiene q vincular con el ngModel -->
+    <div class="form-group" [ngClass]="{'has-error': title.invalid && title.touched}"><!--Validacion de campos dinamicamente ngClass-->
+      <label form="title" class="control-label"> Title (*)</label> <!-- Se crea un #title para interactuar con los estados del input y se lo tiene q vincular con el ngModel -->
       <input #title='ngModel' type="text" name="title" class="form-control" 
       [(ngModel)]="movie.title" required><!-- Se define una variable que agarre los estados propios del input ej: #title o para todo el Form ej: #movieForm y solo se puede usar en el cuerpo-->
-
-      <div *ngIf="title.invalid && title.touched"> <!-- Uso basico de las reglas de validacion ej:*ngIf="movieForm.form.invalid"-->
+      <!--<div *ngIf="title.invalid && title.touched">-->
+      <div [hidden]="(title.valid || title.untouched)" class="text-danger"> <!-- Uso basico de las reglas de validacion ej:*ngIf="movieForm.form.invalid"-->
         Title is required
       </div>
 
     </div>
 
-    <div class="form-group">
-        <label form="overview"> Overview(*) </label>
-        <input type="text" name="overview" class="form-control"
+    <!-- P-->
+    <div class="form-group" [ngClass]="{'has-error': overview.invalid && overview.touched}">
+        <label class="control-label" form="overview"> Overview (*) </label>
+        <input #overview='ngModel' type="text" name="overview" class="form-control"
         [(ngModel)]="movie.overview" required>
+    </div>
+
+    <div [hidden]="(overview.valid || overview.untouched) " class="text-danger"> <!-- Uso basico de las reglas de validacion ej:*ngIf="movieForm.form.invalid"-->
+      Overview is required
     </div>
 
     <button type="submit" class="btn btn-success" [disabled]="!movieForm.form.valid"><!-- Uso basico de las reglas de validacion ej: [disabled]="!movieForm.form.valid"-->
        Submit
     </button>
+
+    <pre>
+      Title classes: {{title.className}}
+    </pre>
 
 
       <pre>
