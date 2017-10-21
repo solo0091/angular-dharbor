@@ -1,19 +1,53 @@
+<!-- -->
 <div class="container" *ngIf="movieDetails">
   <h2>Edit "{{movieDetails.fixedTitle}}"</h2>
-    <form #movieForm="ngForm"><!-- Definimos Variable de template #movieForm-->
+    <form #movieForm="ngForm"><!-- Definimos Variable de template(dentro el html) #movieForm, este movieForm va 
+                              a conocer el estado de TODO el formulario-->
 
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" name="title" class="form-control" [(ngModel)]="movieDetails.title" #title="ngModel">
-         <!--[(ngModel)] sirve para el two way binding y le damos una variable de template #title="ngModel" -->
+      <div class="form-group" [ngClass]="{'has-error': title.invalid && title.touched}">
+        <label for="title" class="control-label">Title (*)</label>
+        <input #title="ngModel" id="title "type="text" name="title" class="form-control" 
+        [(ngModel)]="movieDetails.title" #title="ngModel" required>
+         <!--[(ngModel)] sirve para el two way binding y le damos una variable de template #title="ngModel"
+        la variable #title verifica el estado solo de este input-->
+
+         <!--<div *ngIf="title.invalid && title.touched"> <!--si el campo invalid es true, y ademas es touched
+                                muestra el mensaje de q el campo es requerido, espera un valor verdad-->
+         <div [hidden]="title.valid || title.untouched" class="text-danger"> <!-- Otra forma de hacer lo de arriba es con la variable [hidden]
+                                      espera un valor falso para que se muestre-->                  
+           Title is required
+         </div>
+
       </div> 
 
-      <div class="form-group">
-          <label for="overview">Overview</label>
-          <input type="text" name="overview" class="form-control" [(ngModel)]="movieDetails.overview">
-        </div> 
-      
-        <button type="submit" class="btn btn-success">Submit</button>
+      <div class="form-group" [ngClass]="{'has-error': overview.invalid && overview.touched}">
+          <label for="overview" class="control-label">Overview (*)</label>
+          <input #overview="ngModel" id="overview" type="text" name="overview" class="form-control" 
+          [(ngModel)]="movieDetails.overview" required>
+
+          <div [hidden]="overview.valid || overview.untouched" class="text-danger"> <!-- Otra forma de hacer lo de arriba es con la variable [hidden]
+            espera un valor falso para que se muestre-->                  
+          overview is required
+          </div>
+      </div> 
+
+        <button type="submit" class="btn btn-success" 
+        [disabled]="movieForm.invalid"> <!--El boton se deshabilita cuando el titulo es vacio-->
+          Submit
+        </button>
+
+        
+
+        <pre>
+         Form.valid: {{movieForm.form.valid}} <!--Como el campo input de title es required
+                                                  , este valor cambio a false si esta vacio, aca se pueden poner controles
+                                                para validar los campos del form-->
+          Form.invalid: {{movieForm.form.invalid}}                                                
+          Form.touched: {{movieForm.form.touched}}<!-- Cambio de estado al hacer focus en un elemento-->                                          
+          Form.untouched: {{movieForm.form.untouched}}                                                
+          Form.pristine: {{movieForm.form.pristine}}                                                
+          Form.dirty: {{movieForm.form.dirty}}                                                
+        </pre>
 
     </form> 
 </div>

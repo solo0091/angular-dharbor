@@ -25,12 +25,14 @@ movieDetails:Movie={};
     this.route.params.subscribe(params=>{
       console.log('params',params);
       this.movieService.getMovieDetail(params.id).subscribe((movie:Movie)=>{
+      
         this.movieDetails=movie;
-
         this.movieDetails['fixedTitle']=this.movieDetails.title;
+      
       });
     });
 
   }
+  
 
 }

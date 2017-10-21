@@ -1,6 +1,7 @@
+<!-- -->
 <div class="container" *ngIf="movieDetails"> <!--solo se dibuja todo SI movieDetails tiene datos -->
     
-    <button class="btn btn-primary pull-right" (click)=onClick($event)> <!-- Boton para editar los parametros de la pelicula-->
+    <button class="btn btn-primary pull-right" (click)=onClick(movieDetails)> <!-- Boton para editar los parametros de la pelicula-->
         Edit
     </button>
 

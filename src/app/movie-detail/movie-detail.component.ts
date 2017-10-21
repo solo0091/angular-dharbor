@@ -44,6 +44,9 @@ id:number;
    
   }
 
-
+onClick(movie:Movie)
+{
+  this.router.navigate(['movie',movie.id,'edit']);
+}
 
 }
