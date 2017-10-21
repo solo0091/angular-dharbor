@@ -3,22 +3,26 @@
   <h2>Edit "{{ movie.fixedTitle }}"</h2>
 
   <form #movieForm="ngForm">  <!-- variable de template  -->
-    <div class="form-group">
-      <label for="title">Title(*)</label>
+    <div class="form-group" [ngClass]="{ 'has-error': title.invalid && title.touched }">
+      <label class="control-label" for="title">Title(*)</label>
       <input #title="ngModel" class="form-control" type="text" name="title"
       [(ngModel)]="movie.title" required>
 
-      <div *ngIf="title.invalid && title.touched">
+      <!-- <div *ngIf="title.invalid && title.touched">
+        Title is required
+      </div>  OOOO tambien: -->
+
+      <div class="aalert aalert-danger text-danger" role="alert" [hidden]="title.valid || title.untouched">
         Title is required
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="">Overview(*)</label>
+    <div class="form-group" [ngClass]="{ 'has-error': overview.invalid && overview.touched }">
+      <label class="control-label" for="overview">Overview(*)</label>
       <textarea #overview="ngModel" class="form-control" name="overview" cols="30" rows="4" 
       [(ngModel)]="movie.overview" required></textarea>
 
-      <div *ngIf="overview.invalid && overview.touched">
+      <div class="aalert aalert-danger text-danger" role="alert" *ngIf="overview.invalid && overview.touched">
         Overview is required
       </div>
     </div>
@@ -38,6 +42,10 @@
       Form.untouched: {{ movieForm.form.untouched }}
       Form.pristine : {{ movieForm.form.pristine  }}
       Form.dirty    : {{ movieForm.form.dirty     }}
+    </pre>
+
+    <pre>
+      Title classes : {{ title.className }}
     </pre>
   </form>
 
