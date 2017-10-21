@@ -1,0 +1,50 @@
+
+<div class="container" *ngIf="movie">
+  <h2>Edit "{{ movie.fixedTitle }}"</h2>
+
+  <form #movieForm="ngForm">  <!-- variable de template  -->
+    <div class="form-group">
+      <label for="title">Title(*)</label>
+      <input #title="ngModel" class="form-control" type="text" name="title"
+      [(ngModel)]="movie.title" required>
+
+      <div *ngIf="title.invalid && title.touched">
+        Title is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="">Overview(*)</label>
+      <textarea #overview="ngModel" class="form-control" name="overview" cols="30" rows="4" 
+      [(ngModel)]="movie.overview" required></textarea>
+
+      <div *ngIf="overview.invalid && overview.touched">
+        Overview is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for=""></label>
+    </div>
+
+    <button class="btn btn-success" type="submit" [disabled]="movieForm.form.invalid">
+      Submit
+    </button>
+
+    <pre>
+      Form.valid    : {{ movieForm.form.valid     }}
+      Form.invalid  : {{ movieForm.form.invalid   }}
+      Form.touched  : {{ movieForm.form.touched   }}
+      Form.untouched: {{ movieForm.form.untouched }}
+      Form.pristine : {{ movieForm.form.pristine  }}
+      Form.dirty    : {{ movieForm.form.dirty     }}
+    </pre>
+  </form>
+
+  <br>
+  <pre>
+    {{ movie | json }}
+  </pre>
+</div>
+
+

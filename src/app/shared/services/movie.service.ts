@@ -79,4 +79,8 @@ export class MovieService {
     return DEFAULT_PICTURE_URL;
   }
 
+  updateMovie(movie: Movie): Observable<any> {
+    return ;
+  }
+
 }
