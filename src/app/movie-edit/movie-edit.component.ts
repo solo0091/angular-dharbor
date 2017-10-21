@@ -9,7 +9,7 @@ import { Movie } from '../shared/model/movie';
   styleUrls: ['./movie-edit.component.css']
 })
 export class MovieEditComponent implements OnInit {
-  movie: Movie;
+  movie: Movie = {};
 
   constructor(private activatedRoute: ActivatedRoute, 
               private movieService: MovieService) { }
@@ -19,8 +19,8 @@ export class MovieEditComponent implements OnInit {
     .subscribe(params => {
       this.movieService.getMovie(params.id)
       .subscribe((movie: Movie) => {
-        this.movie = movie;
-        this.movie['fixedTitle'] = this.movie.title;
+        // this.movie = movie;
+        // this.movie['fixedTitle'] = this.movie.title;
       });
     });
   }
