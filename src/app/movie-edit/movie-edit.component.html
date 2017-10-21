@@ -3,27 +3,39 @@
   <form #movieForm="ngForm">
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" name="title" class="form-control" 
-      [(ngModel)]="movie.title" #title="ngModel">
+      <input id="title" type="text" name="title" class="form-control" 
+      [(ngModel)]="movie.title" required>
+      <div *ngIf="!movieForm.valid" style="color: red">
+        Title is required
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="title">Overview</label>
-      <input type="text" name="overview" class="form-control" 
-      [(ngModel)]="movie.overview" #overview="ngModel">
+      <label for="overview">Overview</label>
+      <input id="overview" type="text" name="overview" class="form-control" 
+      [(ngModel)]="movie.overview">
     </div>
 
     <div class="form-group">
-      <label for="title">Homepage</label>
-      <input type="text" name="homepage" class="form-control" 
-      [(ngModel)]="movie.homepage" #title="ngModel">
+      <label for="homepage">Homepage</label>
+      <input id="homepage" type="text" name="homepage" class="form-control" 
+      [(ngModel)]="movie.homepage">
     </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
-    
+    <button type="submit" class="btn btn-success" [disabled]="movieForm.form.invalid">
+      Submit
+    </button>
+<pre>
+Form.valid: {{movieForm.form.valid}}
+Form.invalid: {{movieForm.form.invalid}}
+Form.touched: {{movieForm.form.touched}}
+Form.untouched: {{movieForm.form.untouched}}
+Form.dirty: {{movieForm.form.dirty}}
+Form.pristine: {{movieForm.form.pristine}}
+</pre>
   </form>
 </div>
 
-<pre>
+<!-- <pre>
   {{movie | json}}
-</pre>
+</pre> -->
