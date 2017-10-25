@@ -13,9 +13,9 @@ Encuentra los detalles de la practica final aqui [https://goo.gl/X33iin](https:/
 ## Tarea para Casa
 Revisar detalles de la práctica final y, en lo posible, completar todos los requerimientos considerando:
 * Validación de Formularios
-* Correcta distribución de los diferentes elementos (layout)
-* Integración con los servicios REST (GET, POST, PUT)
-" Agregar la opción para poder _eliminar_ un post(DELETE).
+* Correcta distribución de los diferentes elementos.
+* Agregar la opción para poder _eliminar_ un post.
+* Integración con los servicios REST: GET, POST, PUT y DELETE.
 
 El propósito de esta tarea es el de practicar y seguir escribiendo código. Si tienen alguna duda, podemos conversar y revisar con sus máquinas el día *Sábado 28*, a *Hrs. 09:30* en la Escuela de negocios "Nelson Mandela".
 Por favor no olviden que la *entrega de certificados* se realizará esa fecha y lugar. Hasta entonces! :)
